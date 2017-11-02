@@ -20,8 +20,8 @@ class OhDear
     {
         $this->apiKey = $apiKey;
 
-        $this->client = $client ?: new HttpClient([
-            'base_uri' => 'https://ohdearapp.com/api',
+        $this->client = $client ?: new Client([
+            'base_uri' => 'https://ohdearapp.com/api/',
             'http_errors' => false,
             'headers' => [
                 'Authorization' => 'Bearer '.$this->apiKey,
@@ -31,7 +31,7 @@ class OhDear
         ]);
     }
 
-    protected function transformCollection(array $collection, string $class, array $extraData = []): string
+    protected function transformCollection(array $collection, string $class, array $extraData = []): array
     {
         return array_map(function ($data) use ($class, $extraData) {
             return new $class($data + $extraData, $this);
