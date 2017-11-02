@@ -1,0 +1,43 @@
+{
+    "name": "ohdearapp/ohdear-php-sdk",
+    "description": "An SDK to easily work with the Oh Dear API",
+    "keywords": [
+        "oh dear",
+        "monitoring",
+        "api",
+        "sdk"
+    ],
+    "homepage": "https://github.com/ohdearapp/ohdear-php-sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Freek Van der Herten",
+            "email": "support@ohdearapp.com",
+            "homepage": "https://ohdearapp.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OhDear\\PhpSdk\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OhDear\\PhpSdk\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
