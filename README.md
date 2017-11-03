@@ -130,7 +130,7 @@ If you want OhDear to perform a specific check asap, call `requestRun`
 $check->requestRun(); // OhDear will perform the check in a bit
 ```
 
-#### Getting your user info
+### Getting your user info
 
 You can get your user info:
 
