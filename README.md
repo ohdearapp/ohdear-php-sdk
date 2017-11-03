@@ -99,7 +99,7 @@ You can get all checks of a site:
 $checks = $site->checks;
 ```
 
-This will return an array with instances of `OhDear\PhpSdk\Resources\Check`;
+This will return an array with instances of `OhDear\PhpSdk\Resources\Check`:
 
 ```php
 $check->id; // returns the id
