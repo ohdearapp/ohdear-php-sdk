@@ -35,10 +35,10 @@ class OhDear
         ]);
     }
 
-    protected function transformCollection(array $collection, string $class, array $extraData = []): array
+    protected function transformCollection(array $collection, string $class): array
     {
-        return array_map(function ($data) use ($class, $extraData) {
-            return new $class($data + $extraData, $this);
+        return array_map(function ($attributes) use ($class) {
+            return new $class($attributes, $this);
         }, $collection);
     }
 }
