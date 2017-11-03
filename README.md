@@ -38,7 +38,125 @@ composer require ohdearapp/ohdear-php-sdk
 
 ## Usage
 
-Coming soon
+In order to get started with this SDK you'll need to generate at API key at [the API panel of Oh Dear](https://ohdearapp.com/xxxxx).
+
+You can use the API key to new up an instance of `OhDear\PhpSdk\Ohdear`:
+
+```php
+$ohDear = new OhDear\PhpSdk\Ohdear($apiKey);
+```
+
+### Sites
+
+#### Creating a new site
+
+A new site can be created with `createSite`. 
+
+```php
+$ohDear->createSite(['url' => 'https://yoursite', 'team_id' => $yourTeamId]);
+```
+
+Take a look at [the User section](xxxxxx) to learn how to get your team id.
+
+When an `https` site is created, [all checks](TODO:linkToDocsWithAllChecks) will automatically be enabled. When a `http` is created only the `uptime check` will be enabled.
+
+#### Getting sites
+You can get all sites with:
+
+```php
+$sites = $ohDear->sites();
+```
+
+This will return an array of `OhDear\PhpSdk\Resources\Site` instances. 
+
+You can get a few properties of a site.
+```php
+$site->id;
+$site->url;
+...
+```
+
+You can also get a single site:
+
+```php
+$ohDear->site($siteId);
+```
+
+#### Deleting a site
+A site can be deleted:
+
+```php
+$site->delete(); // bye bye
+```
+
+### Checks
+
+#### Getting all checks
+
+You can get all checks of a site:
+
+```php
+$checks = $site->checks;
+```
+
+This will return an array with instances of `OhDear\PhpSdk\Resources\Check`;
+
+```php
+$check->id; // returns the id
+$check->type; // returns the check type eg. "uptime" or "mixed-content"
+```
+
+#### Disabling a check
+
+If you want to disable a check just call `disable` on it:
+
+```php
+$check->disable(); // OhDear will not run the check anymore
+```
+
+#### Enabling a check
+
+If you want to renable the check just call `enable` on it:
+
+```php
+$check->enable(); // back in business
+```
+
+#### Requesting a new run
+
+If you want OhDear to perform a specific check asap, call `requestRun`
+
+```php
+$check->requestRun(); // OhDear will perform the check in a bit
+```
+
+#### Getting your user info
+
+You can get your user info:
+
+```php
+$user = $ohDear->me();
+```
+
+`me` will return an instance of `OhDear\PhpSdk\Resources\User`;
+
+```php
+$user->name; // returns your name
+$user->email; // returns your email
+```
+
+You can get the teams you belong to:
+
+```php
+$teams = $user->teams();
+```
+
+`$teams` is an array of `OhDear\PhpSdk\Resources\Team`
+
+```php
+$team->id // returns the id of the team
+$team->name // returns the name of the team
+```
 
 ### Testing
 
