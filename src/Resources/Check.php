@@ -30,7 +30,9 @@ class Check extends Resource
      */
     public function enable()
     {
+        $updatedCheck = $this->ohDear->enableCheck($this->id);
 
+        $this->enabled = $updatedCheck->enabled;
     }
 
     /**
@@ -38,7 +40,9 @@ class Check extends Resource
      */
     public function disable()
     {
+        $updatedCheck = $this->ohDear->disableCheck($this->id);
 
+        $this->enabled = $updatedCheck->enabled;
     }
 
     /**
