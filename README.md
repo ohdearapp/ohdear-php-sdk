@@ -17,7 +17,7 @@ $ohDear->sites(); // returns all sites
 
 $site = $ohdear->site($siteId);
 
-$site->url // returns the url of the site
+$site->url; // returns the url of the site
 
 $checks = $site->checks; // returns all checks for the site
 
@@ -56,7 +56,7 @@ A new site can be created with `createSite`.
 $ohDear->createSite(['url' => 'https://yoursite', 'team_id' => $yourTeamId]);
 ```
 
-Take a look at [the User section](xxxxxx) to learn how to get your team id.
+Take a look at [the User section](#getting-your-user-info) to learn how to get your team id.
 
 When an `https` site is created, [all checks](TODO:linkToDocsWithAllChecks) will automatically be enabled. When a `http` is created only the `uptime check` will be enabled.
 
