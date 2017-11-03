@@ -9,16 +9,23 @@ trait ManagesSites
     public function sites(): array
     {
         return $this->transformCollection(
-            $this->get("sites")['data'],
+            $this->get('sites')['data'],
             Site::class
         );
     }
 
+    public function site(int $siteId): Site
+    {
+        $siteAttributes = $this->get("sites/{$siteId}");
+
+        return new Site($siteAttributes);
+    }
+
     public function createSite(array $data): Site
     {
-        $site = $this->post("sites", $data);
+        $siteAttributes = $this->post("sites", $data);
 
-        return new Site($site);
+        return new Site($siteAttributes);
     }
 
     public function deleteSite(int $siteId)
