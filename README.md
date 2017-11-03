@@ -1,3 +1,5 @@
+> Package in development, do not use yet
+
 # An SDK to easily work with the Oh Dear API
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ohdearapp/ohdear-php-sdk.svg?style=flat-square)](https://packagist.org/packages/ohdearapp/ohdear-php-sdk)
@@ -6,10 +8,25 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/ohdearapp/ohdear-php-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/ohdearapp/ohdear-php-sdk)
 [![Total Downloads](https://img.shields.io/packagist/dt/ohdearapp/ohdear-php-sdk.svg?style=flat-square)](https://packagist.org/packages/ohdearapp/ohdear-php-sdk)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This SDK lets you perform API calls to [Oh Dear](https://ohdearapp.com).
+
+Here are some quick examples:
+
+```php
+$ohDear->sites(); // returns all sites
+
+$site = $ohdear->site($siteId);
+
+$site->url // returns the url of the given site id
+
+$checks = $site->checks; // returns all checks for a site
+
+$check->disable(); // disable the check
+
+$site->delete(); // delete a site
+```
 
 ## Installation
-
 
 You can install the package via composer:
 
@@ -19,6 +36,7 @@ composer require ohdearapp/ohdear-php-sdk
 
 ## Usage
 
+Coming soon
 
 ### Testing
 
