@@ -43,7 +43,7 @@ If you discover any security related issues, please email support@ohdearapp.com 
 - [Freek Van der Herten](https://github.com/freekmurze)
 - [All Contributors](../../contributors)
 
-This package uses code from and is greatly inspired by the [Forge SDK package](https://github.com/themsaid/forge-sdk) by [Mohammed Said](https://github.com/themsaid)
+This package uses code from and is greatly inspired by the [Forge SDK package](https://github.com/themsaid/forge-sdk) by [Mohammed Said](https://github.com/themsaid).
 
 ## License
 
