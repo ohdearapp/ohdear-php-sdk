@@ -2,7 +2,7 @@
 
 namespace OhDear\PhpSdk\Resources;
 
-class Resource
+class ApiResource
 {
     /** @var array */
     public $attributes = [];

@@ -2,7 +2,7 @@
 
 namespace OhDear\PhpSdk\Resources;
 
-class Site extends Resource
+class Site extends ApiResource
 {
     /**
      * The id of the site.
