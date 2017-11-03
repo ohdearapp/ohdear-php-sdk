@@ -21,7 +21,9 @@ $site->url // returns the url of the given site id
 
 $checks = $site->checks; // returns all checks for a site
 
-$check->disable(); // disable the check
+$check->type; // returns the the check type eg. "uptime" or "mixed-content"
+
+$checks[0]->disable(); // disable the check
 
 $site->delete(); // delete a site
 ```
