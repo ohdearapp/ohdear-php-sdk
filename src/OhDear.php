@@ -5,12 +5,14 @@ namespace OhDear\PhpSdk;
 use GuzzleHttp\Client;
 use OhDear\PhpSdk\Actions\ManagesSites;
 use OhDear\PhpSdk\Actions\ManagesChecks;
+use OhDear\PhpSdk\Actions\ManagesUsers;
 
 class OhDear
 {
     use MakesHttpRequests,
         ManagesSites,
-        ManagesChecks;
+        ManagesChecks,
+        ManagesUsers;
 
     /** @var string */
     public $apiKey;

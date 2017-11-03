@@ -11,9 +11,6 @@ class ApiTest extends TestCase
     /** @test */
     public function it_tests()
     {
-        //production
-        //$apiKey = 'H3VPxvHDyAQ8zMr3WxIrUJHoZsImk0TQMffp9rrpe7xBwbc9332mGqUXTqkX';
-
         //test
         $apiKey = 'c2nh018eM1pTjqfbuF90ILuscZwlBISVPj7tJB8laoWS1Sg2jgf8FBlIIkgB';
 
@@ -29,9 +26,8 @@ class ApiTest extends TestCase
 
         $ohDear = new OhDear($apiKey, $testClient);
 
-        var_dump($site = $ohDear->site(1)->checks);
+        var_dump($ohDear->me()->teams);
 
-        die();
         $this->info('creating site https://newsite.com');
         $ohDear->createSite(['url' => 'https://newsite.com', 'team_id' => 2]);
         $this->info('done');

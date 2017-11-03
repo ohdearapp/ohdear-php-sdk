@@ -8,7 +8,7 @@ trait ManagesUsers
 {
     public function me(): User
     {
-        $userAttributes = $this->post("me");
+        $userAttributes = $this->get('me');
 
         return new User($userAttributes, $this);
     }
