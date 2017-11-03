@@ -19,4 +19,11 @@ trait ManagesChecks
 
         return new Check($checkAttributes, $this);
     }
+
+    public function requestRun(int $checkId): Check
+    {
+        $checkAttributes = $this->post("/checks/{$checkId}/request-run");
+
+        return new Check($checkAttributes, $this);
+    }
 }
