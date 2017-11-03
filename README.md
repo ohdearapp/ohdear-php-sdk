@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ohdearapp/ohdear-php-sdk.svg?style=flat-square)](https://packagist.org/packages/ohdearapp/ohdear-php-sdk)
 [![Build Status](https://img.shields.io/travis/ohdearapp/ohdear-php-sdk/master.svg?style=flat-square)](https://travis-ci.org/ohdearapp/ohdear-php-sdk)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/xxxxxxxxx.svg?style=flat-square)](https://insight.sensiolabs.com/projects/xxxxxxxxx)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/49062048-b90d-423b-b6a3-bfe273376639.svg?style=flat-square)](https://insight.sensiolabs.com/projects/49062048-b90d-423b-b6a3-bfe273376639)
 [![Quality Score](https://img.shields.io/scrutinizer/g/ohdearapp/ohdear-php-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/ohdearapp/ohdear-php-sdk)
 [![Total Downloads](https://img.shields.io/packagist/dt/ohdearapp/ohdear-php-sdk.svg?style=flat-square)](https://packagist.org/packages/ohdearapp/ohdear-php-sdk)
 
