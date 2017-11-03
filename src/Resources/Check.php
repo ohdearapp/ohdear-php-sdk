@@ -7,7 +7,7 @@ class Check extends Resource
     /**
      * The id of the site.
      *
-     * @var integer
+     * @var int
      */
     public $id;
 
@@ -52,7 +52,5 @@ class Check extends Resource
      */
     public function requestRun()
     {
-
     }
 }
-

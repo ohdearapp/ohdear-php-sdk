@@ -3,8 +3,8 @@
 namespace OhDear\PhpSdk;
 
 use GuzzleHttp\Client;
-use OhDear\PhpSdk\Actions\ManagesChecks;
 use OhDear\PhpSdk\Actions\ManagesSites;
+use OhDear\PhpSdk\Actions\ManagesChecks;
 
 class OhDear
 {
@@ -28,8 +28,8 @@ class OhDear
             'headers' => [
                 'Authorization' => 'Bearer '.$this->apiKey,
                 'Accept' => 'application/json',
-                'Content-Type' => 'application/json'
-            ]
+                'Content-Type' => 'application/json',
+            ],
         ]);
     }
 

@@ -7,7 +7,7 @@ class Site extends Resource
     /**
      * The id of the site.
      *
-     * @var integer
+     * @var int
      */
     public $id;
 
@@ -36,7 +36,7 @@ class Site extends Resource
     {
         parent::__construct($attributes, $ohDear);
 
-        $this->checks = array_map(function(array $checkAttributes) {
+        $this->checks = array_map(function (array $checkAttributes) {
             return new Check($checkAttributes);
         }, $this->checks);
     }
@@ -51,4 +51,3 @@ class Site extends Resource
         $this->ohDear->deleteSite($this->id);
     }
 }
-

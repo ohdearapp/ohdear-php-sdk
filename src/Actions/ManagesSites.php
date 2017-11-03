@@ -23,7 +23,7 @@ trait ManagesSites
 
     public function createSite(array $data): Site
     {
-        $siteAttributes = $this->post("sites", $data);
+        $siteAttributes = $this->post('sites', $data);
 
         return new Site($siteAttributes, $this);
     }
