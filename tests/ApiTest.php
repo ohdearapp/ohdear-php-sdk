@@ -29,8 +29,8 @@ class ApiTest extends TestCase
 
         $ohDear = new OhDear($apiKey, $testClient);
 
-        var_dump($site = $ohDear->site(2));
-$site->delete();
+        var_dump($site = $ohDear->site(1)->checks);
+
 die();
         $this->info('creating site https://newsite.com');
         $ohDear->createSite(['url' => 'https://newsite.com', 'team_id' => 2]);
