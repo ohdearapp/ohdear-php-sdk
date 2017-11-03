@@ -23,15 +23,15 @@ class ApiTest extends TestCase
             'headers' => [
                 'Authorization' => 'Bearer '.$apiKey,
                 'Accept' => 'application/json',
-                'Content-Type' => 'application/json'
-            ]
+                'Content-Type' => 'application/json',
+            ],
         ]);
 
         $ohDear = new OhDear($apiKey, $testClient);
 
         var_dump($site = $ohDear->site(1)->checks);
 
-die();
+        die();
         $this->info('creating site https://newsite.com');
         $ohDear->createSite(['url' => 'https://newsite.com', 'team_id' => 2]);
         $this->info('done');
