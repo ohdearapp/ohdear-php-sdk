@@ -17,11 +17,11 @@ $ohDear->sites(); // returns all sites
 
 $site = $ohdear->site($siteId);
 
-$site->url // returns the url of the given site id
+$site->url // returns the url of the site
 
-$checks = $site->checks; // returns all checks for a site
+$checks = $site->checks; // returns all checks for the site
 
-$check->type; // returns the the check type eg. "uptime" or "mixed-content"
+$check->type; // returns the check type eg. "uptime" or "mixed-content"
 
 $checks[0]->disable(); // disable the check
 
