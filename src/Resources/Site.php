@@ -32,7 +32,7 @@ class Site extends Resource
      */
     public function delete()
     {
-        $this->ohDear->deleteSite($this->serverId, $this->id);
+        $this->ohDear->deleteSite($this->id);
     }
 }
 

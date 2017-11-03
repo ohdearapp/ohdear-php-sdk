@@ -18,14 +18,14 @@ trait ManagesSites
     {
         $siteAttributes = $this->get("sites/{$siteId}");
 
-        return new Site($siteAttributes);
+        return new Site($siteAttributes, $this);
     }
 
     public function createSite(array $data): Site
     {
         $siteAttributes = $this->post("sites", $data);
 
-        return new Site($siteAttributes);
+        return new Site($siteAttributes, $this);
     }
 
     public function deleteSite(int $siteId)
