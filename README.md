@@ -160,7 +160,7 @@ $team->name // returns the name of the team
 
 ### Testing
 
-``` bash
+```bash
 composer test
 ```
 
