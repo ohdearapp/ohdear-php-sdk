@@ -10,11 +10,11 @@
 
 This SDK lets you perform API calls to [Oh Dear](https://ohdearapp.com).
 
-### Documentation
+## Documentation
 
-All documentation, including examples and installation instructions, can be found on the [Oh Dear docs](https://ohdearapp.com/docs)
+All documentation, including examples and installation instructions, can be found on the [Oh Dear docs](https://ohdearapp.com/docs).
 
-### Security
+## Security
 
 If you discover any security related issues, please email support@ohdearapp.com instead of using the issue tracker.
 
