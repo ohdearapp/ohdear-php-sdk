@@ -1,5 +1,3 @@
-> Package in development, do not use yet
-
 # An SDK to easily work with the Oh Dear API
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ohdearapp/ohdear-php-sdk.svg?style=flat-square)](https://packagist.org/packages/ohdearapp/ohdear-php-sdk)
