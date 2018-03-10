@@ -32,7 +32,7 @@ class ApiResource
         }
     }
 
-    protected function camelCase(string $key)
+    protected function camelCase(string $key): string
     {
         $parts = explode('_', $key);
 
