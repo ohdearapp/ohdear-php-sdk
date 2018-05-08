@@ -66,13 +66,22 @@ trait MakesHttpRequests
             empty($payload) ? [] : ['form_params' => $payload]
         );
 
-        if (subtr($response->getStatusCode(), 0, 1)) != 2) {
+        if (! $this->isSuccessFul($response)) {
             return $this->handleRequestError($response);
         }
 
         $responseBody = (string) $response->getBody();
 
         return json_decode($responseBody, true) ?: $responseBody;
+    }
+
+    public function isSuccessFul($response): bool
+    {
+        if (! $response) {
+            return false;
+        }
+
+        return substr($response->getStatusCode(), 0, 1) === 2;
     }
 
     protected function handleRequestError(ResponseInterface $response)
