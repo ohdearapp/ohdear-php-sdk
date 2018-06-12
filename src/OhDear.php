@@ -25,7 +25,7 @@ class OhDear
         $this->apiKey = $apiKey;
 
         $this->client = $client ?: new Client([
-            'base_uri' => 'https://ohdearapp.com/api/',
+            'base_uri' => 'https://ohdear.app/api/',
             'http_errors' => false,
             'headers' => [
                 'Authorization' => 'Bearer '.$this->apiKey,

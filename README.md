@@ -6,15 +6,15 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/ohdearapp/ohdear-php-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/ohdearapp/ohdear-php-sdk)
 [![Total Downloads](https://img.shields.io/packagist/dt/ohdearapp/ohdear-php-sdk.svg?style=flat-square)](https://packagist.org/packages/ohdearapp/ohdear-php-sdk)
 
-This SDK lets you perform API calls to [Oh Dear](https://ohdearapp.com).
+This SDK lets you perform API calls to [Oh Dear](https://ohdear.app).
 
 ## Documentation
 
-All documentation, including examples and installation instructions, can be found on the [Oh Dear docs](https://ohdearapp.com/docs/php-sdk/introduction).
+All documentation, including examples and installation instructions, can be found on the [Oh Dear docs](https://ohdear.app/docs/php-sdk/introduction).
 
 ## Security
 
-If you discover any security related issues, please email support@ohdearapp.com instead of using the issue tracker.
+If you discover any security related issues, please email support@ohdear.app instead of using the issue tracker.
 
 ## Credits
 
