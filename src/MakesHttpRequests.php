@@ -81,7 +81,7 @@ trait MakesHttpRequests
             return false;
         }
 
-        return substr($response->getStatusCode(), 0, 1) === 2;
+        return (int)substr($response->getStatusCode(), 0, 1) === 2;
     }
 
     protected function handleRequestError(ResponseInterface $response)

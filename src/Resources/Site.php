@@ -50,4 +50,24 @@ class Site extends ApiResource
     {
         $this->ohDear->deleteSite($this->id);
     }
+
+    /**
+     * Get the broken links for this site.
+     *
+     * @return array
+     */
+    public function brokenLinks()
+    {
+        return $this->ohDear->brokenLinks($this->id);
+    }
+
+    /**
+     * Get the detected mixed content for a site.
+     *
+     * @return array
+     */
+    public function mixedContent()
+    {
+        return $this->ohDear->mixedContent($this->id);
+    }
 }
