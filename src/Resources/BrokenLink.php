@@ -5,32 +5,25 @@ namespace OhDear\PhpSdk\Resources;
 class BrokenLink extends ApiResource
 {
     /**
-     * The name of the element that was detected as mixed content
+     * The status code the site responded with.
+     *
+     * @var int|null
+     */
+    public $statusCode;
+
+    /**
+     * The url that is broken.
      *
      * @var string
      */
-    public $elementName;
+    public $crawledUrl;
 
     /**
-     * The url of the detected mixed content.
-     *
-     * @var string
-     */
-    public $mixedContentUrl;
-
-    /**
-     * The url where the mixed content was found.
+     * The url where the broken url was found.
      *
      * @var string
      */
     public $foundOnUrl;
-
-    /**
-     * The sort url of the site.
-     *
-     * @var string
-     */
-    public $sortUrl;
 
     public function __construct(array $attributes, $ohDear = null)
     {

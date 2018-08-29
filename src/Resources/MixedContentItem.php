@@ -5,7 +5,7 @@ namespace OhDear\PhpSdk\Resources;
 class MixedContentItem extends ApiResource
 {
     /**
-     * The name of the element that was detected as mixed content
+     * The name of the element that was detected as mixed content.
      *
      * @var string
      */
@@ -24,13 +24,6 @@ class MixedContentItem extends ApiResource
      * @var string
      */
     public $foundOnUrl;
-
-    /**
-     * The sort url of the site.
-     *
-     * @var string
-     */
-    public $sortUrl;
 
     public function __construct(array $attributes, $ohDear = null)
     {

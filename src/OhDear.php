@@ -3,6 +3,8 @@
 namespace OhDear\PhpSdk;
 
 use GuzzleHttp\Client;
+use OhDear\PhpSdk\Actions\ManagesBrokenLinks;
+use OhDear\PhpSdk\Actions\ManagesMixedContent;
 use OhDear\PhpSdk\Actions\ManagesSites;
 use OhDear\PhpSdk\Actions\ManagesChecks;
 use OhDear\PhpSdk\Actions\ManagesUsers;
@@ -12,7 +14,9 @@ class OhDear
     use MakesHttpRequests,
         ManagesSites,
         ManagesChecks,
-        ManagesUsers;
+        ManagesUsers,
+        ManagesBrokenLinks,
+        ManagesMixedContent;
 
     /** @var string */
     public $apiKey;

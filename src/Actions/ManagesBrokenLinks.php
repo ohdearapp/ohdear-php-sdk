@@ -6,7 +6,7 @@ use OhDear\PhpSdk\Resources\BrokenLink;
 
 trait ManagesBrokenLinks
 {
-    public function mixedContent(int $siteId): array
+    public function brokenLinks(int $siteId): array
     {
         return $this->transformCollection(
             $this->get("broken-links/$siteId")['data'],
