@@ -16,7 +16,7 @@ class User extends ApiResource
     /** @var email */
     public $photoUrl;
 
-    /** @var Team[]  */
+    /** @var Team[] */
     public $teams;
 
     public function __construct(array $attributes, $ohDear = null)
