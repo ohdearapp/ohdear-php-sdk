@@ -19,20 +19,20 @@ class OhDear
         ManagesMixedContent;
 
     /** @var string */
-    public $apiKey;
+    public $apiToken;
 
     /** @var \GuzzleHttp\Client */
     public $client;
 
-    public function __construct(string $apiKey, Client $client = null)
+    public function __construct(string $apiToken, Client $client = null)
     {
-        $this->apiKey = $apiKey;
+        $this->apiToken = $apiToken;
 
         $this->client = $client ?: new Client([
             'base_uri' => 'https://ohdear.app/api/',
             'http_errors' => false,
             'headers' => [
-                'Authorization' => 'Bearer '.$this->apiKey,
+                'Authorization' => 'Bearer '.$this->apiToken,
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
             ],
