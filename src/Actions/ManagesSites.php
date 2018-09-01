@@ -21,6 +21,13 @@ trait ManagesSites
         return new Site($siteAttributes, $this);
     }
 
+    public function siteByUrl(string $siteUrl): Site
+    {
+        $siteAttributes = $this->get("sites/url/{$siteUrl}");
+
+        return new Site($siteAttributes, $this);
+    }
+
     public function createSite(array $data): Site
     {
         $siteAttributes = $this->post('sites', $data);

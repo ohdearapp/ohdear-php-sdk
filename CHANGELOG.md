@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 1.2.0 - 2018-09-01
+
+- add `siteByUrl`
+
 ## 1.1.1 - 2018-08-29
 
 - rename `apiKey` to `apiToken`
