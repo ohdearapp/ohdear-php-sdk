@@ -33,7 +33,7 @@ class OhDear
         $this->apiToken = $apiToken;
 
         $this->client = $client ?: new Client([
-            'base_uri' => 'http://ohdear.app.test/api/',
+            'base_uri' => 'https://ohdear.app/api/',
             'http_errors' => false,
             'headers' => [
                 'Authorization' => 'Bearer '.$this->apiToken,
