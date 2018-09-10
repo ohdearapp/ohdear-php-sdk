@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 1.3.0 - 2018-09-10
+
+- add uptime and downtime methods
+
 ## 1.2.0 - 2018-09-01
 
 - add `siteByUrl`
