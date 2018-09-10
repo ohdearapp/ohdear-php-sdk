@@ -70,4 +70,31 @@ class Site extends ApiResource
     {
         return $this->ohDear->mixedContent($this->id);
     }
+
+    /**
+     * Get the uptime percentages for a site.
+     *
+     * @param string $startedAt  Must be in format Ymdhis
+     * @param string $endedAt  Must be in format Ymdhis
+     * @param string $split  Use hour, day or month
+     *
+     * @return array
+     */
+    public function uptime(string $startedAt, string $endedAt, string $split)
+    {
+        return $this->ohDear->uptime($this->id, $startedAt, $endedAt, $split);
+    }
+
+    /**
+     * Get the downtime periods for a site.
+     *
+     * @param string $startedAt  Must be in format Ymdhis
+     * @param string $endedAt  Must be in format Ymdhis
+     *
+     * @return array
+     */
+    public function downtime(string $startedAt, string $endedAt)
+    {
+        return $this->ohDear->downtime($this->id, $startedAt, $endedAt);
+    }
 }
