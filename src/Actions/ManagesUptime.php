@@ -17,7 +17,7 @@ trait ManagesUptime
     public function uptime(int $siteId, string $startedAt, string $endedAt, string $split = 'month'): array
     {
         return $this->transformCollection(
-            $this->get("$siteId/uptime?filter[started_at={$startedAt}]&filter[ended_at={$endedAt}&split={$split}")['data'],
+            $this->get("sites/$siteId/uptime?filter[started_at]={$startedAt}&filter[ended_at]={$endedAt}&split={$split}"),
             Uptime::class
         );
     }

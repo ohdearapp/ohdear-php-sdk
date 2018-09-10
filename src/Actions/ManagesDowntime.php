@@ -16,7 +16,7 @@ trait ManagesDowntime
     public function downtime(int $siteId, string $startedAt, string $endedAt): array
     {
         return $this->transformCollection(
-            $this->get("$siteId/downtime?filter[started_at={$startedAt}]&filter[ended_at={$endedAt}]")['data'],
+            $this->get("sites/$siteId/downtime?filter[started_at]={$startedAt}&filter[ended_at]={$endedAt}")['data'],
             Downtime::class
         );
     }

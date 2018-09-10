@@ -3,6 +3,7 @@
 namespace OhDear\PhpSdk;
 
 use GuzzleHttp\Client;
+use OhDear\PhpSdk\Actions\ManagesDowntime;
 use OhDear\PhpSdk\Actions\ManagesSites;
 use OhDear\PhpSdk\Actions\ManagesUptime;
 use OhDear\PhpSdk\Actions\ManagesUsers;
@@ -18,7 +19,8 @@ class OhDear
         ManagesUsers,
         ManagesBrokenLinks,
         ManagesMixedContent,
-        ManagesUptime;
+        ManagesUptime,
+        ManagesDowntime;
 
     /** @var string */
     public $apiToken;
@@ -31,7 +33,7 @@ class OhDear
         $this->apiToken = $apiToken;
 
         $this->client = $client ?: new Client([
-            'base_uri' => 'https://ohdear.app/api/',
+            'base_uri' => 'http://ohdear.app.test/api/',
             'http_errors' => false,
             'headers' => [
                 'Authorization' => 'Bearer '.$this->apiToken,
