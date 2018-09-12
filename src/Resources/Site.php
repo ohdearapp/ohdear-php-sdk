@@ -103,8 +103,8 @@ class Site extends ApiResource
      *
      * @return array
      */
-    public function certificate(string $startedAt, string $endedAt)
+    public function certificateHealth()
     {
-        return $this->ohDear->certificate($this->id, $startedAt, $endedAt);
+        return $this->ohDear->certificateHealth($this->id);
     }
 }
