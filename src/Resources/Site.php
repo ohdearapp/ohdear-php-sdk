@@ -99,7 +99,7 @@ class Site extends ApiResource
     }
 
     /**
-     * Get information on the certificate of the site
+     * Get information on the certificate of the site.
      *
      * @return array
      */

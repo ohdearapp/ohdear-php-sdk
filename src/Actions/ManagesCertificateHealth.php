@@ -4,7 +4,7 @@ namespace OhDear\PhpSdk\Actions;
 
 use OhDear\PhpSdk\Resources\CertificateHealth;
 
-trait ManagesCertificate
+trait ManagesCertificateHealth
 {
     public function certificateHealth(int $siteId)
     {
