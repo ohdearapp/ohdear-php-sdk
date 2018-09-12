@@ -2,7 +2,13 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 1.4.1 - 2018-09-13
+
+- fix trait name
+
 ## 1.4.0 - 2018-09-12
+
+**THIS VERSION CONTAINS A BREAKING BUG, DO NOT USE**
 
 - add `certificate-health` endpoint
 
