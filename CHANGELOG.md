@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 1.4.0 - 2018-09-12
+
+- add `certificate-health` endpoint
+
 ## 1.3.1 - 2018-09-10
 
 - fix hostname
