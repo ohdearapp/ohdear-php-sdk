@@ -3,6 +3,7 @@
 namespace OhDear\PhpSdk;
 
 use GuzzleHttp\Client;
+use OhDear\PhpSdk\Actions\ManagesCertificate;
 use OhDear\PhpSdk\Actions\ManagesDowntime;
 use OhDear\PhpSdk\Actions\ManagesSites;
 use OhDear\PhpSdk\Actions\ManagesUptime;
@@ -20,7 +21,8 @@ class OhDear
         ManagesBrokenLinks,
         ManagesMixedContent,
         ManagesUptime,
-        ManagesDowntime;
+        ManagesDowntime,
+        ManagesCertificate;
 
     /** @var string */
     public $apiToken;

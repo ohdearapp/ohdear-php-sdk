@@ -97,4 +97,14 @@ class Site extends ApiResource
     {
         return $this->ohDear->downtime($this->id, $startedAt, $endedAt);
     }
+
+    /**
+     * Get information on the certificate of the site
+     *
+     * @return array
+     */
+    public function certificate(string $startedAt, string $endedAt)
+    {
+        return $this->ohDear->certificate($this->id, $startedAt, $endedAt);
+    }
 }
