@@ -2,7 +2,7 @@
 
 namespace OhDear\PhpSdk\Actions;
 
-use OhDear\PhpSdk\Resources\Certificate;
+use OhDear\PhpSdk\Resources\CertificateHealth;
 
 trait ManagesCertificate
 {
@@ -10,7 +10,7 @@ trait ManagesCertificate
     {
         return $this->transformCollection(
             $this->get("sites/$siteId/certificate_health"),
-            Certificate::class
+            CertificateHealth::class
         );
     }
 }

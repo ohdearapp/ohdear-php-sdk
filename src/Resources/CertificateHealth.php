@@ -2,7 +2,7 @@
 
 namespace OhDear\PhpSdk\Resources;
 
-class Certificate extends ApiResource
+class CertificateHealth extends ApiResource
 {
     /**
      * The details of the certificate that was found for the site.
