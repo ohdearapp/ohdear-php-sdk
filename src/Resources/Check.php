@@ -12,11 +12,18 @@ class Check extends ApiResource
     public $id;
 
     /**
-     * The url of the site.
+     * The type of the check.
      *
      * @var string
      */
     public $type;
+
+    /**
+     * The human readable version of type.
+     *
+     * @var string
+     */
+    public $label;
 
     /**
      * Is the check enabled?
