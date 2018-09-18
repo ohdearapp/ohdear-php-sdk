@@ -23,7 +23,7 @@ class CertificateHealth extends ApiResource
      *
      * @var array
      */
-    public $certificateChainIssues;
+    public $certificateChainIssuers;
 
     public function __construct(array $attributes, $ohDear = null)
     {

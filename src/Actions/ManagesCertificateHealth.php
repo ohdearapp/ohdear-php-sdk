@@ -8,9 +8,6 @@ trait ManagesCertificateHealth
 {
     public function certificateHealth(int $siteId)
     {
-        return $this->transformCollection(
-            $this->get("certificate-health/{$siteId}"),
-            CertificateHealth::class
-        );
+        return new CertificateHealth($this->get("certificate-health/{$siteId}"));
     }
 }
