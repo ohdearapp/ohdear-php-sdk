@@ -2,6 +2,9 @@
 
 namespace OhDear\PhpSdk\Resources;
 
+use ReflectionObject;
+use ReflectionProperty;
+
 class ApiResource
 {
     /** @var array */
@@ -43,5 +46,16 @@ class ApiResource
         }
 
         return str_replace(' ', '', implode(' ', $parts));
+    }
+
+    public function __sleep()
+    {
+        $publicProperties = (new ReflectionObject($this))->getProperties(ReflectionProperty::IS_PUBLIC);
+        
+         $publicPropertyNames = array_map(function(ReflectionProperty $property) {
+             return $property->getName();
+         }, $publicProperties);
+
+         return array_diff($publicPropertyNames, ['ohDear', 'attributes']);
     }
 }

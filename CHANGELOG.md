@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 1.5.1 - 2018-09-20
+
+- make api resources cacheable
+
 ## 1.5.0 - 2018-09-18
 
 - add `label` to check
