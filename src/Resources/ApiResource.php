@@ -51,11 +51,11 @@ class ApiResource
     public function __sleep()
     {
         $publicProperties = (new ReflectionObject($this))->getProperties(ReflectionProperty::IS_PUBLIC);
-        
-         $publicPropertyNames = array_map(function(ReflectionProperty $property) {
-             return $property->getName();
-         }, $publicProperties);
 
-         return array_diff($publicPropertyNames, ['ohDear', 'attributes']);
+        $publicPropertyNames = array_map(function (ReflectionProperty $property) {
+            return $property->getName();
+        }, $publicProperties);
+
+        return array_diff($publicPropertyNames, ['ohDear', 'attributes']);
     }
 }
