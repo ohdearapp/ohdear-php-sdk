@@ -1,10 +1,7 @@
 <?php
 
-
 namespace OhDear\PhpSdk\Actions;
 
-
-use OhDear\PhpSdk\Resources\Site;
 use OhDear\PhpSdk\Resources\StatusPage;
 
 trait ManagesStatusPages

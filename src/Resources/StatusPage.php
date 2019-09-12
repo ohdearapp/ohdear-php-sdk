@@ -52,6 +52,4 @@ class StatusPage extends ApiResource
      * @var int
      */
     public $summarizedStatus;
-
 }
-
