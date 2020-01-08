@@ -39,4 +39,16 @@ trait ManagesSites
     {
         $this->delete("sites/$siteId");
     }
+
+    public function startSiteMaintenance(int $siteId, int $stopMaintenanceAfterSeconds = 60 * 60)
+    {
+        $this->post("sites/{$siteId}/start-maintenance", [
+            'stop_maintenance_after_seconds' => $stopMaintenanceAfterSeconds,
+        ]);
+    }
+
+    public function stopSiteMaintenance(int $siteId)
+    {
+        $this->post("sites/{$siteId}/stop-maintenance");
+    }
 }

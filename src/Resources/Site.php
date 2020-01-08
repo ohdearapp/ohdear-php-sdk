@@ -51,6 +51,16 @@ class Site extends ApiResource
         $this->ohDear->deleteSite($this->id);
     }
 
+    public function startMaintenance(int $stopMaintenanceAfterSeconds = 60 * 60)
+    {
+        $this->ohDear->startSiteMaintenance($this->id, $stopMaintenanceAfterSeconds);
+    }
+
+    public function stopMaintenance()
+    {
+        $this->ohDear->stopSiteMaintenance($this->id);
+    }
+
     /**
      * Get the broken links for this site.
      *
