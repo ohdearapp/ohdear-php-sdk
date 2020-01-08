@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 1.7.0 - 2019-01-07
+
+- add start and stop maintenance endpoints
+
 ## 1.6.0 - 2019-09-12
 
 - add status pages
