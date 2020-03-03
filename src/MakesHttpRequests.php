@@ -3,10 +3,10 @@
 namespace OhDear\PhpSdk;
 
 use Exception;
-use Psr\Http\Message\ResponseInterface;
+use OhDear\PhpSdk\Exceptions\FailedActionException;
 use OhDear\PhpSdk\Exceptions\NotFoundException;
 use OhDear\PhpSdk\Exceptions\ValidationException;
-use OhDear\PhpSdk\Exceptions\FailedActionException;
+use Psr\Http\Message\ResponseInterface;
 
 trait MakesHttpRequests
 {
