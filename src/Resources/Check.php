@@ -59,5 +59,6 @@ class Check extends ApiResource
      */
     public function requestRun()
     {
+        $this->ohDear->requestRun($this->id);
     }
 }

@@ -36,8 +36,8 @@ class Site extends ApiResource
     {
         parent::__construct($attributes, $ohDear);
 
-        $this->checks = array_map(function (array $checkAttributes) {
-            return new Check($checkAttributes);
+        $this->checks = array_map(function (array $checkAttributes) use ($ohDear) {
+            return new Check($checkAttributes, $ohDear);
         }, $this->checks);
     }
 
