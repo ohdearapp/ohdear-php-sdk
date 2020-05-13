@@ -26,4 +26,20 @@ trait ManagesChecks
 
         return new Check($checkAttributes, $this);
     }
+
+    public function snooze(int $checkId, int $minutes)
+    {
+        $checkAttributes = $this->post("checks/{$checkId}/snooze", [
+            'minutes' => $minutes,
+        ]);
+
+        return new Check($checkAttributes, $this);
+    }
+
+    public function unsnooze(int $checkId): Check
+    {
+        $checkAttributes = $this->post("checks/{$checkId}/unsnooze");
+
+        return new Check($checkAttributes, $this);
+    }
 }

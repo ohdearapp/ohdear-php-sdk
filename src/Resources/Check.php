@@ -61,4 +61,24 @@ class Check extends ApiResource
     {
         $this->ohDear->requestRun($this->id);
     }
+
+    /**
+     * Snooze this check.
+     *
+     * @return void
+     */
+    public function snooze(int $minutes)
+    {
+        $this->ohDear->snooze($this->id, $minutes);
+    }
+
+    /**
+     * Unsnooze this check.
+     *
+     * @return void
+     */
+    public function unsnooze()
+    {
+        $this->ohDear->unsnooze($this->id);
+    }
 }
