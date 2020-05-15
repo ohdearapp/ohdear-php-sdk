@@ -28,7 +28,7 @@ trait ManagesMaintenancePeriods
     public function startSiteMaintenance(int $siteId, int $stopMaintenanceAfterSeconds = 60 * 60): MaintenancePeriod
     {
         $attributes = $this->post("sites/{$siteId}/start-maintenance", [
-            'stop_maintenance_after_seconds' => $stopMaintenanceAfterSeconds
+            'stop_maintenance_after_seconds' => $stopMaintenanceAfterSeconds,
         ]);
 
         return new MaintenancePeriod($attributes, $this);
@@ -54,7 +54,7 @@ trait ManagesMaintenancePeriods
         $payload = [
             'site_id' => $siteId,
             'starts_at' => $startsAt,
-            'ends_at' => $endsAt
+            'ends_at' => $endsAt,
         ];
 
         $attributes = $this->post('maintenance-periods', $payload);
