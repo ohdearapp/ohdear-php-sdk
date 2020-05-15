@@ -7,6 +7,7 @@ use OhDear\PhpSdk\Actions\ManagesBrokenLinks;
 use OhDear\PhpSdk\Actions\ManagesCertificateHealth;
 use OhDear\PhpSdk\Actions\ManagesChecks;
 use OhDear\PhpSdk\Actions\ManagesDowntime;
+use OhDear\PhpSdk\Actions\ManagesMaintenancePeriods;
 use OhDear\PhpSdk\Actions\ManagesMixedContent;
 use OhDear\PhpSdk\Actions\ManagesSites;
 use OhDear\PhpSdk\Actions\ManagesStatusPages;
@@ -20,6 +21,7 @@ class OhDear
         ManagesChecks,
         ManagesUsers,
         ManagesBrokenLinks,
+        ManagesMaintenancePeriods,
         ManagesMixedContent,
         ManagesUptime,
         ManagesDowntime,
