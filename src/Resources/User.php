@@ -13,7 +13,7 @@ class User extends ApiResource
     /** @var string */
     public $email;
 
-    /** @var email */
+    /** @var string */
     public $photoUrl;
 
     /** @var Team[] */
