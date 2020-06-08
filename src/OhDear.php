@@ -9,6 +9,7 @@ use OhDear\PhpSdk\Actions\ManagesChecks;
 use OhDear\PhpSdk\Actions\ManagesDowntime;
 use OhDear\PhpSdk\Actions\ManagesMaintenancePeriods;
 use OhDear\PhpSdk\Actions\ManagesMixedContent;
+use OhDear\PhpSdk\Actions\ManagesPerformance;
 use OhDear\PhpSdk\Actions\ManagesSites;
 use OhDear\PhpSdk\Actions\ManagesStatusPages;
 use OhDear\PhpSdk\Actions\ManagesUptime;
@@ -26,7 +27,8 @@ class OhDear
         ManagesUptime,
         ManagesDowntime,
         ManagesCertificateHealth,
-        ManagesStatusPages;
+        ManagesStatusPages,
+        ManagesPerformance;
 
     /** @var string */
     public $apiToken;
