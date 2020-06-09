@@ -59,7 +59,6 @@ class OhDear
         }, $collection);
     }
 
-
     public function convertDateFormat(string $date, $format = 'YmdHis'): string
     {
         return Carbon::parse($date)->format($format);
