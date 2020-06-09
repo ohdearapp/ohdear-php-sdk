@@ -51,6 +51,9 @@ trait ManagesMaintenancePeriods
      */
     public function createSiteMaintenance(int $siteId, string $startsAt, string $endsAt): MaintenancePeriod
     {
+        $startsAt = $this->convertDateFormat($startsAt, 'Y:m:d H:i');
+        $endsAt = $this->convertDateFormat($endsAt, 'Y:m:d H:i');
+
         $payload = [
             'site_id' => $siteId,
             'starts_at' => $startsAt,

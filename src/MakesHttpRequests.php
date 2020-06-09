@@ -62,11 +62,13 @@ trait MakesHttpRequests
      */
     protected function request(string $verb, string $uri, array $payload = [])
     {
-        $response = $this->client->request($verb, $uri,
+        $response = $this->client->request(
+            $verb,
+            $uri,
             empty($payload) ? [] : ['form_params' => $payload]
         );
 
-        if (! $this->isSuccessFul($response)) {
+        if (! $this->isSuccessful($response)) {
             return $this->handleRequestError($response);
         }
 
@@ -75,7 +77,7 @@ trait MakesHttpRequests
         return json_decode($responseBody, true) ?: $responseBody;
     }
 
-    public function isSuccessFul($response): bool
+    public function isSuccessful($response): bool
     {
         if (! $response) {
             return false;

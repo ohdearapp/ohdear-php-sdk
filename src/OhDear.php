@@ -2,6 +2,7 @@
 
 namespace OhDear\PhpSdk;
 
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use OhDear\PhpSdk\Actions\ManagesBrokenLinks;
 use OhDear\PhpSdk\Actions\ManagesCertificateHealth;
@@ -56,5 +57,11 @@ class OhDear
         return array_map(function ($attributes) use ($class) {
             return new $class($attributes, $this);
         }, $collection);
+    }
+
+
+    public function convertDateFormat(string $date, $format = 'YmdHis'): string
+    {
+        return Carbon::parse($date)->format($format);
     }
 }
