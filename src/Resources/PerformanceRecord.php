@@ -40,14 +40,14 @@ class PerformanceRecord extends ApiResource
     public $timeAppconnect;
 
     /**
-     * The time the server took to send the first byte (TTFB or Remote Server Processing)
+     * The time the server took to send the first byte (TTFB or Remote Server Processing).
      *
      * @var int
      */
     public $timeRemoteserver;
 
     /**
-     * The total time it took to load the website, from start to very finish
+     * The total time it took to load the website, from start to very finish.
      *
      * @var int
      */
