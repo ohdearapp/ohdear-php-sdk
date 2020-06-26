@@ -82,4 +82,11 @@ class Site extends ApiResource
     {
         return $this->ohDear->certificateHealth($this->id);
     }
+
+    public function createCronCheck(int $siteId)
+    {
+        $attributes = $this->ohDear->createCronCheck($siteId);
+
+        return new CronCheck($attributes);
+    }
 }

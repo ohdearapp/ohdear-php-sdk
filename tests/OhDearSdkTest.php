@@ -3,7 +3,6 @@
 namespace OhDear\PhpSdk\Tests;
 
 use OhDear\PhpSdk\OhDear;
-use PHPUnit\Framework\TestCase;
 
 class OhDearSdkTest extends TestCase
 {
