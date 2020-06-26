@@ -2,14 +2,12 @@
 
 namespace OhDear\PhpSdk\Tests;
 
+use \PHPUnit\Framework\TestCase as BaseTestCase;
 use GuzzleHttp\Client;
 use OhDear\PhpSdk\OhDear;
-use \PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
-
-
     public function setUp(): void
     {
         parent::setUp();
@@ -31,7 +29,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function loadEnvironmentVariables()
     {
-        if (!file_exists(__DIR__ . '/../.env')) {
+        if (! file_exists(__DIR__ . '/../.env')) {
             return;
         }
 
