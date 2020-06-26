@@ -4,7 +4,6 @@ namespace OhDear\PhpSdk\Resources;
 
 class StatusPage extends ApiResource
 {
-
     public int $id;
 
     public string $title;
