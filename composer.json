@@ -18,13 +18,15 @@
         }
     ],
     "require": {
-        "php": "^7.0",
+        "php": "^7.4",
         "guzzlehttp/guzzle": "^6.3",
         "nesbot/carbon": "^2.35.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
-        "phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "^9.0",
+        "psalm/plugin-laravel": "^1.2",
+        "vimeo/psalm": "^3.11"
     },
     "autoload": {
         "psr-4": {
@@ -37,6 +39,7 @@
         }
     },
     "scripts": {
+        "psalm": "vendor/bin/psalm",
         "format": "vendor/bin/php-cs-fixer fix",
         "test": "vendor/bin/phpunit"
     },
