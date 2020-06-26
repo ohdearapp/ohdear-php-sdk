@@ -65,6 +65,4 @@ trait ManagesCronChecks
     {
         $this->delete("cron-checks/{$cronCheckId}");
     }
-
-
 }
