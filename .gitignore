@@ -4,3 +4,4 @@ docs
 vendor
 tests/ApiTest.php
 .phpunit.result.cache
+.env

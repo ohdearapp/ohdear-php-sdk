@@ -46,7 +46,7 @@ class OhDear
             'base_uri' => 'https://ohdear.app/api/',
             'http_errors' => false,
             'headers' => [
-                'Authorization' => 'Bearer '.$this->apiToken,
+                'Authorization' => "Bearer {$this->apiToken}",
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
             ],
