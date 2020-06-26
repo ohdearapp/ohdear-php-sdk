@@ -23,7 +23,7 @@ trait ManagesCronChecks
         int $graceTimeInMinutes,
         string $description
     ): CronCheck {
-        $attributes = $this->post("sites/{$siteId}/cron-check", [
+        $attributes = $this->post("sites/{$siteId}/cron-checks", [
            'name' => $name,
            'type' => 'simple',
            'frequency_in_minutes' => $frequencyInMinutes,
@@ -31,7 +31,7 @@ trait ManagesCronChecks
            'description' => $description,
         ]);
 
-        return new CronCheck($attributes);
+        return new CronCheck($attributes, $this);
     }
 
     public function createCronCheck(
@@ -39,24 +39,26 @@ trait ManagesCronChecks
         string $name,
         string $cronExpression,
         int $graceTimeInMinutes,
-        string $description
+        string $description,
+        string $serverTimezone
     ): CronCheck {
-        $attributes = $this->post("sites/{$siteId}/cron-check", [
+        $attributes = $this->post("sites/{$siteId}/cron-checks", [
             'name' => $name,
-            'type' => 'simple',
+            'type' => 'cron',
             'cron_expression' => $cronExpression,
             'grace_time_in_minutes' => $graceTimeInMinutes,
             'description' => $description,
+            'server_timezone' => $serverTimezone,
         ]);
 
-        return new CronCheck($attributes);
+        return new CronCheck($attributes, $this);
     }
 
     public function updateCronCheck(string $cronCheckId, array $payload): CronCheck
     {
         $attributes = $this->put("cron-checks/{$cronCheckId}", $payload);
 
-        return new CronCheck($attributes);
+        return new CronCheck($attributes, $this);
     }
 
     public function deleteCronCheck(int $cronCheckId): void

@@ -22,6 +22,11 @@ class CronCheck extends ApiResource
 
     public string $description = '';
 
+    public function __construct(array $attributes, $ohDear = null)
+    {
+        parent::__construct($attributes, $ohDear);
+    }
+
     public function delete(): void
     {
         $this->ohDear->deleteCronCheck($this->id);
