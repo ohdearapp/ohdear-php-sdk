@@ -34,16 +34,15 @@ class OhDear
         ManagesCronChecks;
 
     /** @var string */
-    public $apiToken;
+    public string $apiToken;
 
-    /** @var \GuzzleHttp\Client */
-    public $client;
+    public Client $client;
 
     public function __construct(string $apiToken, Client $client = null)
     {
         $this->apiToken = $apiToken;
 
-        $this->client = $client ?: new Client([
+        $this->client = $client ?? new Client([
             'base_uri' => 'https://ohdear.app/api/',
             'http_errors' => false,
             'headers' => [
