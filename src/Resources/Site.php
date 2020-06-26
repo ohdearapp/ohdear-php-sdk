@@ -4,33 +4,18 @@ namespace OhDear\PhpSdk\Resources;
 
 class Site extends ApiResource
 {
-    /**
-     * The id of the site.
-     *
-     * @var int
-     */
-    public $id;
+    public int $id;
 
-    /**
-     * The url of the site.
-     *
-     * @var string
-     */
-    public $url;
+    public string $url;
 
     /**
      * The checks of a site.
      *
      * @var Check[]
      */
-    public $checks;
+    public array $checks;
 
-    /**
-     * The sort url of the site.
-     *
-     * @var string
-     */
-    public $sortUrl;
+    public string $sortUrl;
 
     public function __construct(array $attributes, $ohDear = null)
     {
@@ -41,42 +26,27 @@ class Site extends ApiResource
         }, $this->checks);
     }
 
-    /**
-     * Delete the given site.
-     *
-     * @return void
-     */
-    public function delete()
+    public function delete(): void
     {
         $this->ohDear->deleteSite($this->id);
     }
 
-    public function startMaintenance(int $stopMaintenanceAfterSeconds = 60 * 60)
+    public function startMaintenance(int $stopMaintenanceAfterSeconds = 60 * 60): void
     {
         $this->ohDear->startSiteMaintenance($this->id, $stopMaintenanceAfterSeconds);
     }
 
-    public function stopMaintenance()
+    public function stopMaintenance(): void
     {
         $this->ohDear->stopSiteMaintenance($this->id);
     }
 
-    /**
-     * Get the broken links for this site.
-     *
-     * @return array
-     */
-    public function brokenLinks()
+    public function brokenLinks(): array
     {
         return $this->ohDear->brokenLinks($this->id);
     }
 
-    /**
-     * Get the detected mixed content for a site.
-     *
-     * @return array
-     */
-    public function mixedContent()
+    public function mixedContent(): array
     {
         return $this->ohDear->mixedContent($this->id);
     }
@@ -90,7 +60,7 @@ class Site extends ApiResource
      *
      * @return array
      */
-    public function uptime(string $startedAt, string $endedAt, string $split)
+    public function uptime(string $startedAt, string $endedAt, string $split): array
     {
         return $this->ohDear->uptime($this->id, $startedAt, $endedAt, $split);
     }
@@ -103,17 +73,12 @@ class Site extends ApiResource
      *
      * @return array
      */
-    public function downtime(string $startedAt, string $endedAt)
+    public function downtime(string $startedAt, string $endedAt): array
     {
         return $this->ohDear->downtime($this->id, $startedAt, $endedAt);
     }
 
-    /**
-     * Get information on the certificate of the site.
-     *
-     * @return array
-     */
-    public function certificateHealth()
+    public function certificateHealth(): CertificateHealth
     {
         return $this->ohDear->certificateHealth($this->id);
     }

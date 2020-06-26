@@ -5,7 +5,7 @@ namespace OhDear\PhpSdk\Tests;
 use OhDear\PhpSdk\OhDear;
 use PHPUnit\Framework\TestCase;
 
-class OhdearSdkTest extends TestCase
+class OhDearSdkTest extends TestCase
 {
     /** @test */
     public function it_can_instantiate_an_object()

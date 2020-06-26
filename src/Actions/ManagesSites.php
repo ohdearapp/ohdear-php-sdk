@@ -10,7 +10,7 @@ trait ManagesSites
     {
         return $this->transformCollection(
             $this->get('sites')['data'],
-            Site::class
+            Site::class,
         );
     }
 

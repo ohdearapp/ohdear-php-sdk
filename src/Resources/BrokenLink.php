@@ -4,26 +4,20 @@ namespace OhDear\PhpSdk\Resources;
 
 class BrokenLink extends ApiResource
 {
-    /**
+    /*
      * The status code the site responded with.
-     *
-     * @var int|null
      */
-    public $statusCode;
+    public ?int $statusCode;
 
-    /**
+    /*
      * The url that is broken.
-     *
-     * @var string
      */
-    public $crawledUrl;
+    public string $crawledUrl;
 
-    /**
+    /*
      * The url where the broken url was found.
-     *
-     * @var string
      */
-    public $foundOnUrl;
+    public string $foundOnUrl;
 
     public function __construct(array $attributes, $ohDear = null)
     {

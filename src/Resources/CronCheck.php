@@ -4,45 +4,15 @@ namespace OhDear\PhpSdk\Resources;
 
 class CronCheck extends ApiResource
 {
-    /**
-     * The id of the cron check.
-     *
-     * @var int
-     */
-    public $id;
+    public int $id;
 
-    /**
-     * The uuid of the cron check.
-     *
-     * @var int
-     */
-    public $uuid;
+    public string $uuid;
 
-    /**
-     * The check id of the cron check.
-     *
-     * @var string
-     */
-    public $checkId;
+    public int $checkId;
 
-    /**
-     * The check period in minutes.
-     *
-     * @var int
-     */
-    public $frequencyInMinutes;
+    public ?int $frequencyInMinutes;
 
-    /**
-     * The check period in minutes.
-     *
-     * @var int
-     */
-    public $graceTimeInMinutes;
+    public int $graceTimeInMinutes;
 
-    /**
-     * The cron expression being used
-     *
-     * @var int
-     */
-    public $cronExpression;
+    public string $cronExpression;
 }
