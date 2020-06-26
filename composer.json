@@ -23,6 +23,7 @@
         "nesbot/carbon": "^2.35.0"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
         "phpunit/phpunit": "^6.0"
     },
     "autoload": {
@@ -36,6 +37,7 @@
         }
     },
     "scripts": {
+        "format": "vendor/bin/php-cs-fixer fix",
         "test": "vendor/bin/phpunit"
     },
     "config": {

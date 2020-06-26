@@ -7,6 +7,7 @@ use GuzzleHttp\Client;
 use OhDear\PhpSdk\Actions\ManagesBrokenLinks;
 use OhDear\PhpSdk\Actions\ManagesCertificateHealth;
 use OhDear\PhpSdk\Actions\ManagesChecks;
+use OhDear\PhpSdk\Actions\ManagesCronChecks;
 use OhDear\PhpSdk\Actions\ManagesDowntime;
 use OhDear\PhpSdk\Actions\ManagesMaintenancePeriods;
 use OhDear\PhpSdk\Actions\ManagesMixedContent;
@@ -29,7 +30,8 @@ class OhDear
         ManagesDowntime,
         ManagesCertificateHealth,
         ManagesStatusPages,
-        ManagesPerformance;
+        ManagesPerformance,
+        ManagesCronChecks;
 
     /** @var string */
     public $apiToken;
