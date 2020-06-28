@@ -2,8 +2,8 @@
 
 namespace OhDear\PhpSdk\Tests;
 
-use Dotenv\Dotenv;
 use \PHPUnit\Framework\TestCase as BaseTestCase;
+use Dotenv\Dotenv;
 use GuzzleHttp\Client;
 use OhDear\PhpSdk\OhDear;
 
