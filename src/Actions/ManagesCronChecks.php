@@ -14,8 +14,6 @@ trait ManagesCronChecks
         );
     }
 
-
-
     public function createSimpleCronCheck(
         int $siteId,
         string $name,
@@ -64,5 +62,10 @@ trait ManagesCronChecks
     public function deleteCronCheck(int $cronCheckId): void
     {
         $this->delete("cron-checks/{$cronCheckId}");
+    }
+
+    public function syncCronChecks(int $siteId, array $cronCheckAttributes): void
+    {
+        $this->post("sites/{$siteId}/cron-checks/syncs", $cronCheckAttributes);
     }
 }
