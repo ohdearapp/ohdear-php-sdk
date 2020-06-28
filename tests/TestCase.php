@@ -31,7 +31,9 @@ abstract class TestCase extends BaseTestCase
             ],
         ]);
 
-        $this->ohDear = new OhDear($apiToken, $client);
+        $this->ohDear = new OhDear($apiToken);
+
+        $this->ohDear->setClient($client);
     }
 
     protected function loadEnvironmentVariables()

@@ -66,6 +66,6 @@ trait ManagesCronChecks
 
     public function syncCronChecks(int $siteId, array $cronCheckAttributes): void
     {
-        $this->post("sites/{$siteId}/cron-checks/syncs", $cronCheckAttributes);
+        $this->post("sites/{$siteId}/cron-checks/sync", ['cron_checks' => $cronCheckAttributes]);
     }
 }
