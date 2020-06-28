@@ -16,6 +16,8 @@ class CronCheck extends ApiResource
 
     public ?int $frequencyInMinutes;
 
+    public string $pingUrl;
+
     public int $graceTimeInMinutes = 0;
 
     public string $cronExpression = '';
