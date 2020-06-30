@@ -22,11 +22,11 @@ trait ManagesCronChecks
         string $description
     ): CronCheck {
         $attributes = $this->post("sites/{$siteId}/cron-checks", [
-           'name' => $name,
-           'type' => 'simple',
-           'frequency_in_minutes' => $frequencyInMinutes,
-           'grace_time_in_minutes' => $graceTimeInMinutes,
-           'description' => $description,
+            'name' => $name,
+            'type' => 'simple',
+            'frequency_in_minutes' => $frequencyInMinutes,
+            'grace_time_in_minutes' => $graceTimeInMinutes,
+            'description' => $description,
         ]);
 
         return new CronCheck($attributes, $this);
@@ -64,8 +64,13 @@ trait ManagesCronChecks
         $this->delete("cron-checks/{$cronCheckId}");
     }
 
-    public function syncCronChecks(int $siteId, array $cronCheckAttributes): void
+    public function syncCronChecks(int $siteId, array $cronCheckAttributes): array
     {
-        $this->post("sites/{$siteId}/cron-checks/sync", ['cron_checks' => $cronCheckAttributes]);
+        $response = $this->post("sites/{$siteId}/cron-checks/sync", ['cron_checks' => $cronCheckAttributes]);
+
+        return $this->transformCollection(
+            $response['data'],
+            CronCheck::class,
+        );
     }
 }
