@@ -95,8 +95,8 @@ class Site extends ApiResource
         return new CronCheck($attributes);
     }
 
-    public function syncCronChecks(array $cronCheckAttributes)
+    public function syncCronChecks(array $cronCheckAttributes): array
     {
-        $this->ohDear->syncCronChecks($this->id, $cronCheckAttributes);
+        return $this->ohDear->syncCronChecks($this->id, $cronCheckAttributes);
     }
 }
