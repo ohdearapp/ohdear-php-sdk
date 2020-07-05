@@ -69,7 +69,7 @@ trait ManagesCronChecks
         $response = $this->post("sites/{$siteId}/cron-checks/sync", ['cron_checks' => $cronCheckAttributes]);
 
         return $this->transformCollection(
-            $response['data'],
+            $response,
             CronCheck::class,
         );
     }
