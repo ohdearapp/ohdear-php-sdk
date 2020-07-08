@@ -42,7 +42,7 @@ class OhDear
     {
         $this->apiToken = $apiToken;
 
-        $this->client = $client ?? new Client([
+        $this->client = new Client([
             'base_uri' => $baseUri,
             'http_errors' => false,
             'verify' => false,

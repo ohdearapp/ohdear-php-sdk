@@ -52,7 +52,7 @@ trait ManagesCronChecks
         return new CronCheck($attributes, $this);
     }
 
-    public function updateCronCheck(string $cronCheckId, array $payload): CronCheck
+    public function updateCronCheck(int $cronCheckId, array $payload): CronCheck
     {
         $attributes = $this->put("cron-checks/{$cronCheckId}", $payload);
 
