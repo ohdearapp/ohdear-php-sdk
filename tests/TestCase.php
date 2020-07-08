@@ -19,7 +19,6 @@ abstract class TestCase extends BaseTestCase
 
         $apiToken = env('API_TOKEN');
 
-
         $client = new Client([
             'base_uri' => env('OH_DEAR_API_URL', 'https://ohdear.app.test/api/'),
             'verify' => false,
