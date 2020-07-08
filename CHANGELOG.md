@@ -2,6 +2,11 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 2.0.0 - 2020-07-09
+
+- add support for cron sync
+- drop support for PHP 7.3 and below
+
 ## 1.7.0 - 2019-01-07
 
 - add start and stop maintenance endpoints
