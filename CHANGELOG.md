@@ -2,10 +2,17 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
-## 2.0.0 - 2020-07-09
+## 3.0.0 - 2020-07-09
 
 - add support for cron sync
 - drop support for PHP 7.3 and below
+
+## 2.0.0 - 2020-06-10
+
+This release introduces 2 breaking changes in the way the dates are passed for these functions:
+
+- `performanceRecords`
+- `createSiteMaintenance`
 
 ## 1.7.0 - 2019-01-07
 
