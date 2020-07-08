@@ -4,80 +4,42 @@ namespace OhDear\PhpSdk\Resources;
 
 class Check extends ApiResource
 {
-    /**
-     * The id of the site.
-     *
-     * @var int
-     */
-    public $id;
+    public int $id;
 
-    /**
-     * The type of the check.
-     *
-     * @var string
-     */
-    public $type;
+    public string $type;
 
-    /**
+    /*
      * The human readable version of type.
-     *
-     * @var string
      */
-    public $label;
+    public string $label;
 
-    /**
-     * Is the check enabled?
-     *
-     * @var bool
-     */
-    public $enabled;
+    public bool $enabled;
 
-    /**
-     * Enable the check.
-     */
-    public function enable()
+    public function enable(): void
     {
         $updatedCheck = $this->ohDear->enableCheck($this->id);
 
         $this->enabled = $updatedCheck->enabled;
     }
 
-    /**
-     * Disable the check.
-     */
-    public function disable()
+    public function disable(): void
     {
         $updatedCheck = $this->ohDear->disableCheck($this->id);
 
         $this->enabled = $updatedCheck->enabled;
     }
 
-    /**
-     * Request a new run.
-     *
-     * @return void
-     */
-    public function requestRun()
+    public function requestRun(): void
     {
         $this->ohDear->requestRun($this->id);
     }
 
-    /**
-     * Snooze this check.
-     *
-     * @return void
-     */
-    public function snooze(int $minutes)
+    public function snooze(int $minutes): void
     {
         $this->ohDear->snooze($this->id, $minutes);
     }
 
-    /**
-     * Unsnooze this check.
-     *
-     * @return void
-     */
-    public function unsnooze()
+    public function unsnooze(): void
     {
         $this->ohDear->unsnooze($this->id);
     }

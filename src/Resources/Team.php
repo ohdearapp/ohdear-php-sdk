@@ -4,9 +4,7 @@ namespace OhDear\PhpSdk\Resources;
 
 class Team extends ApiResource
 {
-    /** @var int */
-    public $id;
+    public int $id;
 
-    /** @var string */
-    public $name;
+    public string $name;
 }

@@ -4,31 +4,11 @@ namespace OhDear\PhpSdk\Resources;
 
 class MaintenancePeriod extends ApiResource
 {
-    /**
-     * The id of the maintenance period.
-     *
-     * @var int
-     */
-    public $id;
+    public int $id;
 
-    /**
-     * The id of the site.
-     *
-     * @var int
-     */
-    public $siteId;
+    public int $siteId;
 
-    /**
-     * When the period will start.
-     *
-     * @var string
-     */
-    public $startsAt;
+    public string $startsAt;
 
-    /**
-     * When the period will end.
-     *
-     * @var string
-     */
-    public $endsAt;
+    public ?string $endsAt;
 }

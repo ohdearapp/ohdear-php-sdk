@@ -4,9 +4,8 @@ namespace OhDear\PhpSdk\Resources;
 
 class Downtime extends ApiResource
 {
-    /** @var string */
-    public $startedAt;
+    public string $startedAt;
 
     /** @var string */
-    public $endedAt;
+    public ?string $endedAt;
 }

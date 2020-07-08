@@ -4,20 +4,16 @@ namespace OhDear\PhpSdk\Resources;
 
 class User extends ApiResource
 {
-    /** @var int */
-    public $id;
+    public int $id;
 
-    /** @var string */
-    public $name;
+    public string $name;
 
-    /** @var string */
-    public $email;
+    public string $email;
 
-    /** @var string */
-    public $photoUrl;
+    public string $photoUrl;
 
     /** @var Team[] */
-    public $teams;
+    public array $teams;
 
     public function __construct(array $attributes, $ohDear = null)
     {

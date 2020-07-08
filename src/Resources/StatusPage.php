@@ -4,52 +4,17 @@ namespace OhDear\PhpSdk\Resources;
 
 class StatusPage extends ApiResource
 {
-    /**
-     * The id of the status page.
-     *
-     * @var int
-     */
-    public $id;
+    public int $id;
 
-    /**
-     * The title of the status page.
-     *
-     * @var int
-     */
-    public $title;
+    public string $title;
 
-    /**
-     * The title of the status page.
-     *
-     * @var int
-     */
-    public $domain;
+    public string $domain;
 
-    /**
-     * The title of the status page.
-     *
-     * @var int
-     */
-    public $slug;
+    public string $slug;
 
-    /**
-     * The title of the status page.
-     *
-     * @var int
-     */
-    public $fullUrl;
+    public string $fullUrl;
 
-    /**
-     * The title of the status page.
-     *
-     * @var int
-     */
-    public $timezone;
+    public string $timezone;
 
-    /**
-     * The title of the status page.
-     *
-     * @var int
-     */
-    public $summarizedStatus;
+    public string $summarizedStatus;
 }

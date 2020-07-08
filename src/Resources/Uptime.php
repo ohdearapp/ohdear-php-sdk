@@ -4,9 +4,7 @@ namespace OhDear\PhpSdk\Resources;
 
 class Uptime extends ApiResource
 {
-    /** @var string */
-    public $datetime;
+    public string $datetime;
 
-    /** @var float */
-    public $uptimePercentage;
+    public float $uptimePercentage;
 }

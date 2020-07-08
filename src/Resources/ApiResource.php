@@ -2,22 +2,17 @@
 
 namespace OhDear\PhpSdk\Resources;
 
+use OhDear\PhpSdk\OhDear;
 use ReflectionObject;
 use ReflectionProperty;
 
 class ApiResource
 {
-    /** @var array */
-    public $attributes = [];
+    public array $attributes = [];
 
-    /** @var \OhDear\PhpSdk\OhDear */
-    protected $ohDear;
+    protected ?OhDear $ohDear;
 
-    /**
-     * @param  array $attributes
-     * @param  \OhDear\PhpSdk\OhDear $ohDear
-     */
-    public function __construct(array $attributes, $ohDear = null)
+    public function __construct(array $attributes, OhDear $ohDear = null)
     {
         $this->attributes = $attributes;
 
@@ -26,7 +21,7 @@ class ApiResource
         $this->fill();
     }
 
-    protected function fill()
+    protected function fill(): void
     {
         foreach ($this->attributes as $key => $value) {
             $key = $this->camelCase($key);
