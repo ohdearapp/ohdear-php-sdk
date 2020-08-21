@@ -34,7 +34,7 @@ class CronCheckTest extends TestCase
 
     protected function deleteExistingCronChecks(int $siteId): void
     {
-        $cronChecks  = $this->ohDear->cronChecks($siteId);
+        $cronChecks = $this->ohDear->cronChecks($siteId);
 
         collect($cronChecks)->each(fn (CronCheck  $cronCheck) => $cronCheck->delete());
     }
