@@ -11,6 +11,8 @@ class CronCheckTest extends TestCase
     {
         $siteId = 1;
 
+        $this->deleteExistingCronChecks($siteId);
+
         $cronCheck = $this->ohDear->createCronCheck(
             $siteId,
             'test',
@@ -22,11 +24,18 @@ class CronCheckTest extends TestCase
 
         $this->assertInstanceOf(CronCheck::class, $cronCheck);
 
-        $cronChecks = $this->ohDear->cronChecks(1);
+        $cronChecks = $this->ohDear->cronChecks($siteId);
         $this->assertCount(1, $cronChecks);
 
         $cronCheck->delete();
         $cronChecks = $this->ohDear->cronChecks(1);
         $this->assertCount(0, $cronChecks);
+    }
+
+    protected function deleteExistingCronChecks(int $siteId): void
+    {
+        $cronChecks  = $this->ohDear->cronChecks($siteId);
+
+        collect($cronChecks)->each(fn (CronCheck  $cronCheck) => $cronCheck->delete());
     }
 }

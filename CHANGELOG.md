@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.0.1 - 2020-08-21
+
+- add support for Guzzle 7
+
 ## 3.0.0 - 2020-07-09
 
 - add support for cron sync

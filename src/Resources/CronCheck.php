@@ -20,7 +20,7 @@ class CronCheck extends ApiResource
 
     public int $graceTimeInMinutes = 0;
 
-    public string $cronExpression = '';
+    public ?string $cronExpression = '';
 
     public string $description = '';
 

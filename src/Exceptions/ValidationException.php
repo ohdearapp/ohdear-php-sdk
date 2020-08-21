@@ -6,13 +6,12 @@ use Exception;
 
 class ValidationException extends Exception
 {
-    public $errors = [];
+    public array $errors = [];
 
     public function __construct(array $errors)
     {
-        parent::__construct('The given data failed to pass validation.');
-
         $this->errors = $errors;
-        dump($this->errors);
+
+        parent::__construct('The given data failed to pass validation. ' . print_r($this->errors, true));
     }
 }
