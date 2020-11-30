@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.0.2 - 2020-11-30
+
+- add support for PHP 8
+
 ## 3.0.1 - 2020-08-21
 
 - add support for Guzzle 7
