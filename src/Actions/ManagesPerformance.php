@@ -20,7 +20,7 @@ trait ManagesPerformance
         $end = $this->convertDateFormat($end);
 
         return $this->transformCollection(
-            $this->get("sites/$siteId/performance-records?filter[start]={$start}&filter[end]={$end}&filter[timeframe]={$timeframe}"),
+            $this->get("sites/$siteId/performance-records?filter[start]={$start}&filter[end]={$end}&filter[timeframe]={$timeframe}")['data'],
             PerformanceRecord::class
         );
     }
