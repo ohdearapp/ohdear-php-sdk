@@ -8,6 +8,8 @@ class PerformanceRecord extends ApiResource
 
     public int $siteId;
 
+    public string $createdAt;
+
     /*
      * The time spent doing the DNS lookup.
      */
@@ -23,10 +25,15 @@ class PerformanceRecord extends ApiResource
      */
     public float $timeAppconnect;
 
+    public float $timePretransfer;
+
     /*
      * The time the server took to send the first byte (TTFB or Remote Server Processing).
      */
     public float $timeRemoteserver;
+
+    public float $timeRedirect;
+    public float $timeDownload;
 
     /*
      * The total time it took to load the website, from start to very finish.
