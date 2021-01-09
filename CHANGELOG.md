@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.0.3 - 2021-01-09
+
+- fix transforming `PerformanceRecord` objects (#17)
+
 ## 3.0.2 - 2020-11-30
 
 - add support for PHP 8
