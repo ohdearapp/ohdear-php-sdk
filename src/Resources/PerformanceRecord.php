@@ -11,25 +11,25 @@ class PerformanceRecord extends ApiResource
     /*
      * The time spent doing the DNS lookup.
      */
-    public int $timeNamelookup;
+    public float $timeNamelookup;
 
     /*
      * The time spent doing the TCP three-way handshake.
      */
-    public $timeConnect;
+    public float $timeConnect;
 
     /*
      * The time spent doing the TLS handshake.
      */
-    public int $timeAppconnect;
+    public float $timeAppconnect;
 
     /*
      * The time the server took to send the first byte (TTFB or Remote Server Processing).
      */
-    public int $timeRemoteserver;
+    public float $timeRemoteserver;
 
     /*
      * The total time it took to load the website, from start to very finish.
      */
-    public int $timeTotal;
+    public float $timeTotal;
 }
