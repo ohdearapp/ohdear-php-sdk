@@ -14,6 +14,7 @@ use OhDear\PhpSdk\Actions\ManagesMixedContent;
 use OhDear\PhpSdk\Actions\ManagesPerformance;
 use OhDear\PhpSdk\Actions\ManagesSites;
 use OhDear\PhpSdk\Actions\ManagesStatusPages;
+use OhDear\PhpSdk\Actions\ManagesStatusPageUpdates;
 use OhDear\PhpSdk\Actions\ManagesUptime;
 use OhDear\PhpSdk\Actions\ManagesUsers;
 
@@ -30,6 +31,7 @@ class OhDear
         ManagesDowntime,
         ManagesCertificateHealth,
         ManagesStatusPages,
+        ManagesStatusPageUpdates,
         ManagesPerformance,
         ManagesCronChecks;
 
