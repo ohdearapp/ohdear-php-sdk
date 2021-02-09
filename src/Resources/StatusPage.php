@@ -17,4 +17,9 @@ class StatusPage extends ApiResource
     public string $timezone;
 
     public string $summarizedStatus;
+
+    public function updates(): array
+    {
+        return $this->ohDear->statusPageUpdates($this->id);
+    }
 }
