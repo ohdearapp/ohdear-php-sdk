@@ -22,7 +22,7 @@ class CronCheck extends ApiResource
 
     public ?string $cronExpression = '';
 
-    public string $description = '';
+    public ?string $description = '';
 
     public function __construct(array $attributes, $ohDear = null)
     {
