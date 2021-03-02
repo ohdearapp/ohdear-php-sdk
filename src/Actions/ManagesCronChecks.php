@@ -37,7 +37,7 @@ trait ManagesCronChecks
         string $name,
         string $cronExpression,
         int $graceTimeInMinutes,
-         $description,
+        $description,
         string $serverTimezone
     ): CronCheck {
         $attributes = $this->post("sites/{$siteId}/cron-checks", [
