@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.1.1 - 2021-03-02
+
+- make description optional in cron checks
+
 ## 3.1.0 - 2021-02-09
 
 - add status page updates API (#19)

@@ -19,14 +19,14 @@ trait ManagesCronChecks
         string $name,
         int $frequencyInMinutes,
         int $graceTimeInMinutes,
-        string $description
+        $description
     ): CronCheck {
         $attributes = $this->post("sites/{$siteId}/cron-checks", [
             'name' => $name,
             'type' => 'simple',
             'frequency_in_minutes' => $frequencyInMinutes,
             'grace_time_in_minutes' => $graceTimeInMinutes,
-            'description' => $description,
+            'description' => $description ?? '',
         ]);
 
         return new CronCheck($attributes, $this);
@@ -37,7 +37,7 @@ trait ManagesCronChecks
         string $name,
         string $cronExpression,
         int $graceTimeInMinutes,
-        string $description,
+         $description,
         string $serverTimezone
     ): CronCheck {
         $attributes = $this->post("sites/{$siteId}/cron-checks", [
@@ -45,7 +45,7 @@ trait ManagesCronChecks
             'type' => 'cron',
             'cron_expression' => $cronExpression,
             'grace_time_in_minutes' => $graceTimeInMinutes,
-            'description' => $description,
+            'description' => $description ?? '',
             'server_timezone' => $serverTimezone,
         ]);
 
