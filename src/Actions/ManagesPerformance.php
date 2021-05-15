@@ -11,16 +11,21 @@ trait ManagesPerformance
      * @param string $start Short (2020-12-01) or long (2020-12-01 15:00:00) date format
      * @param string $end Short (2020-12-01) or long (2020-12-01 15:00:00) date format
      * @param string $timeframe Should be 1m or 1h
-     *
+     * @param string $sort
      * @return array
      */
-    public function performanceRecords(int $siteId, string $start, string $end, string $timeframe = '1m'): array
-    {
+    public function performanceRecords(
+        int $siteId,
+        string $start,
+        string $end,
+        string $timeframe = '1m',
+        string $sort = '-created_at'
+    ): array {
         $start = $this->convertDateFormat($start);
         $end = $this->convertDateFormat($end);
 
         return $this->transformCollection(
-            $this->get("sites/$siteId/performance-records?filter[start]={$start}&filter[end]={$end}&filter[timeframe]={$timeframe}")['data'],
+            $this->get("sites/$siteId/performance-records?filter[start]={$start}&filter[end]={$end}&filter[timeframe]={$timeframe}&sort={$sort}")['data'],
             PerformanceRecord::class
         );
     }
