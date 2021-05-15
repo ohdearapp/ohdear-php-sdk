@@ -92,4 +92,13 @@ class Site extends ApiResource
     {
         return $this->ohDear->syncCronChecks($this->id, $cronCheckAttributes);
     }
+
+    public function performanceRecords(
+        string $start,
+        string $end,
+        string $timeframe = '1m',
+        string $sort = '-created_at'
+    ) : array {
+        return $this->ohDear->performanceRecords($this->id, $start, $end, $timeframe, $sort);
+    }
 }
