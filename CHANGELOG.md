@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.1.3 - 2021-05-15
+
+- add sorting parameter to performance records method (#21)
+
 ## 3.1.2 - 2021-03-02
 
 - make description optional in cron checks
