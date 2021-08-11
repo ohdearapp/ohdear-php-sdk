@@ -6,3 +6,6 @@ tests/ApiTest.php
 .phpunit.result.cache
 .env
 .php_cs.cache
+.php-cs-fixer.cache
+
+
