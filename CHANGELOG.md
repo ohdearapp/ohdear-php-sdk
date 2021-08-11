@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.2.0 - 2021-08-11
+
+- use new performance record format
+
 ## 3.1.3 - 2021-05-15
 
 - add sorting parameter to performance records method (#21)
