@@ -20,20 +20,20 @@ use OhDear\PhpSdk\Actions\ManagesUsers;
 
 class OhDear
 {
-    use MakesHttpRequests,
-        ManagesSites,
-        ManagesChecks,
-        ManagesUsers,
-        ManagesBrokenLinks,
-        ManagesMaintenancePeriods,
-        ManagesMixedContent,
-        ManagesUptime,
-        ManagesDowntime,
-        ManagesCertificateHealth,
-        ManagesStatusPages,
-        ManagesStatusPageUpdates,
-        ManagesPerformance,
-        ManagesCronChecks;
+    use MakesHttpRequests;
+    use ManagesSites;
+    use ManagesChecks;
+    use ManagesUsers;
+    use ManagesBrokenLinks;
+    use ManagesMaintenancePeriods;
+    use ManagesMixedContent;
+    use ManagesUptime;
+    use ManagesDowntime;
+    use ManagesCertificateHealth;
+    use ManagesStatusPages;
+    use ManagesStatusPageUpdates;
+    use ManagesPerformance;
+    use ManagesCronChecks;
 
     /** @var string */
     public string $apiToken;
