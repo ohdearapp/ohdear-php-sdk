@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.2.1 - 2021-08-12
+
+- replace `timeFrame` with `groupBy` when retrieving performance records
+
 ## 3.2.0 - 2021-08-11
 
 - use new performance record format
