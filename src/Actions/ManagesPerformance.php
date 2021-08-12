@@ -18,14 +18,22 @@ trait ManagesPerformance
         int $siteId,
         string $start,
         string $end,
-        string $timeframe = '1m',
+        string $groupBy = 'minute',
         string $sort = '-created_at'
     ): array {
         $start = $this->convertDateFormat($start);
         $end = $this->convertDateFormat($end);
 
+        if ($groupBy === '1m') {
+            $groupBy = 'minute';
+        }
+
+        if ($groupBy === '1h') {
+            $groupBy = 'hour';
+        }
+
         return $this->transformCollection(
-            $this->get("sites/$siteId/performance-records?filter[start]={$start}&filter[end]={$end}&filter[timeframe]={$timeframe}&sort={$sort}")['data'],
+            $this->get("sites/$siteId/performance-records?filter[start]={$start}&filter[end]={$end}&filter[group_by]={$groupBy}&sort={$sort}")['data'],
             PerformanceRecord::class
         );
     }
