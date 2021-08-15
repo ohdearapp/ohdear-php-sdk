@@ -25,5 +25,11 @@ jobs:
                     extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
                     coverage: none
 
+            -   name: Copy .env.example file
+                run: cp .env.example .env
+
             -   name: Install dependencies
                 run: composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+
+            -   name: Run tests
+                run: vendor/bin/phpunit
