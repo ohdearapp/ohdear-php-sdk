@@ -19,6 +19,5 @@ trait ManagesDnsHistoryItems
         $dnsHistoryItem = $this->get("sites/{$siteId}/dns-history-items/{$dnsHistoryItemId}");
 
         return new DnsHistoryItem($dnsHistoryItem, $this);
-
     }
 }
