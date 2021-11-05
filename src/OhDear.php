@@ -8,6 +8,7 @@ use OhDear\PhpSdk\Actions\ManagesBrokenLinks;
 use OhDear\PhpSdk\Actions\ManagesCertificateHealth;
 use OhDear\PhpSdk\Actions\ManagesChecks;
 use OhDear\PhpSdk\Actions\ManagesCronChecks;
+use OhDear\PhpSdk\Actions\ManagesDnsHistoryItems;
 use OhDear\PhpSdk\Actions\ManagesDowntime;
 use OhDear\PhpSdk\Actions\ManagesMaintenancePeriods;
 use OhDear\PhpSdk\Actions\ManagesMixedContent;
@@ -34,6 +35,7 @@ class OhDear
     use ManagesStatusPageUpdates;
     use ManagesPerformance;
     use ManagesCronChecks;
+    use ManagesDnsHistoryItems;
 
     /** @var string */
     public string $apiToken;
