@@ -4,6 +4,7 @@ namespace OhDear\PhpSdk;
 
 use Carbon\Carbon;
 use GuzzleHttp\Client;
+use OhDear\PhpSdk\Actions\ManagesApplicationHealthChecks;
 use OhDear\PhpSdk\Actions\ManagesBrokenLinks;
 use OhDear\PhpSdk\Actions\ManagesCertificateHealth;
 use OhDear\PhpSdk\Actions\ManagesChecks;
@@ -31,6 +32,7 @@ class OhDear
     use ManagesUptime;
     use ManagesDowntime;
     use ManagesCertificateHealth;
+    use ManagesApplicationHealthChecks;
     use ManagesStatusPages;
     use ManagesStatusPageUpdates;
     use ManagesPerformance;
