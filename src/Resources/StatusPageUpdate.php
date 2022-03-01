@@ -8,7 +8,7 @@ class StatusPageUpdate extends ApiResource
 
     public string $title;
 
-    public string $text;
+    public ?string $text;
 
     public bool $pinned;
 
