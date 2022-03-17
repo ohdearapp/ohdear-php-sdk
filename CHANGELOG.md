@@ -2,6 +2,19 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.4.2 - 2022-03-17
+
+- update to enforce certificate verification (#27)
+- fix Composer install for tests (#28)
+
+## 3.4.1 - 2022-03-01
+
+- allow `StatusPageUpdate::$text` to be nullable (#25)
+
+## 3.4.0 - 2022-02-23
+
+- add endpoints and resources for app health checks (#24)
+
 ## 3.3.0 - 2021-11-05
 
 - add support for upcoming Dns endpoints
