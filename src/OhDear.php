@@ -51,7 +51,6 @@ class OhDear
         $this->client = new Client([
             'base_uri' => $baseUri,
             'http_errors' => false,
-            'verify' => false,
             'headers' => [
                 'Authorization' => "Bearer {$this->apiToken}",
                 'Accept' => 'application/json',
