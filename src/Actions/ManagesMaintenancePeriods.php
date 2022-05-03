@@ -44,15 +44,15 @@ trait ManagesMaintenancePeriods
 
     /**
      * @param int $siteId
-     * @param string $startsAt Y:m:d H:i
-     * @param string $endsAt Y:m:d H:i
+     * @param string $startsAt Y-m-d H:i
+     * @param string $endsAt Y-m-d H:i
      *
      * @return MaintenancePeriod
      */
     public function createSiteMaintenance(int $siteId, string $startsAt, string $endsAt): MaintenancePeriod
     {
-        $startsAt = $this->convertDateFormat($startsAt, 'Y:m:d H:i');
-        $endsAt = $this->convertDateFormat($endsAt, 'Y:m:d H:i');
+        $startsAt = $this->convertDateFormat($startsAt, 'Y-m-d H:i');
+        $endsAt = $this->convertDateFormat($endsAt, 'Y-m-d H:i');
 
         $payload = [
             'site_id' => $siteId,
