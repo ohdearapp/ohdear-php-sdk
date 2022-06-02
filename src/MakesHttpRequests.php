@@ -5,6 +5,7 @@ namespace OhDear\PhpSdk;
 use Exception;
 use OhDear\PhpSdk\Exceptions\FailedActionException;
 use OhDear\PhpSdk\Exceptions\NotFoundException;
+use OhDear\PhpSdk\Exceptions\UnauthorizedException;
 use OhDear\PhpSdk\Exceptions\ValidationException;
 use Psr\Http\Message\ResponseInterface;
 
@@ -68,6 +69,10 @@ trait MakesHttpRequests
 
         if ($response->getStatusCode() === 400) {
             throw new FailedActionException((string) $response->getBody());
+        }
+
+        if ($response->getStatusCode() === 401) {
+            throw new UnauthorizedException((string) $response->getBody());
         }
 
         throw new Exception((string) $response->getBody());
