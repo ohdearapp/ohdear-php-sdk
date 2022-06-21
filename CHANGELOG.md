@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.4.4 - 2022-06-21
+
+- add `summary` to `Check`
+
 ## 3.4.2 - 2022-03-17
 
 - update to enforce certificate verification (#27)
