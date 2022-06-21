@@ -15,6 +15,8 @@ class Check extends ApiResource
 
     public bool $enabled;
 
+    public string $summary;
+
     public function enable(): void
     {
         $updatedCheck = $this->ohDear->enableCheck($this->id);
