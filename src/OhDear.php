@@ -11,6 +11,7 @@ use OhDear\PhpSdk\Actions\ManagesChecks;
 use OhDear\PhpSdk\Actions\ManagesCronChecks;
 use OhDear\PhpSdk\Actions\ManagesDnsHistoryItems;
 use OhDear\PhpSdk\Actions\ManagesDowntime;
+use OhDear\PhpSdk\Actions\ManagesLighthouseReports;
 use OhDear\PhpSdk\Actions\ManagesMaintenancePeriods;
 use OhDear\PhpSdk\Actions\ManagesMixedContent;
 use OhDear\PhpSdk\Actions\ManagesPerformance;
@@ -33,6 +34,7 @@ class OhDear
     use ManagesDowntime;
     use ManagesCertificateHealth;
     use ManagesApplicationHealthChecks;
+    use ManagesLighthouseReports;
     use ManagesStatusPages;
     use ManagesStatusPageUpdates;
     use ManagesPerformance;
