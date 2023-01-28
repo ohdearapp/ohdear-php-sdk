@@ -6,27 +6,27 @@ class LighthouseReport extends ApiResource
 {
     public int $id;
 
-    public int $performanceScore;
+    public int|null $performanceScore;
 
-    public int $accessibilityScore;
+    public int|null $accessibilityScore;
 
-    public int $bestPracticesScore;
+    public int|null $bestPracticesScore;
 
-    public int $seoScore;
+    public int|null $seoScore;
 
-    public int $progressiveWebAppScore;
+    public int|null $progressiveWebAppScore;
 
-    public float $firstContentfulPaintInMs;
+    public float|null $firstContentfulPaintInMs;
 
-    public float $speedIndexInMs;
+    public float|null $speedIndexInMs;
 
-    public float $largestContentfulPaintInMs;
+    public float|null $largestContentfulPaintInMs;
 
-    public float $timeToInteractiveInMs;
+    public float|null $timeToInteractiveInMs;
 
-    public float $totalBlockingTimeInMs;
+    public float|null $totalBlockingTimeInMs;
 
-    public float $cumulativeLayoutShift;
+    public float|null $cumulativeLayoutShift;
 
     public string $performedOnCheckerServer;
 
