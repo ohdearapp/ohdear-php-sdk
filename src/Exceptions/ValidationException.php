@@ -12,6 +12,6 @@ class ValidationException extends Exception
     {
         $this->errors = $errors;
 
-        parent::__construct('The given data failed to pass validation. ' . print_r($this->errors, true));
+        parent::__construct('The given data failed to pass validation. '.print_r($this->errors, true));
     }
 }

@@ -54,10 +54,9 @@ class Site extends ApiResource
     /**
      * Get the uptime percentages for a site.
      *
-     * @param string $startedAt  Must be in format Ymdhis
-     * @param string $endedAt  Must be in format Ymdhis
-     * @param string $split  Use hour, day or month
-     *
+     * @param  string  $startedAt  Must be in format Ymdhis
+     * @param  string  $endedAt  Must be in format Ymdhis
+     * @param  string  $split  Use hour, day or month
      * @return array
      */
     public function uptime(string $startedAt, string $endedAt, string $split): array
@@ -68,9 +67,8 @@ class Site extends ApiResource
     /**
      * Get the downtime periods for a site.
      *
-     * @param string $startedAt  Must be in format Ymdhis
-     * @param string $endedAt  Must be in format Ymdhis
-     *
+     * @param  string  $startedAt  Must be in format Ymdhis
+     * @param  string  $endedAt  Must be in format Ymdhis
      * @return array
      */
     public function downtime(string $startedAt, string $endedAt): array
@@ -98,7 +96,7 @@ class Site extends ApiResource
         string $end,
         string $timeframe = '1m',
         string $sort = '-created_at'
-    ) : array {
+    ): array {
         return $this->ohDear->performanceRecords($this->id, $start, $end, $timeframe, $sort);
     }
 }

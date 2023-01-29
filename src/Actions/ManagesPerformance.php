@@ -7,11 +7,11 @@ use OhDear\PhpSdk\Resources\PerformanceRecord;
 trait ManagesPerformance
 {
     /**
-     * @param int $siteId
-     * @param string $start Short (2020-12-01) or long (2020-12-01 15:00:00) date format
-     * @param string $end Short (2020-12-01) or long (2020-12-01 15:00:00) date format
-     * @param string $timeframe Should be 1m or 1h
-     * @param string $sort
+     * @param  int  $siteId
+     * @param  string  $start Short (2020-12-01) or long (2020-12-01 15:00:00) date format
+     * @param  string  $end Short (2020-12-01) or long (2020-12-01 15:00:00) date format
+     * @param  string  $timeframe Should be 1m or 1h
+     * @param  string  $sort
      * @return array
      */
     public function performanceRecords(
