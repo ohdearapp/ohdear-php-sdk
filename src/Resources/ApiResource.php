@@ -10,7 +10,7 @@ class ApiResource
 {
     public array $attributes = [];
 
-    protected ?OhDear $ohDear;
+    protected OhDear|null $ohDear;
 
     public function __construct(array $attributes, OhDear $ohDear = null)
     {

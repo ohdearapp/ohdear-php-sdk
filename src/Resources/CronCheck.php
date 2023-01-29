@@ -14,15 +14,15 @@ class CronCheck extends ApiResource
 
     public int $checkId;
 
-    public ?int $frequencyInMinutes;
+    public int|null $frequencyInMinutes;
 
     public string $pingUrl;
 
     public int $graceTimeInMinutes = 0;
 
-    public ?string $cronExpression = '';
+    public string|null $cronExpression = '';
 
-    public ?string $description = '';
+    public string|null $description = '';
 
     public function __construct(array $attributes, $ohDear = null)
     {
