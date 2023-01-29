@@ -1,58 +1,46 @@
 <?php
 
-namespace OhDear\PhpSdk\Tests;
+declare(strict_types=1);
 
 use OhDear\PhpSdk\OhDear;
 
-class OhDearSdkTest extends TestCase
-{
-    /** @test */
-    public function it_can_instantiate_an_object()
-    {
-        $sdk = new OhDear('api-token');
+it('can instantiate an object', function () {
+    $sdk = new OhDear('api-token');
 
-        $this->assertTrue(is_object($sdk));
-    }
+    expect($sdk)->toBeObject();
+});
 
-    /** @test */
-    public function it_has_support_for_performance_records()
-    {
-        $sdk = new OhDear('api-token');
+it('has support for performance records', function () {
+    $sdk = new OhDear('api-token');
 
-        $this->assertTrue(method_exists($sdk, 'performanceRecords'));
-    }
+    expect(method_exists($sdk, 'performanceRecords'))->toBeTrue();
+});
 
-    /** @test */
-    public function it_can_convert_short_date_formats()
-    {
-        $sdk = new OhDear('api-token');
+it('can convert short date formats', function () {
+    $sdk = new OhDear('api-token');
 
-        $startDate = '2020-06-08';
-        $endDate = '2020-06-09';
+    $startDate = '2020-06-08';
+    $endDate = '2020-06-09';
 
-        $this->assertEquals($sdk->convertDateFormat($startDate), '20200608000000');
-        $this->assertEquals($sdk->convertDateFormat($endDate), '20200609000000');
-    }
+    expect($sdk->convertDateFormat($startDate))->toBe('20200608000000')
+        ->and($sdk->convertDateFormat($endDate))->toBe('20200609000000');
+});
 
-    /** @test */
-    public function it_can_convert_long_date_formats()
-    {
-        $sdk = new OhDear('api-token');
+it('can convert long date formats', function () {
+    $sdk = new OhDear('api-token');
 
-        $startDate = '2020-06-08 12:00:00';
-        $endDate = '2020-06-09 12:00:00';
+    $startDate = '2020-06-08 12:00:00';
+    $endDate = '2020-06-09 12:00:00';
 
-        $this->assertEquals($sdk->convertDateFormat($startDate), '20200608120000');
-        $this->assertEquals($sdk->convertDateFormat($endDate), '20200609120000');
-    }
 
-    /** @test */
-    public function it_can_convert_date_formats_to_a_custom_format()
-    {
-        $sdk = new OhDear('api-token');
+    expect($sdk->convertDateFormat($startDate))->toBe('20200608120000')
+        ->and($sdk->convertDateFormat($endDate))->toBe('20200609120000');
+});
 
-        $date = '2020-06-09 12:00:00';
+it('can convert date formats to a custom format', function () {
+    $sdk = new OhDear('api-token');
 
-        $this->assertEquals($sdk->convertDateFormat($date, 'Y:m:d H:i'), '2020:06:09 12:00');
-    }
-}
+    $date = '2020-06-09 12:00:00';
+
+    expect($sdk->convertDateFormat($date, 'Y:m:d H:i'))->toBe('2020:06:09 12:00');
+});

@@ -11,7 +11,7 @@ abstract class TestCase extends BaseTestCase
 {
     protected OhDear $ohDear;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -35,7 +35,7 @@ abstract class TestCase extends BaseTestCase
         $this->ohDear->setClient($client);
     }
 
-    protected function loadEnvironmentVariables()
+    protected function loadEnvironmentVariables(): void
     {
         if (! file_exists(__DIR__ . '/../.env')) {
             return;
@@ -46,7 +46,7 @@ abstract class TestCase extends BaseTestCase
         $dotEnv->load();
     }
 
-    public function ensureApiTokenPresent()
+    public function ensureApiTokenPresent(): void
     {
         if (! env('API_TOKEN')) {
             $this->markTestSkipped('No API token found');
