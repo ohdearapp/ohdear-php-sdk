@@ -39,7 +39,6 @@ class OhDear
     use ManagesCronChecks;
     use ManagesDnsHistoryItems;
 
-    /** @var string */
     public string $apiToken;
 
     public Client $client;

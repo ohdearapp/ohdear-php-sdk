@@ -9,7 +9,7 @@ class Check extends ApiResource
     public string $type;
 
     /*
-     * The human readable version of type.
+     * The human-readable version of type.
      */
     public string $label;
 
