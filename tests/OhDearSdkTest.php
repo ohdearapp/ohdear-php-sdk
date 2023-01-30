@@ -32,7 +32,6 @@ it('can convert long date formats', function () {
     $startDate = '2020-06-08 12:00:00';
     $endDate = '2020-06-09 12:00:00';
 
-
     expect($sdk->convertDateFormat($startDate))->toBe('20200608120000')
         ->and($sdk->convertDateFormat($endDate))->toBe('20200609120000');
 });
