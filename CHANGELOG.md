@@ -2,6 +2,18 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.5.0 - 2023-01-30
+
+### What's Changed
+
+- ci: test against PHP 8.1 and 8.2 by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/32
+- feat: drop support for PHP 8.0 and below by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/33
+- feat: update to use Pest by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/34
+- ci: update to use Pint for styling by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/35
+- feat: add support for Lighthouse Reports by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/31
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/3.4.4...3.5.0
+
 ## 3.4.4 - 2022-06-21
 
 - add `summary` to `Check`
