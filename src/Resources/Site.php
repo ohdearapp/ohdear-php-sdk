@@ -57,7 +57,6 @@ class Site extends ApiResource
      * @param  string  $startedAt  Must be in format Ymdhis
      * @param  string  $endedAt  Must be in format Ymdhis
      * @param  string  $split  Use hour, day or month
-     * @return array
      */
     public function uptime(string $startedAt, string $endedAt, string $split): array
     {
@@ -69,7 +68,6 @@ class Site extends ApiResource
      *
      * @param  string  $startedAt  Must be in format Ymdhis
      * @param  string  $endedAt  Must be in format Ymdhis
-     * @return array
      */
     public function downtime(string $startedAt, string $endedAt): array
     {

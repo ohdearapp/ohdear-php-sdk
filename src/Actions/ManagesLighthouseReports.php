@@ -7,7 +7,6 @@ use OhDear\PhpSdk\Resources\LighthouseReport;
 trait ManagesLighthouseReports
 {
     /**
-     * @param  int  $siteId
      * @return array<LighthouseReport>
      */
     public function lighthouseReports(int $siteId): array
