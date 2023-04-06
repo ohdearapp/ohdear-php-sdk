@@ -2,6 +2,14 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.6.0 - 2023-04-06
+
+### What's Changed
+
+- feat: add support for Domain Monitoring by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/36
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/3.5.0...3.6.0
+
 ## 3.5.0 - 2023-01-30
 
 ### What's Changed
