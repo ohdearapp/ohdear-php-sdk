@@ -10,6 +10,7 @@ use OhDear\PhpSdk\Actions\ManagesCertificateHealth;
 use OhDear\PhpSdk\Actions\ManagesChecks;
 use OhDear\PhpSdk\Actions\ManagesCronChecks;
 use OhDear\PhpSdk\Actions\ManagesDnsHistoryItems;
+use OhDear\PhpSdk\Actions\ManagesDomainMonitoring;
 use OhDear\PhpSdk\Actions\ManagesDowntime;
 use OhDear\PhpSdk\Actions\ManagesLighthouseReports;
 use OhDear\PhpSdk\Actions\ManagesMaintenancePeriods;
@@ -24,22 +25,23 @@ use OhDear\PhpSdk\Actions\ManagesUsers;
 class OhDear
 {
     use MakesHttpRequests;
-    use ManagesSites;
-    use ManagesChecks;
-    use ManagesUsers;
-    use ManagesBrokenLinks;
-    use ManagesMaintenancePeriods;
-    use ManagesMixedContent;
-    use ManagesUptime;
-    use ManagesDowntime;
-    use ManagesCertificateHealth;
     use ManagesApplicationHealthChecks;
-    use ManagesLighthouseReports;
-    use ManagesStatusPages;
-    use ManagesStatusPageUpdates;
-    use ManagesPerformance;
+    use ManagesBrokenLinks;
+    use ManagesCertificateHealth;
+    use ManagesChecks;
     use ManagesCronChecks;
     use ManagesDnsHistoryItems;
+    use ManagesDomainMonitoring;
+    use ManagesDowntime;
+    use ManagesLighthouseReports;
+    use ManagesMaintenancePeriods;
+    use ManagesMixedContent;
+    use ManagesPerformance;
+    use ManagesSites;
+    use ManagesStatusPages;
+    use ManagesStatusPageUpdates;
+    use ManagesUptime;
+    use ManagesUsers;
 
     public string $apiToken;
 
