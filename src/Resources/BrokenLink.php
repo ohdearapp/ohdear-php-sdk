@@ -19,6 +19,11 @@ class BrokenLink extends ApiResource
      */
     public string $foundOnUrl;
 
+    /*
+     * The text for the broken link.
+     */
+    public string $linkText;
+
     public function __construct(array $attributes, $ohDear = null)
     {
         parent::__construct($attributes, $ohDear);
