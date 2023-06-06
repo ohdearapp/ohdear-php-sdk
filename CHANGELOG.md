@@ -2,6 +2,14 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.6.1 - 2023-06-06
+
+### What's Changed
+
+- feat: add property for broken link text by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/37
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/3.6.0...3.6.1
+
 ## 3.6.0 - 2023-04-06
 
 ### What's Changed
