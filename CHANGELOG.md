@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.6.2 - 2023-06-10
+
+- fixed #19 and #38
+
 ## 3.6.1 - 2023-06-06
 
 ### What's Changed
