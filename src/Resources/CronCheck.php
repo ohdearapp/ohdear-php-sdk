@@ -24,6 +24,8 @@ class CronCheck extends ApiResource
 
     public string|null $description = '';
 
+    public string $createdAt;
+
     public function __construct(array $attributes, $ohDear = null)
     {
         parent::__construct($attributes, $ohDear);

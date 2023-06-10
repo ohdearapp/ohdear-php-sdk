@@ -8,7 +8,7 @@ class StatusPage extends ApiResource
 
     public string $title;
 
-    public string $domain;
+    public ?string $domain;
 
     public string $slug;
 
