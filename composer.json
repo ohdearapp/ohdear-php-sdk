@@ -23,8 +23,7 @@
         "nesbot/carbon": "^2.65.0"
     },
     "require-dev": {
-        "pestphp/pest": "^1.22",
-        "pestphp/pest-plugin-parallel": "^1.2",
+        "pestphp/pest": "^2.8.3",
         "psalm/plugin-laravel": "^2.5",
         "vlucas/phpdotenv": "^5.5"
     },
