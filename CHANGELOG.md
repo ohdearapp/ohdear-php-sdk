@@ -2,6 +2,14 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.6.3 - 2023-09-04
+
+### What's Changed
+
+- chore(deps): update to use Pest 2.x by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/41
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/3.6.2...3.6.3
+
 ## 3.6.2 - 2023-06-10
 
 - fixed #19 and #38
