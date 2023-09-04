@@ -7,7 +7,7 @@ class BrokenLink extends ApiResource
     /*
      * The status code the site responded with.
      */
-    public int|null $statusCode;
+    public ?int $statusCode;
 
     /*
      * The url that is broken.

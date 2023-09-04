@@ -10,5 +10,5 @@ class MaintenancePeriod extends ApiResource
 
     public string $startsAt;
 
-    public string|null $endsAt;
+    public ?string $endsAt;
 }

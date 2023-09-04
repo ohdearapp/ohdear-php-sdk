@@ -6,5 +6,5 @@ class Downtime extends ApiResource
 {
     public string $startedAt;
 
-    public string|null $endedAt;
+    public ?string $endedAt;
 }
