@@ -2,6 +2,15 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.7.0 - 2023-09-25
+
+### What's Changed
+
+- feat: add support for Notifications by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/44
+- chore(deps-dev): replace PHP-CS-Fixer locally with Pint by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/45
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/3.6.3...3.7.0
+
 ## 3.6.3 - 2023-09-04
 
 ### What's Changed
