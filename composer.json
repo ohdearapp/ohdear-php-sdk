@@ -23,6 +23,7 @@
         "nesbot/carbon": "^2.65.0"
     },
     "require-dev": {
+        "laravel/pint": "^1.13",
         "pestphp/pest": "^2.8.3",
         "psalm/plugin-laravel": "^2.5",
         "vlucas/phpdotenv": "^5.5"
@@ -39,7 +40,7 @@
     },
     "scripts": {
         "psalm": "vendor/bin/psalm",
-        "format": "vendor/bin/php-cs-fixer fix",
+        "format": "vendor/bin/pint",
         "test": "vendor/bin/pest -p"
     },
     "config": {
