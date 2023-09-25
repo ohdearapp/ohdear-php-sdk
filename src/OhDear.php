@@ -15,6 +15,7 @@ use OhDear\PhpSdk\Actions\ManagesDowntime;
 use OhDear\PhpSdk\Actions\ManagesLighthouseReports;
 use OhDear\PhpSdk\Actions\ManagesMaintenancePeriods;
 use OhDear\PhpSdk\Actions\ManagesMixedContent;
+use OhDear\PhpSdk\Actions\ManagesNotifications;
 use OhDear\PhpSdk\Actions\ManagesPerformance;
 use OhDear\PhpSdk\Actions\ManagesSites;
 use OhDear\PhpSdk\Actions\ManagesStatusPages;
@@ -36,6 +37,7 @@ class OhDear
     use ManagesLighthouseReports;
     use ManagesMaintenancePeriods;
     use ManagesMixedContent;
+    use ManagesNotifications;
     use ManagesPerformance;
     use ManagesSites;
     use ManagesStatusPages;
