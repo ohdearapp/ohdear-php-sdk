@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.8.0 - 2023-12-03
+
+- add support for check summary
+
 ## 3.7.0 - 2023-09-25
 
 ### What's Changed
