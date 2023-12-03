@@ -6,5 +6,5 @@ class CheckSummary extends ApiResource
 {
     public string $result;
 
-    public string|null $summary;
+    public ?string $summary;
 }
