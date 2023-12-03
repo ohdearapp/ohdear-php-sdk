@@ -2,6 +2,7 @@
 
 namespace OhDear\PhpSdk\Actions;
 
+use OhDear\PhpSdk\Resources\CheckSummary;
 use OhDear\PhpSdk\Resources\Site;
 
 trait ManagesSites
@@ -19,6 +20,13 @@ trait ManagesSites
         $siteAttributes = $this->get("sites/{$siteId}");
 
         return new Site($siteAttributes, $this);
+    }
+
+    public function checkSummary(int $siteId, string $checkType): CheckSummary
+    {
+        $checkSummaryAttributes = $this->get("sites/{$siteId}/check-summary/{$checkType}");
+
+        return new CheckSummary($checkSummaryAttributes, $this);
     }
 
     public function siteByUrl(string $siteUrl): Site

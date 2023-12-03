@@ -97,4 +97,9 @@ class Site extends ApiResource
     ): array {
         return $this->ohDear->performanceRecords($this->id, $start, $end, $timeframe, $sort);
     }
+
+    public function checkSummary(string $checkType): CheckSummary
+    {
+        return $this->ohDear->checkSummary($this->id, $checkType);
+    }
 }
