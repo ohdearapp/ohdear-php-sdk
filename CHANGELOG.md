@@ -2,6 +2,12 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.9.0 - 2023-12-05
+
+- add support for new cron fields
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/3.8.0...3.9.0
+
 ## 3.8.0 - 2023-12-03
 
 - add support for check summary
