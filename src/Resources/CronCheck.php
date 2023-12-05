@@ -22,7 +22,21 @@ class CronCheck extends ApiResource
 
     public ?string $cronExpression = '';
 
+    public ?string $humanReadableCronExpression = '';
+
     public ?string $description = '';
+
+    public ?string $serverTimezone = '';
+
+    public ?string $latestResult = '';
+
+    public ?string $latestResultLabel = '';
+
+    public ?string $latestResultLabelColor = '';
+
+    public ?string $latestPingAt = '';
+
+    public ?string $humanReadableLatestPingAt = '';
 
     public string $createdAt;
 
