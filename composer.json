@@ -19,8 +19,7 @@
     ],
     "require": {
         "php": "^8.1",
-        "guzzlehttp/guzzle": "^6.5.8|^7.5",
-        "nesbot/carbon": "^2.65.0"
+        "guzzlehttp/guzzle": "^6.5.8|^7.5"
     },
     "require-dev": {
         "laravel/pint": "^1.13",

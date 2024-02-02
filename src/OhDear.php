@@ -80,6 +80,6 @@ class OhDear
 
     public function convertDateFormat(string $date, $format = 'YmdHis'): string
     {
-        return Carbon::parse($date)->format($format);
+        return (new \DateTimeImmutable($date))->format($format);
     }
 }
