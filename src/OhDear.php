@@ -2,7 +2,6 @@
 
 namespace OhDear\PhpSdk;
 
-use Carbon\Carbon;
 use GuzzleHttp\Client;
 use OhDear\PhpSdk\Actions\ManagesApplicationHealthChecks;
 use OhDear\PhpSdk\Actions\ManagesBrokenLinks;
