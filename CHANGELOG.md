@@ -2,6 +2,18 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.10.1 - 2024-02-03
+
+### What's Changed
+
+* Drop Carbon dependency, replace with `DateTimeImmutable` by @vicdelfant in https://github.com/ohdearapp/ohdear-php-sdk/pull/47
+
+### New Contributors
+
+* @vicdelfant made their first contribution in https://github.com/ohdearapp/ohdear-php-sdk/pull/47
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/3.10.0...3.10.1
+
 ## 3.10.0 - 2023-12-05
 
 - add extra attributes to the broken links resource
