@@ -2,7 +2,6 @@
 
 namespace OhDear\PhpSdk;
 
-use Carbon\Carbon;
 use GuzzleHttp\Client;
 use OhDear\PhpSdk\Actions\ManagesApplicationHealthChecks;
 use OhDear\PhpSdk\Actions\ManagesBrokenLinks;
@@ -80,6 +79,6 @@ class OhDear
 
     public function convertDateFormat(string $date, $format = 'YmdHis'): string
     {
-        return Carbon::parse($date)->format($format);
+        return (new \DateTimeImmutable($date))->format($format);
     }
 }
