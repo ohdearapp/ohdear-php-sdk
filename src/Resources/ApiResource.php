@@ -12,7 +12,7 @@ class ApiResource
 
     protected ?OhDear $ohDear;
 
-    public function __construct(array $attributes, OhDear $ohDear = null)
+    public function __construct(array $attributes, ?OhDear $ohDear = null)
     {
         $this->attributes = $attributes;
 

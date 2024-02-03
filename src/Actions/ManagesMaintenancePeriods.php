@@ -15,7 +15,7 @@ trait ManagesMaintenancePeriods
     }
 
     /**
-     * @param  int  $stopMaintenanceAfterSeconds Stops after one hour by default
+     * @param  int  $stopMaintenanceAfterSeconds  Stops after one hour by default
      */
     public function startSiteMaintenance(int $siteId, int $stopMaintenanceAfterSeconds = 60 * 60): MaintenancePeriod
     {
@@ -32,8 +32,8 @@ trait ManagesMaintenancePeriods
     }
 
     /**
-     * @param  string  $startsAt Y-m-d H:i
-     * @param  string  $endsAt Y-m-d H:i
+     * @param  string  $startsAt  Y-m-d H:i
+     * @param  string  $endsAt  Y-m-d H:i
      */
     public function createSiteMaintenance(int $siteId, string $startsAt, string $endsAt): MaintenancePeriod
     {
