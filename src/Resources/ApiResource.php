@@ -5,8 +5,9 @@ namespace OhDear\PhpSdk\Resources;
 use OhDear\PhpSdk\OhDear;
 use ReflectionObject;
 use ReflectionProperty;
+use stdClass;
 
-class ApiResource
+class ApiResource extends stdClass
 {
     public array $attributes = [];
 
