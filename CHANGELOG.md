@@ -2,6 +2,18 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.10.2 - 2024-04-08
+
+### What's Changed
+
+* supress dynamic property deprecation warnings by @tobimori in https://github.com/ohdearapp/ohdear-php-sdk/pull/48
+
+### New Contributors
+
+* @tobimori made their first contribution in https://github.com/ohdearapp/ohdear-php-sdk/pull/48
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/3.10.1...3.10.2
+
 ## 3.10.1 - 2024-02-03
 
 ### What's Changed
