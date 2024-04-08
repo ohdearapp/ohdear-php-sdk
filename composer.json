@@ -19,13 +19,13 @@
     ],
     "require": {
         "php": "^8.1",
-        "guzzlehttp/guzzle": "^6.5.8|^7.5"
+        "guzzlehttp/guzzle": "^6.5.8|^7.8.1"
     },
     "require-dev": {
-        "laravel/pint": "^1.13",
-        "pestphp/pest": "^2.8.3",
-        "psalm/plugin-laravel": "^2.5",
-        "vlucas/phpdotenv": "^5.5"
+        "laravel/pint": "^1.15.1",
+        "pestphp/pest": "^2.34.7",
+        "psalm/plugin-laravel": "^2.11",
+        "vlucas/phpdotenv": "^5.6"
     },
     "autoload": {
         "psr-4": {
