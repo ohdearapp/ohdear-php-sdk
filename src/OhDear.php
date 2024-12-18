@@ -21,6 +21,7 @@ use OhDear\PhpSdk\Actions\ManagesStatusPages;
 use OhDear\PhpSdk\Actions\ManagesStatusPageUpdates;
 use OhDear\PhpSdk\Actions\ManagesUptime;
 use OhDear\PhpSdk\Actions\ManagesUsers;
+use OhDear\PhpSdk\Actions\ManagesSitemaps;
 
 class OhDear
 {
@@ -41,6 +42,7 @@ class OhDear
     use ManagesSites;
     use ManagesStatusPages;
     use ManagesStatusPageUpdates;
+    use ManagesSitemaps;
     use ManagesUptime;
     use ManagesUsers;
 
