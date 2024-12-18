@@ -2,10 +2,10 @@
 
 namespace OhDear\PhpSdk\Actions;
 
-use OhDear\PhpSdk\Resources\SitemapResult;
+use OhDear\PhpSdk\Resources\Sitemap;
 use OhDear\PhpSdk\Resources\SitemapIndex;
 use OhDear\PhpSdk\Resources\SitemapIssue;
-use OhDear\PhpSdk\Resources\Sitemap;
+use OhDear\PhpSdk\Resources\SitemapResult;
 
 trait ManagesSitemaps
 {
