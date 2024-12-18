@@ -36,9 +36,22 @@ trait ManagesSites
         return new Site($siteAttributes, $this);
     }
 
+    /**
+     * @link https://ohdear.app/docs/integrations/the-oh-dear-api#add-a-site-with-custom-settings
+     */
     public function createSite(array $data): Site
     {
         $siteAttributes = $this->post('sites', $data);
+
+        return new Site($siteAttributes, $this);
+    }
+
+    /**
+     * @link https://ohdear.app/docs/integrations/the-oh-dear-api#updating-site-settings
+     */
+    public function updateSite(int $siteId, array $data): Site
+    {
+        $siteAttributes = $this->put("sites/{$siteId}", $data);
 
         return new Site($siteAttributes, $this);
     }
