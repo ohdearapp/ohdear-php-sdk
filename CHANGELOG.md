@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 3.10.3 - 2024-12-18
+
+Support added for updating a site and using the Sitemap resources via the SDK
+
 ## 3.10.2 - 2024-04-08
 
 ### What's Changed
