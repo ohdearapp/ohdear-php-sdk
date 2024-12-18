@@ -64,7 +64,7 @@ trait MakesHttpRequests
         }
 
         if ($response->getStatusCode() === 404) {
-            throw new NotFoundException();
+            throw new NotFoundException;
         }
 
         if ($response->getStatusCode() === 400) {
