@@ -7,18 +7,18 @@ use OhDear\PhpSdk\Resources\ApplicationHealthCheckResult;
 
 trait ManagesApplicationHealthChecks
 {
-    public function applicationHealthChecks(int $siteId): array
+    public function applicationHealthChecks(int $monitorId): array
     {
         return $this->transformCollection(
-            $this->get("sites/{$siteId}/application-health-checks")['data'],
+            $this->get("monitors/{$monitorId}/application-health-checks")['data'],
             ApplicationHealthCheck::class
         );
     }
 
-    public function applicationHealthCheckResults(int $siteId, int $applicationHealthCheckId): array
+    public function applicationHealthCheckResults(int $monitorId, int $applicationHealthCheckId): array
     {
         return $this->transformCollection(
-            $this->get("sites/{$siteId}/application-health-checks/{$applicationHealthCheckId}")['data'],
+            $this->get("monitors/{$monitorId}/application-health-checks/{$applicationHealthCheckId}")['data'],
             ApplicationHealthCheckResult::class
         );
     }

@@ -6,10 +6,10 @@ use OhDear\PhpSdk\Resources\Domain;
 
 trait ManagesDomainMonitoring
 {
-    public function domain(int $siteId): Domain
+    public function domain(int $monitorId): Domain
     {
         return new Domain(
-            $this->get("sites/{$siteId}/domain"),
+            $this->get("monitors/{$monitorId}/domain"),
             $this
         );
     }

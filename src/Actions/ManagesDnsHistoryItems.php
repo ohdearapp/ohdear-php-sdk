@@ -6,17 +6,17 @@ use OhDear\PhpSdk\Resources\DnsHistoryItem;
 
 trait ManagesDnsHistoryItems
 {
-    public function dnsHistoryItems(int $siteId): array
+    public function dnsHistoryItems(int $monitorId): array
     {
         return $this->transformCollection(
-            $this->get("sites/{$siteId}/dns-history-items")['data'],
+            $this->get("monitors/{$monitorId}/dns-history-items")['data'],
             DnsHistoryItem::class,
         );
     }
 
-    public function dnsHistoryItem(int $siteId, int $dnsHistoryItemId): DnsHistoryItem
+    public function dnsHistoryItem(int $monitorId, int $dnsHistoryItemId): DnsHistoryItem
     {
-        $dnsHistoryItem = $this->get("sites/{$siteId}/dns-history-items/{$dnsHistoryItemId}");
+        $dnsHistoryItem = $this->get("monitors/{$monitorId}/dns-history-items/{$dnsHistoryItemId}");
 
         return new DnsHistoryItem($dnsHistoryItem, $this);
     }

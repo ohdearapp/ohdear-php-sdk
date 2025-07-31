@@ -9,24 +9,24 @@ trait ManagesLighthouseReports
     /**
      * @return array<LighthouseReport>
      */
-    public function lighthouseReports(int $siteId): array
+    public function lighthouseReports(int $monitorId): array
     {
         return $this->transformCollection(
-            $this->get("sites/{$siteId}/lighthouse-reports")['data'],
+            $this->get("monitors/{$monitorId}/lighthouse-reports")['data'],
             LighthouseReport::class
         );
     }
 
-    public function lighthouseReport(int $siteId, int $reportId): LighthouseReport
+    public function lighthouseReport(int $monitorId, int $reportId): LighthouseReport
     {
-        $lighthouseReport = $this->get("sites/{$siteId}/lighthouse-reports/{$reportId}");
+        $lighthouseReport = $this->get("monitors/{$monitorId}/lighthouse-reports/{$reportId}");
 
         return new LighthouseReport($lighthouseReport, $this);
     }
 
-    public function latestLighthouseReport(int $siteId): LighthouseReport
+    public function latestLighthouseReport(int $monitorId): LighthouseReport
     {
-        $lighthouseReport = $this->get("sites/{$siteId}/lighthouse-reports/latest");
+        $lighthouseReport = $this->get("monitors/{$monitorId}/lighthouse-reports/latest");
 
         return new LighthouseReport($lighthouseReport, $this);
     }

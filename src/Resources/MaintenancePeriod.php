@@ -6,7 +6,7 @@ class MaintenancePeriod extends ApiResource
 {
     public int $id;
 
-    public int $siteId;
+    public int $monitorId;
 
     public string $startsAt;
 

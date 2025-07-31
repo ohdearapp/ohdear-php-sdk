@@ -16,10 +16,10 @@ trait ManagesNotifications
     }
 
     /** @return array<int, NotificationDestination> */
-    public function siteNotificationDestinations(int $siteId): array
+    public function siteNotificationDestinations(int $monitorId): array
     {
         return $this->transformCollection(
-            $this->get("sites/{$siteId}/notification-destinations")['data'],
+            $this->get("monitors/{$monitorId}/notification-destinations")['data'],
             NotificationDestination::class
         );
     }

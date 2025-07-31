@@ -9,9 +9,9 @@ use OhDear\PhpSdk\Resources\SitemapResult;
 
 trait ManagesSitemaps
 {
-    public function sitemap(int $siteId)
+    public function sitemap(int $monitorId)
     {
-        $response = $this->get("sitemap/{$siteId}") ?? [];
+        $response = $this->get("sitemap/{$monitorId}") ?? [];
 
         $issues = $this->transformCollection($response['issues'], SitemapIssue::class);
         $sitemapIndexes = $this->transformCollection($response['sitemapIndexes'], SitemapIndex::class);

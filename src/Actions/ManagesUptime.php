@@ -11,16 +11,16 @@ trait ManagesUptime
      * @param  string  $endedAt  Must be in format Ymdhis
      * @param  string  $split  Use hour, day or month
      */
-    public function uptime(int $siteId, string $startedAt, string $endedAt, string $split = 'month'): array
+    public function uptime(int $monitorId, string $startedAt, string $endedAt, string $split = 'month'): array
     {
-        $sites = $this->get("sites/$siteId/uptime?filter[started_at]={$startedAt}&filter[ended_at]={$endedAt}&split={$split}");
+        $monitors = $this->get("monitors/$monitorId/uptime?filter[started_at]={$startedAt}&filter[ended_at]={$endedAt}&split={$split}");
 
-        if (empty($sites)) {
-            $sites = [];
+        if (empty($monitors)) {
+            $monitors = [];
         }
 
         return $this->transformCollection(
-            $sites,
+            $monitors,
             Uptime::class
         );
     }

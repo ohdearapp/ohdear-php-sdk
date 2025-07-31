@@ -2,6 +2,7 @@
 
 namespace OhDear\PhpSdk;
 
+use DateTimeImmutable;
 use GuzzleHttp\Client;
 use OhDear\PhpSdk\Actions\ManagesApplicationHealthChecks;
 use OhDear\PhpSdk\Actions\ManagesBrokenLinks;
@@ -17,7 +18,7 @@ use OhDear\PhpSdk\Actions\ManagesMixedContent;
 use OhDear\PhpSdk\Actions\ManagesNotifications;
 use OhDear\PhpSdk\Actions\ManagesPerformance;
 use OhDear\PhpSdk\Actions\ManagesSitemaps;
-use OhDear\PhpSdk\Actions\ManagesSites;
+use OhDear\PhpSdk\Actions\ManagesMonitors;
 use OhDear\PhpSdk\Actions\ManagesStatusPages;
 use OhDear\PhpSdk\Actions\ManagesStatusPageUpdates;
 use OhDear\PhpSdk\Actions\ManagesUptime;
@@ -40,7 +41,7 @@ class OhDear
     use ManagesNotifications;
     use ManagesPerformance;
     use ManagesSitemaps;
-    use ManagesSites;
+    use ManagesMonitors;
     use ManagesStatusPages;
     use ManagesStatusPageUpdates;
     use ManagesUptime;
@@ -81,6 +82,6 @@ class OhDear
 
     public function convertDateFormat(string $date, $format = 'YmdHis'): string
     {
-        return (new \DateTimeImmutable($date))->format($format);
+        return (new DateTimeImmutable($date))->format($format);
     }
 }

@@ -2,14 +2,14 @@
 
 namespace OhDear\PhpSdk\Resources;
 
-class Site extends ApiResource
+class Monitor extends ApiResource
 {
     public int $id;
 
     public string $url;
 
     /**
-     * The checks of a site.
+     * The checks of a monitor.
      *
      * @var Check[]
      */

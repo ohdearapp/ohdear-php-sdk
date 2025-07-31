@@ -6,22 +6,22 @@ use OhDear\PhpSdk\Resources\CronCheck;
 
 trait ManagesCronChecks
 {
-    public function cronChecks(int $siteId)
+    public function cronChecks(int $monitorId)
     {
         return $this->transformCollection(
-            $this->get("sites/{$siteId}/cron-checks")['data'],
+            $this->get("monitors/{$monitorId}/cron-checks")['data'],
             CronCheck::class
         );
     }
 
     public function createSimpleCronCheck(
-        int $siteId,
+        int $monitorId,
         string $name,
         int $frequencyInMinutes,
         int $graceTimeInMinutes,
         $description
     ): CronCheck {
-        $attributes = $this->post("sites/{$siteId}/cron-checks", [
+        $attributes = $this->post("monitors/{$monitorId}/cron-checks", [
             'name' => $name,
             'type' => 'simple',
             'frequency_in_minutes' => $frequencyInMinutes,
@@ -33,14 +33,14 @@ trait ManagesCronChecks
     }
 
     public function createCronCheck(
-        int $siteId,
+        int $monitorId,
         string $name,
         string $cronExpression,
         int $graceTimeInMinutes,
         $description,
         string $serverTimezone
     ): CronCheck {
-        $attributes = $this->post("sites/{$siteId}/cron-checks", [
+        $attributes = $this->post("monitors/{$monitorId}/cron-checks", [
             'name' => $name,
             'type' => 'cron',
             'cron_expression' => $cronExpression,
@@ -64,9 +64,9 @@ trait ManagesCronChecks
         $this->delete("cron-checks/{$cronCheckId}");
     }
 
-    public function syncCronChecks(int $siteId, array $cronCheckAttributes): array
+    public function syncCronChecks(int $monitorId, array $cronCheckAttributes): array
     {
-        $response = $this->post("sites/{$siteId}/cron-checks/sync", ['cron_checks' => $cronCheckAttributes]);
+        $response = $this->post("monitors/{$monitorId}/cron-checks/sync", ['cron_checks' => $cronCheckAttributes]);
 
         return $this->transformCollection(
             $response,

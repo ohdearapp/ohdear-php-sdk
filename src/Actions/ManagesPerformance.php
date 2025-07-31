@@ -12,7 +12,7 @@ trait ManagesPerformance
      * @param  string  $timeframe  Should be 1m or 1h
      */
     public function performanceRecords(
-        int $siteId,
+        int $monitorId,
         string $start,
         string $end,
         string $groupBy = 'minute',
@@ -30,7 +30,7 @@ trait ManagesPerformance
         }
 
         return $this->transformCollection(
-            $this->get("sites/$siteId/performance-records?filter[start]={$start}&filter[end]={$end}&filter[group_by]={$groupBy}&sort={$sort}")['data'],
+            $this->get("monitors/$monitorId/performance-records?filter[start]={$start}&filter[end]={$end}&filter[group_by]={$groupBy}&sort={$sort}")['data'],
             PerformanceRecord::class
         );
     }
