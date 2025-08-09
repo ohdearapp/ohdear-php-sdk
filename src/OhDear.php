@@ -2,16 +2,11 @@
 
 namespace OhDear\PhpSdk;
 
-use OhDear\PhpSdk\Dto\Monitor;
-use OhDear\PhpSdk\Dto\User;
+use OhDear\PhpSdk\Concerns\SupportsMeEndpoint;
+use OhDear\PhpSdk\Concerns\SupportsMonitorEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsStatusPageEndpoints;
 use OhDear\PhpSdk\Exceptions\OhDearException;
 use OhDear\PhpSdk\Exceptions\ValidationException;
-use OhDear\PhpSdk\Requests\MeRequest;
-use OhDear\PhpSdk\Requests\Monitors\CreateMonitorRequest;
-use OhDear\PhpSdk\Requests\Monitors\DeleteMonitorRequest;
-use OhDear\PhpSdk\Requests\Monitors\GetMonitorRequest;
-use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;
-use OhDear\PhpSdk\Requests\Monitors\UpdateMonitorRequest;
 use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;
@@ -27,6 +22,10 @@ class OhDear extends Connector implements HasPagination
 {
     use AcceptsJson;
     use AlwaysThrowOnErrors;
+
+    use SupportsMeEndpoint;
+    use SupportsMonitorEndpoints;
+    use SupportsStatusPageEndpoints;
 
     protected string $apiToken;
 
@@ -77,50 +76,6 @@ class OhDear extends Connector implements HasPagination
         ];
     }
 
-    public function me(): User
-    {
-        $request = new MeRequest;
-
-        return $this->send($request)->dto();
-    }
-
-    /** @return iterable<int, Monitor> */
-    public function monitors(?int $teamId = null): iterable
-    {
-        $request = new GetMonitorsRequest($teamId);
-
-        return $this->paginate($request)->items();
-    }
-
-    public function monitor(int $monitorId): Monitor
-    {
-        $request = new GetMonitorRequest($monitorId);
-
-        return $this->send($request)->dto();
-    }
-
-    public function createMonitor(array $properties): Monitor
-    {
-        $request = new CreateMonitorRequest($properties);
-
-        return $this->send($request)->dto();
-    }
-
-    public function updateMonitor(int $monitorId, array $monitorProperties): Monitor
-    {
-        $request = new UpdateMonitorRequest($monitorId, $monitorProperties);
-
-        return $this->send($request)->dto();
-    }
-
-    public function deleteMonitor(int $monitorId): self
-    {
-        $request = new DeleteMonitorRequest($monitorId);
-
-        $this->send($request);
-
-        return $this;
-    }
 
     public function paginate(Request $request): Paginator
     {

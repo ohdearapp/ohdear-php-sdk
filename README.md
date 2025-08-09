@@ -119,7 +119,35 @@ $monitor = $ohDear->monitor($monitorId);
 You can use the `deleteMonitor` method to delete a monitor.
 
 ```php
-$ohDear->deleteMonitor($monitorId)
+$ohDear->deleteMonitor($monitorId);
+```
+
+### Get all status pages
+
+```php
+// returns an iterator of OhDear\PhpSdk\Dto\StatusPage
+$statusPages = $ohDear->statusPages();
+
+foreach($statusPages as $statusPage) {
+    echo "Status Page: {$statusPage->title} (ID: {$statusPage->id})\n";
+}
+```
+
+### Getting a single status page
+
+You can use the `statusPage` method to get a single status page.
+
+```php
+// returns OhDear\PhpSdk\Dto\StatusPage
+$statusPage = $ohDear->statusPage($statusPageId);
+```
+
+### Deleting a status page
+
+You can use the `deleteStatusPage` method to delete a status page.
+
+```php
+$ohDear->deleteStatusPage($statusPageId)
 ```
 
 ### Using Saloon requests directly

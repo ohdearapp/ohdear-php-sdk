@@ -1,0 +1,20 @@
+{
+    "statusCode": 405,
+    "headers": {
+        "Date": "Sat, 09 Aug 2025 18:22:36 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Allow": "GET, HEAD, DELETE",
+        "Cache-Control": "no-cache, private",
+        "Access-Control-Allow-Origin": "*",
+        "Cf-Cache-Status": "DYNAMIC",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "Vary": "accept-encoding",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=1QO67k84x5aF0%2Br09e2G43N8lzDyjPeVlTRMWepBls2X%2BQTTre3JxRXQp3iTxWvfkADLpNLfepr3E%2BblPcjZQUbbt6zuXI8lC3mJJjYs%2FQ%3D%3D\"}]}",
+        "CF-RAY": "96c947a7bf29b780-BRU"
+    },
+    "data": "{\n    \"message\": \"The PUT method is not supported for route api\/status-pages\/1. Supported methods: GET, HEAD, DELETE.\"\n}",
+    "context": []
+}
