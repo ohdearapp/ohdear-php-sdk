@@ -12,7 +12,6 @@ use OhDear\PhpSdk\Requests\Checks\UnsnoozeCheckRequest;
 /** @mixin \OhDear\PhpSdk\OhDear */
 trait SupportsCheckEndpoints
 {
-
     public function enableCheck(int $checkId): Check
     {
         $request = new EnableCheckRequest($checkId);

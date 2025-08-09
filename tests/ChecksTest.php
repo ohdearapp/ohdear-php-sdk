@@ -12,7 +12,6 @@ beforeEach(function () {
     $this->ohDear = ohDearMock();
 });
 
-
 it('can enable a check', function () {
     MockClient::global([
         EnableCheckRequest::class => MockResponse::fixture('enable-check'),
