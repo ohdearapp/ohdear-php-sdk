@@ -8,6 +8,7 @@ use OhDear\PhpSdk\Exceptions\OhDearException;
 use OhDear\PhpSdk\Exceptions\ValidationException;
 use OhDear\PhpSdk\Requests\MeRequest;
 use OhDear\PhpSdk\Requests\Monitors\CreateMonitorRequest;
+use OhDear\PhpSdk\Requests\Monitors\DeleteMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;
 use OhDear\PhpSdk\Requests\Monitors\UpdateMonitorRequest;
@@ -110,6 +111,15 @@ class OhDear extends Connector implements HasPagination
         $request = new UpdateMonitorRequest($monitorId, $monitorProperties);
 
         return $this->send($request)->dto();
+    }
+
+    public function deleteMonitor(int $monitorId): self
+    {
+        $request = new DeleteMonitorRequest($monitorId);
+
+        $this->send($request);
+
+        return $this;
     }
 
     public function paginate(Request $request): Paginator

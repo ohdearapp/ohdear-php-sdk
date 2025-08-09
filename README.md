@@ -6,15 +6,44 @@
 
 A modern PHP SDK for the [Oh Dear](https://ohdear.app) API, built with [Saloon](https://docs.saloon.dev/) v3.
 
+```php
+use OhDear\PhpSdk\OhDear;
+use OhDear\PhpSdk\Dto\Monitor;
+use OhDear\PhpSdk\Requests\Monitors\{GetMonitorsRequest, CreateMonitorRequest};
+
+$ohDear = new OhDear('your-api-token');
+
+$ohDear->createMonitor([
+    'url' => 'https://example.com',
+    'type' => 'http',
+    'team_id' => 1,
+])
+
+// returns an iterator of OhDear\PhpSdk\Dto\Monitor
+$monitors = $ohDear->monitors();
+
+foreach($monitors as $monitor) {
+    echo "Monitor: {$monitor->url} (ID: {$monitor->id})\n";
+}
+```
+
+Behind the scenes, the SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests.
+
 ## Installation
 
 ```bash
 composer require ohdearapp/ohdear-php-sdk
 ```
 
+## Oh Dear documentation
+
+To get started, we highly recommend reading
+the [Oh Dear API documentation](https://ohdear.app/docs/integrations/the-oh-dear-api).
+
 ## Usage
 
-### Basic Setup
+To authenticate, you'll need an API token. You can create one in
+the [API tokens screen at Oh Dear](https://ohdear.app/user/api-tokens).
 
 ```php
 use OhDear\PhpSdk\OhDear;
@@ -22,122 +51,91 @@ use OhDear\PhpSdk\OhDear;
 $ohDear = new OhDear('your-api-token');
 ```
 
-### Making Requests (The Saloon Way)
+### Handling errors
 
-This SDK is built on Saloon v3, giving you the full power of Saloon's HTTP client:
-
-#### Get All Monitors
+The SDK will throw an exception if the API returns an error. For validation errors, the SDK will throw a `ValidationException`.
 
 ```php
-use OhDear\PhpSdk\Dto\Monitor;use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;
+try {
+    $ohDear->createMonitor([
+        'url' => 'invalid-url',
+    ]);
+} catch (\OhDear\PhpSdk\Exceptions\ValidationException $exception) {
+    $exception->getMessage(); // returns a string describing the errors
+    
+    $exception->errors(); // returns an array with all validation errors
+}
+```
 
-$response = $ohDear->send(new GetMonitorsRequest);
-$monitors = Monitor::collect($response->json('data'));
+For all other errors, the SDK will throw an `\OhDear\PhpSdk\Exceptions\OhDearException`.
 
-foreach ($monitors as $monitor) {
+### Get user info
+
+```php
+// returns OhDear\PhpSdk\Dto\User
+$user = $ohDear->me();
+
+echo $user->email // returns the email address of the authenticated user
+```
+
+### Get all monitors
+
+```php
+// returns an iterator of OhDear\PhpSdk\Dto\Monitor
+$monitors = $ohDear->monitors();
+
+foreach($monitors as $monitor) {
     echo "Monitor: {$monitor->url} (ID: {$monitor->id})\n";
 }
 ```
 
-#### Get Single Monitor
+### Create a monitor
 
-```php
-use OhDear\PhpSdk\Dto\Monitor;use OhDear\PhpSdk\Requests\Monitors\GetMonitorRequest;
+You can use the `createMonitor` method to create a monitor.
 
-$response = $ohDear->send(new GetMonitorRequest(123));
-
-$monitor = Monitor::fromResponse($response->json());
-
-echo "Monitor URL: {$monitor->url}\n";
-```
-
-#### Create Monitor
-
-```php
-use OhDear\PhpSdk\Dto\Monitor;use OhDear\PhpSdk\Requests\Monitors\CreateMonitorRequest;
-
-$response = $ohDear->send(new CreateMonitorRequest([
+```php 
+$monitor = $ohDear->createMonitor([
     'url' => 'https://example.com',
-    'label' => 'My Website'
-]));
-
-$monitor = Monitor::fromResponse($response->json());
-
-echo "Created monitor with ID: {$monitor->id}\n";
-```
-
-#### Get User Info
-
-```php
-use OhDear\PhpSdk\Dto\User;use OhDear\PhpSdk\Requests\Users\GetMeRequest;
-
-$response = $ohDear->send(new GetMeRequest);
-
-$user = User::fromResponse($response->json());
-
-echo "Hello, {$user->name}!\n";
-```
-
-#### Get Uptime Data
-
-```php
-use OhDear\PhpSdk\Dto\Uptime;use OhDear\PhpSdk\Requests\Monitors\GetUptimeRequest;
-
-$response = $ohDear->send(new GetUptimeRequest(
-    monitorId: 123,
-    startedAt: '20240101000000',
-    endedAt: '20240131000000',
-    split: 'day'
-));
-
-$uptimeData = Uptime::collect($response->json());
-
-foreach ($uptimeData as $uptime) {
-    echo "Date: {$uptime->datetime}, Uptime: {$uptime->uptimePercentage}%\n";
-}
-```
-
-### Testing with Saloon
-
-Use Saloon's powerful mocking capabilities for testing:
-
-```php
-use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;use Saloon\Http\Faking\MockClient;use Saloon\Http\Faking\MockResponse;
-
-$mockClient = new MockClient([
-    GetMonitorsRequest::class => MockResponse::make([
-        'data' => [
-            [
-                'id' => 1,
-                'url' => 'https://example.com',
-                'sort_url' => 'example.com',
-                'checks' => [],
-            ]
-        ]
-    ], 200),
+    'type' => 'http',
+    'team_id' => 1,
 ]);
 
-$ohDear = new OhDear('test-token');
-
-$ohDear->withMockClient($mockClient);
-
-// Your tests here...
+echo $monitor->url; // returns https://example.com
 ```
 
-### Date Utilities
+You can find a list of attributes you can pass to the `createMonitor` method in the [Oh Dear API documentation](#oh-dear-documentation).
 
-The connector includes a date conversion helper:
+### Getting a single monitor
+
+You can use the `monitor` method to get a single monitor.
 
 ```php
-$ohDear->convertDateFormat('2024-01-01'); // Returns: 20240101000000
-$ohDear->convertDateFormat('2024-01-01 12:30:00'); // Returns: 20240101123000
-$ohDear->convertDateFormat('2024-01-01', 'Y-m-d'); // Returns: 2024-01-01
+// returns OhDear\PhpSdk\Dto\Monitor
+$monitor = $ohDear->monitor($monitorId);
 ```
 
-## Requirements
+### Deleting a monitor
 
-- PHP 8.1 or higher
-- Saloon v3
+You can use the `deleteMonitor` method to delete a monitor.
+
+```php
+$ohDear->deleteMonitor($monitorId)
+```
+
+### Using Saloon requests directly
+
+This SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests. Instead of using the `OhDear` class, you can the underlying request classes directly. This way, you have full power to customize the requests.
+
+```php
+use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;
+
+$request = new GetMonitorsRequest();
+
+// raw response from the Oh Dear API
+$response = $ohDear->send($request);
+```
+
+Take a look at the [Saloon documentation](https://docs.saloon.dev) to learn more about how to customize the requests.
 
 ## Security
 

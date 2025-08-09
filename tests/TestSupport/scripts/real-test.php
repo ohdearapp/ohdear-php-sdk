@@ -13,6 +13,7 @@ $baseUrl = $_ENV['OH_DEAR_BASE_URL'] ?? null;
 
 $ohDear = new OhDear($token, $baseUrl);
 
+/*
 dump($ohDear->me());
 
 $updated = $ohDear->updateMonitor(82063, [
@@ -25,6 +26,7 @@ dd($updated);
 
 $monitors = $ohDear->monitors();
 
+
 foreach ($monitors as $monitor) {
     // dump($monitor->teamId);
     // dump($monitor->id);
@@ -32,12 +34,13 @@ foreach ($monitors as $monitor) {
 
 // dump($ohDear->monitor(82062));
 
+*/
+
 $monitor = $ohDear->createMonitor([
     'team_id' => 19245,
     'type' => 'http',
     'url' => 'https://laravel.com',
 ]);
 
-// 82063
 
 dump($monitor);

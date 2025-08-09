@@ -4,17 +4,22 @@ use Dotenv\Dotenv;
 use OhDear\PhpSdk\OhDear;
 use Saloon\Http\Faking\MockClient;
 
-uses()
-    ->beforeEach(function () {
+uses()->in(__DIR__);
 
-        $dotenv = Dotenv::createImmutable(__DIR__.'/TestSupport');
-        $dotenv->safeLoad();
+function ohDearMock(): OhDear
+{
+    MockClient::destroyGlobal();
 
-        $this->token = $_ENV['OH_DEAR_API_TOKEN'] ?? 'fake-token';
-        $this->baseUrl = $_ENV['OH_DEAR_BASE_URL'] ?? 'https://ohdear.app/api/';
+    $dotenv = Dotenv::createImmutable(__DIR__.'/TestSupport');
+    $dotenv->safeLoad();
 
-        $this->ohDear = new OhDear($this->token, $this->baseUrl);
+    $token = $_ENV['OH_DEAR_API_TOKEN'] ?? 'fake-token';
+    $baseUrl = $_ENV['OH_DEAR_BASE_URL'] ?? 'https://ohdear.app/api/';
 
-        MockClient::destroyGlobal();
-    })
-    ->in(__DIR__);
+    return new OhDear($token, $baseUrl);
+}
+
+function markTestComplete()
+{
+    expect(true)->toBeTrue();
+}
