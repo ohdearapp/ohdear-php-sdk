@@ -19,12 +19,12 @@
     ],
     "require": {
         "php": "^8.2",
-        "saloonphp/pagination-plugin": "^2.0",
-        "saloonphp/saloon": "^3.0"
+        "saloonphp/pagination-plugin": "^2.2",
+        "saloonphp/saloon": "^3.14"
     },
     "require-dev": {
-        "pestphp/pest": "^3.8",
-        "vlucas/phpdotenv": "^5.6"
+        "pestphp/pest": "^3.8.2",
+        "vlucas/phpdotenv": "^5.6.2"
     },
     "autoload": {
         "psr-4": {
