@@ -6,7 +6,6 @@ use OhDear\PhpSdk\Dto\StatusPage;
 use OhDear\PhpSdk\Requests\StatusPages\DeleteStatusPageRequest;
 use OhDear\PhpSdk\Requests\StatusPages\GetStatusPageRequest;
 use OhDear\PhpSdk\Requests\StatusPages\GetStatusPagesRequest;
-use OhDear\PhpSdk\Requests\StatusPages\UpdateStatusPageRequest;
 
 /** @mixin \OhDear\PhpSdk\OhDear */
 trait SupportsStatusPageEndpoints

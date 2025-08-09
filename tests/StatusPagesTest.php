@@ -3,7 +3,6 @@
 use OhDear\PhpSdk\Requests\StatusPages\DeleteStatusPageRequest;
 use OhDear\PhpSdk\Requests\StatusPages\GetStatusPageRequest;
 use OhDear\PhpSdk\Requests\StatusPages\GetStatusPagesRequest;
-use OhDear\PhpSdk\Requests\StatusPages\UpdateStatusPageRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 

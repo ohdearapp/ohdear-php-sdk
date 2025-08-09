@@ -33,7 +33,7 @@ class StatusPage
             slug: $data['slug'] ?? null,
             full_url: $data['full_url'] ?? null,
             timezone: $data['timezone'] ?? null,
-            summarized_status: $data['summarized_status'] ??null,
+            summarized_status: $data['summarized_status'] ?? null,
             updates: $data['updates'] ?? [],
             monitors: $data['monitors'] ?? [],
             created_at: $data['created_at'],

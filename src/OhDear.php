@@ -22,7 +22,6 @@ class OhDear extends Connector implements HasPagination
 {
     use AcceptsJson;
     use AlwaysThrowOnErrors;
-
     use SupportsMeEndpoint;
     use SupportsMonitorEndpoints;
     use SupportsStatusPageEndpoints;
@@ -75,7 +74,6 @@ class OhDear extends Connector implements HasPagination
             'timeout' => 10,
         ];
     }
-
 
     public function paginate(Request $request): Paginator
     {
