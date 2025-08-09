@@ -5,7 +5,7 @@ use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 
 beforeEach(function () {
-   $this->ohDear = ohDearMock();
+    $this->ohDear = ohDearMock();
 });
 
 it('can get the current user', function () {

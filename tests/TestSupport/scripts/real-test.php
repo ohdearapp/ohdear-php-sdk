@@ -42,5 +42,4 @@ $monitor = $ohDear->createMonitor([
     'url' => 'https://laravel.com',
 ]);
 
-
 dump($monitor);
