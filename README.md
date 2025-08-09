@@ -150,6 +150,65 @@ You can use the `deleteStatusPage` method to delete a status page.
 $ohDear->deleteStatusPage($statusPageId)
 ```
 
+### Enabling a check
+
+You can enable a check using its ID:
+
+```php
+// Returns OhDear\PhpSdk\Dto\Check
+$check = $ohDear->enableCheck($checkId);
+
+echo $check->enabled; // true
+```
+
+### Disabling a check
+
+You can disable a check using its ID:
+
+```php
+// Returns OhDear\PhpSdk\Dto\Check
+$check = $ohDear->disableCheck($checkId);
+
+echo $check->enabled;
+```
+
+### Requesting a check run
+
+You can request an immediate run of a check:
+
+```php
+// Basic run request
+// Returns OhDear\PhpSdk\Dto\Check
+$check = $ohDear->requestCheckRun($checkId);
+
+// For uptime checks, you can also pass custom HTTP headers
+$check = $ohDear->requestCheckRun($checkId, [
+    'User-Agent' => 'Custom User Agent',
+    'Authorization' => 'Bearer token123',
+]);
+```
+
+### Snoozing a check
+
+You can snooze a check for a specified number of minutes (1 to 144000 minutes):
+
+```php
+// Snooze a check for 60 minutes
+$check = $ohDear->snoozeCheck($checkId, 60);
+
+echo $check->active_snooze ? 'Check is snoozed' : 'Check is active';
+```
+
+### Unsnoozing a check
+
+You can unsnooze a check to make it active again:
+
+```php
+$check = $ohDear->unsnoozeCheck($checkId);
+
+echo $check->active_snooze ? 'Check is still snoozed' : 'Check is now active';
+```
+
 ### Using Saloon requests directly
 
 This SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests. Instead of using the `OhDear` class, you can the underlying request classes directly. This way, you have full power to customize the requests.
