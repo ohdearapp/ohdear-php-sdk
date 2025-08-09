@@ -28,11 +28,11 @@ class RequestCheckRunRequest extends Request implements HasBody
     protected function defaultBody(): array
     {
         $body = [];
-        
-        if (!empty($this->httpClientHeaders)) {
+
+        if (! empty($this->httpClientHeaders)) {
             $body['httpClientHeaders'] = $this->httpClientHeaders;
         }
-        
+
         return $body;
     }
 
