@@ -209,6 +209,83 @@ $check = $ohDear->unsnoozeCheck($checkId);
 echo $check->active_snooze ? 'Check is still snoozed' : 'Check is now active';
 ```
 
+### Maintenance Periods
+
+Maintenance periods allow you to temporarily disable notifications for monitors during planned maintenance windows.
+
+#### Getting maintenance periods for a monitor
+
+You can get all maintenance periods for a specific monitor:
+
+```php
+// returns an iterator of OhDear\PhpSdk\Dto\MaintenancePeriod
+$maintenancePeriods = $ohDear->maintenancePeriods($monitorId);
+
+foreach ($maintenancePeriods as $period) {
+    echo "Maintenance: {$period->name} from {$period->starts_at} to {$period->ends_at}\n";
+}
+
+// You can also filter by date range
+$periods = $ohDear->maintenancePeriods($monitorId, '2024-01-01 00:00:00', '2024-12-31 23:59:59');
+```
+
+#### Starting a maintenance period
+
+You can start an immediate maintenance period for a monitor:
+
+```php
+// Start maintenance for 1 hour (3600 seconds) - default duration
+$period = $ohDear->startMaintenancePeriod($monitorId);
+
+// Start maintenance for a custom duration with a name
+$period = $ohDear->startMaintenancePeriod($monitorId, 7200, 'Database Migration');
+
+echo "Maintenance started: {$period->name}";
+```
+
+#### Stopping maintenance periods
+
+You can stop all active maintenance periods for a monitor:
+
+```php
+$ohDear->stopMaintenancePeriod($monitorId);
+```
+
+#### Creating a scheduled maintenance period
+
+You can create a maintenance period scheduled for the future:
+
+```php
+$period = $ohDear->createMaintenancePeriod([
+    'monitor_id' => $monitorId,
+    'name' => 'Scheduled Server Maintenance',
+    'starts_at' => '2024-12-25 02:00',
+    'ends_at' => '2024-12-25 06:00',
+]);
+
+echo "Scheduled maintenance: {$period->name}";
+```
+
+#### Updating a maintenance period
+
+You can update an existing maintenance period:
+
+```php
+$period = $ohDear->updateMaintenancePeriod($maintenancePeriodId, [
+    'name' => 'Updated Maintenance Window',
+    'starts_at' => '2024-12-25 01:00',
+    'ends_at' => '2024-12-25 05:00',
+]);
+```
+
+#### Deleting a maintenance period
+
+You can delete a maintenance period:
+
+```php
+$ohDear->deleteMaintenancePeriod($maintenancePeriodId);
+```
+
 ### Using Saloon requests directly
 
 This SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests. Instead of using the `OhDear` class, you can the underlying request classes directly. This way, you have full power to customize the requests.
