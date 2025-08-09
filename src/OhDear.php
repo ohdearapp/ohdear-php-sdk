@@ -2,14 +2,14 @@
 
 namespace OhDear\PhpSdk;
 
-use DateTimeImmutable;
+use OhDear\PhpSdk\Dto\Monitor;
 use OhDear\PhpSdk\Dto\User;
 use OhDear\PhpSdk\Exceptions\OhDearException;
 use OhDear\PhpSdk\Exceptions\ValidationException;
+use OhDear\PhpSdk\Requests\MeRequest;
 use OhDear\PhpSdk\Requests\Monitors\CreateMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;
-use OhDear\PhpSdk\Requests\MeRequest;
 use OhDear\PhpSdk\Requests\Monitors\UpdateMonitorRequest;
 use Saloon\Http\Auth\TokenAuthenticator;
 use Saloon\Http\Connector;
@@ -20,7 +20,6 @@ use Saloon\PaginationPlugin\PagedPaginator;
 use Saloon\PaginationPlugin\Paginator;
 use Saloon\Traits\Plugins\AcceptsJson;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
-use OhDear\PhpSdk\Dto\Monitor;
 use Throwable;
 
 class OhDear extends Connector implements HasPagination
@@ -79,7 +78,7 @@ class OhDear extends Connector implements HasPagination
 
     public function me(): User
     {
-        $request = new MeRequest();
+        $request = new MeRequest;
 
         return $this->send($request)->dto();
     }
@@ -120,9 +119,9 @@ class OhDear extends Connector implements HasPagination
             protected function isLastPage(Response $response): bool
             {
                 $currentPage = $response->json('meta.current_page');
-                 $lastPage = $response->json('meta.last_page');
+                $lastPage = $response->json('meta.last_page');
 
-                 return $currentPage === $lastPage;
+                return $currentPage === $lastPage;
             }
 
             protected function getPageItems(Response $response, Request $request): array

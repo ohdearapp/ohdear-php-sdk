@@ -2,11 +2,10 @@
 
 use Dotenv\Dotenv;
 use OhDear\PhpSdk\OhDear;
-use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;
 
-require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__.'/../../../vendor/autoload.php';
 
-$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv = Dotenv::createImmutable(__DIR__.'/..');
 $dotenv->safeLoad();
 
 $token = $_ENV['OH_DEAR_API_TOKEN'] ?? null;
@@ -26,9 +25,9 @@ dd($updated);
 
 $monitors = $ohDear->monitors();
 
-foreach($monitors as $monitor) {
-    //dump($monitor->teamId);
-    //dump($monitor->id);
+foreach ($monitors as $monitor) {
+    // dump($monitor->teamId);
+    // dump($monitor->id);
 }
 
 // dump($ohDear->monitor(82062));

@@ -3,7 +3,6 @@
 namespace OhDear\PhpSdk\Exceptions;
 
 use Saloon\Http\Response;
-use Throwable;
 
 class ValidationException extends OhDearException
 {
@@ -24,17 +23,17 @@ class ValidationException extends OhDearException
     protected function buildMessage(array $data): string
     {
         $baseMessage = $data['message'] ?? 'Validation failed';
-        
+
         if (empty($this->errors)) {
             return $baseMessage;
         }
 
         $fieldMessages = [];
         foreach ($this->errors as $field => $messages) {
-            $fieldMessages[] = "{$field}: " . implode(', ', $messages);
+            $fieldMessages[] = "{$field}: ".implode(', ', $messages);
         }
 
-        return $baseMessage . ' (' . implode('; ', $fieldMessages) . ')';
+        return $baseMessage.' ('.implode('; ', $fieldMessages).')';
     }
 
     /** @return array<string, array<int, string>> */

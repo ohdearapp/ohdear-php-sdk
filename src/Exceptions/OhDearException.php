@@ -4,7 +4,6 @@ namespace OhDear\PhpSdk\Exceptions;
 
 use Exception;
 use Saloon\Http\Response;
-use Throwable;
 
 class OhDearException extends Exception
 {

@@ -4,7 +4,7 @@ use OhDear\PhpSdk\Requests\MeRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 
-it('can get the current user', function() {
+it('can get the current user', function () {
     MockClient::global([
         MeRequest::class => MockResponse::fixture('me'),
     ]);

@@ -3,12 +3,11 @@
 use Dotenv\Dotenv;
 use OhDear\PhpSdk\OhDear;
 use Saloon\Http\Faking\MockClient;
-use Saloon\MockConfig;
 
 uses()
     ->beforeEach(function () {
 
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/TestSupport');
+        $dotenv = Dotenv::createImmutable(__DIR__.'/TestSupport');
         $dotenv->safeLoad();
 
         $this->token = $_ENV['OH_DEAR_API_TOKEN'] ?? 'fake-token';
@@ -19,5 +18,3 @@ uses()
         MockClient::destroyGlobal();
     })
     ->in(__DIR__);
-
-

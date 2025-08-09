@@ -40,7 +40,7 @@ class Monitor
     {
         return new self(
             id: $data['id'],
-            teamId:$data['team_id'],
+            teamId: $data['team_id'],
             url: $data['url'],
             usesHttps: $data['uses_https'] ?? false,
             sortUrl: $data['sort_url'] ?? $data['url'],

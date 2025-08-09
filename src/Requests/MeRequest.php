@@ -16,7 +16,7 @@ class MeRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "/me";
+        return '/me';
     }
 
     public function createDtoFromResponse(Response $response): User
