@@ -12,7 +12,9 @@ use OhDear\PhpSdk\Concerns\SupportsDnsHistoryItemsEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsLighthouseReportsEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMaintenancePeriodEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMeEndpoint;
+use OhDear\PhpSdk\Concerns\SupportsMixedContentEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMonitorEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsSitemapEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsStatusPageEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsUptimeMetricsEndpoints;
 use OhDear\PhpSdk\Exceptions\OhDearException;
@@ -42,7 +44,9 @@ class OhDear extends Connector implements HasPagination
     use SupportsLighthouseReportsEndpoints;
     use SupportsMaintenancePeriodEndpoints;
     use SupportsMeEndpoint;
+    use SupportsMixedContentEndpoints;
     use SupportsMonitorEndpoints;
+    use SupportsSitemapEndpoints;
     use SupportsStatusPageEndpoints;
     use SupportsUptimeMetricsEndpoints;
 

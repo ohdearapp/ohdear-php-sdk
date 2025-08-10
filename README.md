@@ -677,6 +677,111 @@ foreach ($history as $historyItem) {
 }
 ```
 
+### Sitemap
+
+The sitemap check analyzes your website's XML sitemap(s) to ensure they're accessible and properly formatted, and can also check the reachability of URLs within the sitemaps.
+
+#### Getting sitemap analysis for a monitor
+
+```php
+// returns OhDear\PhpSdk\Dto\Sitemap
+$sitemap = $ohDear->sitemap($monitorId);
+
+echo "Sitemap check URL: {$sitemap->checkUrl}";
+echo "Total URLs found: {$sitemap->totalUrlCount}";
+echo "Total issues found: {$sitemap->totalIssuesCount}";
+echo "Has issues: " . ($sitemap->hasIssues ? 'Yes' : 'No');
+
+// Check for general issues
+if (!empty($sitemap->issues)) {
+    echo "General issues:";
+    foreach ($sitemap->issues as $issue) {
+        echo "- {$issue['message']} (Type: {$issue['type']})";
+    }
+}
+
+// Sitemap indexes (if any)
+if (!empty($sitemap->sitemapIndexes)) {
+    echo "Sitemap indexes found: " . count($sitemap->sitemapIndexes);
+    foreach ($sitemap->sitemapIndexes as $index) {
+        echo "Index: {$index['url']}";
+        if (!empty($index['issues'])) {
+            echo "  Issues: " . count($index['issues']);
+        }
+    }
+}
+
+// Individual sitemaps
+if (!empty($sitemap->sitemaps)) {
+    echo "Sitemaps found: " . count($sitemap->sitemaps);
+    foreach ($sitemap->sitemaps as $sitemapData) {
+        echo "Sitemap: {$sitemapData['url']}";
+        echo "  URLs: {$sitemapData['urlCount']}";
+        
+        if (!empty($sitemapData['issues'])) {
+            echo "  Issues: " . count($sitemapData['issues']);
+            foreach ($sitemapData['issues'] as $issue) {
+                echo "    - {$issue['message']}";
+            }
+        }
+    }
+}
+```
+
+### Mixed Content
+
+The mixed content check identifies elements on your HTTPS pages that are loaded over HTTP, which can cause security warnings in browsers and degrade user experience.
+
+#### Getting mixed content issues for a monitor
+
+```php
+// returns an array of OhDear\PhpSdk\Dto\MixedContent
+$mixedContentItems = $ohDear->mixedContent($monitorId);
+
+if (empty($mixedContentItems)) {
+    echo "No mixed content issues found!";
+} else {
+    echo "Found " . count($mixedContentItems) . " mixed content issues:";
+    
+    foreach ($mixedContentItems as $mixedContent) {
+        echo "Element: {$mixedContent->element_name}";
+        echo "Insecure URL: {$mixedContent->mixed_content_url}";
+        echo "Found on page: {$mixedContent->found_on_url}";
+        echo "---";
+    }
+    
+    // Group by page to see which pages have the most issues
+    $issuesByPage = [];
+    foreach ($mixedContentItems as $item) {
+        $page = $item->found_on_url;
+        if (!isset($issuesByPage[$page])) {
+            $issuesByPage[$page] = 0;
+        }
+        $issuesByPage[$page]++;
+    }
+    
+    echo "Pages with mixed content issues:";
+    foreach ($issuesByPage as $page => $count) {
+        echo "- {$page}: {$count} issues";
+    }
+    
+    // Group by element type
+    $issuesByElement = [];
+    foreach ($mixedContentItems as $item) {
+        $element = $item->element_name;
+        if (!isset($issuesByElement[$element])) {
+            $issuesByElement[$element] = 0;
+        }
+        $issuesByElement[$element]++;
+    }
+    
+    echo "Issues by element type:";
+    foreach ($issuesByElement as $element => $count) {
+        echo "- {$element}: {$count} issues";
+    }
+}
+```
+
 ### Using Saloon requests directly
 
 This SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests. Instead of using the `OhDear` class, you can the underlying request classes directly. This way, you have full power to customize the requests.
