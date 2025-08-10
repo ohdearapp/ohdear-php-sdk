@@ -66,7 +66,7 @@ class OhDear extends Connector implements HasPagination
     public function getRequestException(Response $response, ?Throwable $senderException): ?Throwable
     {
         if ($response->status() === 422) {
-            return new ValidationException($response, $senderException);
+            return new ValidationException($response);
         }
 
         return new OhDearException(

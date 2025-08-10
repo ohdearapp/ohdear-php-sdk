@@ -17,7 +17,7 @@ class DetectedCertificate
 
     public static function fromResponse(array $data): static
     {
-        return new static(
+        return new self(
             id: $data['id'],
             monitor_id: $data['monitor_id'],
             fingerprint: $data['fingerprint'],

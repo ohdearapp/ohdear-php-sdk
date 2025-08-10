@@ -18,7 +18,7 @@ class ApplicationHealthCheckHistoryItem
 
     public static function fromResponse(array $data): static
     {
-        return new static(
+        return new self(
             id: $data['id'],
             status: $data['status'],
             short_summary: $data['short_summary'],

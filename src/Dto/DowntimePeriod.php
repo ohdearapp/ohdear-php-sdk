@@ -16,7 +16,7 @@ class DowntimePeriod
 
     public static function fromResponse(array $data): static
     {
-        return new static(
+        return new self(
             id: $data['id'],
             started_at: $data['started_at'],
             ended_at: $data['ended_at'],

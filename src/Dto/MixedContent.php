@@ -14,7 +14,7 @@ class MixedContent
 
     public static function fromResponse(array $data): static
     {
-        return new static(
+        return new self(
             element_name: $data['element_name'],
             mixed_content_url: $data['mixed_content_url'],
             found_on_url: $data['found_on_url'],

@@ -18,7 +18,7 @@ class DnsHistoryItem
 
     public static function fromResponse(array $data): static
     {
-        return new static(
+        return new self(
             id: $data['id'],
             authoritative_nameservers: $data['authoritative_nameservers'] ?? [],
             dns_records: $data['dns_records'] ?? [],

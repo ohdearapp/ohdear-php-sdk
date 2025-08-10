@@ -18,7 +18,7 @@ class Sitemap
 
     public static function fromResponse(array $data): static
     {
-        return new static(
+        return new self(
             checkUrl: $data['checkUrl'],
             totalIssuesCount: $data['totalIssuesCount'],
             totalUrlCount: $data['totalUrlCount'],

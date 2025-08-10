@@ -27,7 +27,7 @@ class LighthouseReport
 
     public static function fromResponse(array $data): static
     {
-        return new static(
+        return new self(
             id: $data['id'],
             performance_score: $data['performance_score'],
             accessibility_score: $data['accessibility_score'],

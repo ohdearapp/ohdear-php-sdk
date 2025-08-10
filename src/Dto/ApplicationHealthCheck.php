@@ -21,7 +21,7 @@ class ApplicationHealthCheck
 
     public static function fromResponse(array $data): static
     {
-        return new static(
+        return new self(
             id: $data['id'],
             name: $data['name'],
             label: $data['label'],
