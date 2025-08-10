@@ -17,7 +17,10 @@ trait SupportsMonitorEndpoints
     {
         $request = new GetMonitorsRequest($teamId);
 
-        return $this->paginate($request)->items();
+        /** @var iterable<int, Monitor> $items */
+        $items = $this->paginate($request)->items();
+        
+        return $items;
     }
 
     public function monitor(int $monitorId): Monitor

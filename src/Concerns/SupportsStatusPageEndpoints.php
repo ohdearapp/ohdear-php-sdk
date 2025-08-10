@@ -15,7 +15,10 @@ trait SupportsStatusPageEndpoints
     {
         $request = new GetStatusPagesRequest($teamId);
 
-        return $this->paginate($request)->items();
+        /** @var iterable<int, StatusPage> $items */
+        $items = $this->paginate($request)->items();
+        
+        return $items;
     }
 
     public function statusPage(int $statusPageId): StatusPage

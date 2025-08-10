@@ -25,7 +25,7 @@ class LighthouseReport
         public string $createdAt,
     ) {}
 
-    public static function fromResponse(array $data): static
+    public static function fromResponse(array $data): self
     {
         return new self(
             id: $data['id'],

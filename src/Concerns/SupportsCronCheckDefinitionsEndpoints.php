@@ -18,7 +18,10 @@ trait SupportsCronCheckDefinitionsEndpoints
     {
         $request = new GetCronCheckDefinitionsRequest($monitorId);
 
-        return $this->paginate($request)->items();
+        /** @var iterable<int, CronCheckDefinition> $items */
+        $items = $this->paginate($request)->items();
+        
+        return $items;
     }
 
     public function createCronCheckDefinition(int $monitorId, array $data): CronCheckDefinition

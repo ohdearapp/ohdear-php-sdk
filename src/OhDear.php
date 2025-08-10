@@ -115,7 +115,7 @@ class OhDear extends Connector implements HasPagination
 
             protected function getPageItems(Response $response, Request $request): array
             {
-                return $response->dto();
+                return $request->createDtoFromResponse($response);
             }
         };
     }

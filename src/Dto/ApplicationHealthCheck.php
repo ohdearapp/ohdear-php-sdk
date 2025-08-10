@@ -19,7 +19,7 @@ class ApplicationHealthCheck
         public ?array $activeSnooze,
     ) {}
 
-    public static function fromResponse(array $data): static
+    public static function fromResponse(array $data): self
     {
         return new self(
             id: $data['id'],

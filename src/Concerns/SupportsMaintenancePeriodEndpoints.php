@@ -18,7 +18,10 @@ trait SupportsMaintenancePeriodEndpoints
     {
         $request = new GetMaintenancePeriodsRequest($monitorId, $startedAt, $endedAt);
 
-        return $this->paginate($request)->items();
+        /** @var iterable<int, MaintenancePeriod> $items */
+        $items = $this->paginate($request)->items();
+        
+        return $items;
     }
 
     public function startMaintenancePeriod(int $monitorId, ?int $stopMaintenanceAfterSeconds = null, ?string $name = null): MaintenancePeriod

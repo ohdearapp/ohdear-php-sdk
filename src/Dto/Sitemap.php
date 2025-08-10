@@ -16,7 +16,7 @@ class Sitemap
         public array $sitemaps,
     ) {}
 
-    public static function fromResponse(array $data): static
+    public static function fromResponse(array $data): self
     {
         return new self(
             checkUrl: $data['checkUrl'],

@@ -13,6 +13,9 @@ trait SupportsBrokenLinksEndpoints
     {
         $request = new GetBrokenLinksRequest($monitorId);
 
-        return $this->paginate($request)->items();
+        /** @var iterable<int, BrokenLink> $items */
+        $items = $this->paginate($request)->items();
+        
+        return $items;
     }
 }
