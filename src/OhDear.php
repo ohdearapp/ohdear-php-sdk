@@ -7,6 +7,7 @@ use OhDear\PhpSdk\Concerns\SupportsMonitorEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsStatusPageEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsCheckEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMaintenancePeriodEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsUptimeMetricsEndpoints;
 use OhDear\PhpSdk\Exceptions\OhDearException;
 use OhDear\PhpSdk\Exceptions\ValidationException;
 use Saloon\Http\Auth\TokenAuthenticator;
@@ -29,6 +30,7 @@ class OhDear extends Connector implements HasPagination
     use SupportsStatusPageEndpoints;
     use SupportsCheckEndpoints;
     use SupportsMaintenancePeriodEndpoints;
+    use SupportsUptimeMetricsEndpoints;
 
     protected string $apiToken;
 

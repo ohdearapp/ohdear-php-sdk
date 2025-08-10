@@ -1,10 +1,10 @@
-# Oh Dear PHP SDK (Saloon-Powered)
+# Oh Dear PHP SDK
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ohdearapp/ohdear-php-sdk.svg?style=flat-square)](https://packagist.org/packages/ohdearapp/ohdear-php-sdk)
 ![Tests](https://github.com/ohdearapp/ohdear-php-sdk/workflows/run-tests/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/ohdearapp/ohdear-php-sdk.svg?style=flat-square)](https://packagist.org/packages/ohdearapp/ohdear-php-sdk)
 
-A modern PHP SDK for the [Oh Dear](https://ohdear.app) API, built with [Saloon](https://docs.saloon.dev/) v3.
+This package is the official PHP SDK for the [Oh Dear](https://ohdear.app) API, built with [Saloon](https://docs.saloon.dev/) v3.
 
 ```php
 use OhDear\PhpSdk\OhDear;
@@ -78,7 +78,11 @@ $user = $ohDear->me();
 echo $user->email // returns the email address of the authenticated user
 ```
 
-### Get all monitors
+### Monitors
+
+Monitors are the core of Oh Dear - they watch your websites, APIs, and services for uptime, performance, SSL certificates, broken links, and more. You can create different types of monitors (HTTP, ping, TCP) and configure various checks for each one.
+
+#### Get all monitors
 
 ```php
 // returns an iterator of OhDear\PhpSdk\Dto\Monitor
@@ -89,7 +93,7 @@ foreach($monitors as $monitor) {
 }
 ```
 
-### Create a monitor
+#### Create a monitor
 
 You can use the `createMonitor` method to create a monitor.
 
@@ -105,7 +109,7 @@ echo $monitor->url; // returns https://example.com
 
 You can find a list of attributes you can pass to the `createMonitor` method in the [Oh Dear API documentation](#oh-dear-documentation).
 
-### Getting a single monitor
+#### Getting a single monitor
 
 You can use the `monitor` method to get a single monitor.
 
@@ -114,7 +118,7 @@ You can use the `monitor` method to get a single monitor.
 $monitor = $ohDear->monitor($monitorId);
 ```
 
-### Deleting a monitor
+#### Deleting a monitor
 
 You can use the `deleteMonitor` method to delete a monitor.
 
@@ -122,7 +126,11 @@ You can use the `deleteMonitor` method to delete a monitor.
 $ohDear->deleteMonitor($monitorId);
 ```
 
-### Get all status pages
+### Status pages
+
+Status pages provide a public way to communicate the status of your services to your users. They automatically reflect the health of your monitors and allow you to post updates during incidents or maintenance windows.
+
+#### Get all status pages
 
 ```php
 // returns an iterator of OhDear\PhpSdk\Dto\StatusPage
@@ -133,7 +141,7 @@ foreach($statusPages as $statusPage) {
 }
 ```
 
-### Getting a single status page
+#### Getting a single status page
 
 You can use the `statusPage` method to get a single status page.
 
@@ -142,7 +150,7 @@ You can use the `statusPage` method to get a single status page.
 $statusPage = $ohDear->statusPage($statusPageId);
 ```
 
-### Deleting a status page
+#### Deleting a status page
 
 You can use the `deleteStatusPage` method to delete a status page.
 
@@ -150,7 +158,11 @@ You can use the `deleteStatusPage` method to delete a status page.
 $ohDear->deleteStatusPage($statusPageId)
 ```
 
-### Enabling a check
+### Checks
+
+Checks are individual monitoring tasks that belong to monitors (like uptime, SSL certificate, performance, broken links, etc.). You can control each check independently - enabling, disabling, requesting immediate runs, and temporarily snoozing notifications.
+
+#### Enabling a check
 
 You can enable a check using its ID:
 
@@ -161,7 +173,7 @@ $check = $ohDear->enableCheck($checkId);
 echo $check->enabled; // true
 ```
 
-### Disabling a check
+#### Disabling a check
 
 You can disable a check using its ID:
 
@@ -172,7 +184,7 @@ $check = $ohDear->disableCheck($checkId);
 echo $check->enabled;
 ```
 
-### Requesting a check run
+#### Requesting a check run
 
 You can request an immediate run of a check:
 
@@ -188,7 +200,7 @@ $check = $ohDear->requestCheckRun($checkId, [
 ]);
 ```
 
-### Snoozing a check
+#### Snoozing a check
 
 You can snooze a check for a specified number of minutes (1 to 144000 minutes):
 
@@ -199,7 +211,7 @@ $check = $ohDear->snoozeCheck($checkId, 60);
 echo $check->active_snooze ? 'Check is snoozed' : 'Check is active';
 ```
 
-### Unsnoozing a check
+#### Unsnoozing a check
 
 You can unsnooze a check to make it active again:
 
@@ -284,6 +296,66 @@ You can delete a maintenance period:
 
 ```php
 $ohDear->deleteMaintenancePeriod($maintenancePeriodId);
+```
+
+### Uptime Metrics
+
+Uptime metrics provide detailed performance and timing data for your monitors over time. Different monitor types (Http, Ping, TCP) provide different metrics.
+
+#### Getting HTTP uptime metrics
+
+For HTTP monitors, you can get detailed timing metrics including DNS, TCP, SSL handshake times and cURL statistics:
+
+```php
+use OhDear\PhpSdk\Enums\UptimeMetricsSplit;
+
+// Get HTTP metrics for the last 24 hours, grouped by hour
+$startDate = date('Y-m-d H:i:s', strtotime('-24 hours'));
+$endDate = date('Y-m-d H:i:s');
+
+$metrics = $ohDear->httpUptimeMetrics($monitorId, $startDate, $endDate, UptimeMetricsSplit::Hour);
+
+foreach ($metrics as $metric) {
+    echo "Date: {$metric->date};
+    echo "Total time: {$metric->total_time_in_seconds}s;
+    echo "DNS time: {$metric->dns_time_in_seconds}s;
+    echo "TCP time: {$metric->tcp_time_in_seconds}s;
+    echo "SSL handshake: {$metric->ssl_handshake_time_in_seconds}s;
+    echo "Download time: {$metric->download_time_in_seconds}s;
+    echo "cURL total time: {$metric->curl['total_time']}s;
+}
+```
+
+#### Getting ping uptime metrics
+
+For ping monitors, you can get response times, packet loss, and uptime percentages:
+
+```php
+$metrics = $ohDear->pingUptimeMetrics($monitorId, $startDate, $endDate, UptimeMetricsSplit::Hour);
+
+foreach ($metrics as $metric) {
+    echo "Date: {$metric->date}";
+    echo "Average response time: {$metric->average_time_in_ms}ms";
+    echo "Packet loss: {$metric->packet_loss_percentage}%";
+    echo "Uptime: {$metric->uptime_percentage}%";
+    echo "Uptime seconds: {$metric->uptime_seconds}";
+    echo "Downtime seconds: {$metric->downtime_seconds}";
+}
+```
+
+#### Getting TCP uptime metrics
+
+For TCP monitors, you can get connection times and uptime data:
+
+```php
+$metrics = $ohDear->tcpUptimeMetrics($monitorId, $startDate, $endDate, UptimeMetricsSplit::Hour);
+
+foreach ($metrics as $metric) {
+    echo "Date: {$metric->date}";
+    echo "Time to connect: {$metric->time_to_connect_in_ms}ms";
+    echo "Uptime: {$metric->uptime_percentage}%";
+    echo "Downtime: {$metric->downtime_percentage}%";
+}
 ```
 
 ### Using Saloon requests directly
