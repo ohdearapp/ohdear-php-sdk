@@ -535,6 +535,36 @@ echo "Certificate fingerprint: {$certificate->fingerprint}";
 echo "Created at: {$certificate->created_at}";
 ```
 
+### DNS History Items
+
+DNS history items track changes to your domain's DNS records over time, helping you monitor DNS propagation and detect unauthorized changes.
+
+#### Getting all DNS history items for a monitor
+
+```php
+// returns an array of OhDear\PhpSdk\Dto\DnsHistoryItem
+$dnsHistoryItems = $ohDear->dnsHistoryItems($monitorId);
+
+foreach ($dnsHistoryItems as $historyItem) {
+    echo "DNS History Item ID: {$historyItem->id}";
+    echo "Created at: {$historyItem->created_at}";
+    echo "Diff summary: {$historyItem->diff_summary}";
+    
+    print_r($historyItem->authoritative_nameservers);
+    print_r($historyItem->dns_records);
+}
+```
+
+#### Getting a single DNS history item
+
+```php
+// returns OhDear\PhpSdk\Dto\DnsHistoryItem
+$historyItem = $ohDear->dnsHistoryItem($monitorId, $historyItemId);
+
+echo "DNS changes detected at: {$historyItem->created_at}";
+echo "Summary of changes: {$historyItem->diff_summary}";
+```
+
 ### Using Saloon requests directly
 
 This SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests. Instead of using the `OhDear` class, you can the underlying request classes directly. This way, you have full power to customize the requests.
