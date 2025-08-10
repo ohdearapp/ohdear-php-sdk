@@ -17,7 +17,7 @@ trait SupportsStatusPageEndpoints
 
         /** @var iterable<int, StatusPage> $items */
         $items = $this->paginate($request)->items();
-        
+
         return $items;
     }
 

@@ -20,7 +20,7 @@ trait SupportsCronCheckDefinitionsEndpoints
 
         /** @var iterable<int, CronCheckDefinition> $items */
         $items = $this->paginate($request)->items();
-        
+
         return $items;
     }
 

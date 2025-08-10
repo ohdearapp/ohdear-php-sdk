@@ -15,7 +15,7 @@ trait SupportsBrokenLinksEndpoints
 
         /** @var iterable<int, BrokenLink> $items */
         $items = $this->paginate($request)->items();
-        
+
         return $items;
     }
 }

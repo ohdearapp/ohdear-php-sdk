@@ -20,7 +20,7 @@ trait SupportsMaintenancePeriodEndpoints
 
         /** @var iterable<int, MaintenancePeriod> $items */
         $items = $this->paginate($request)->items();
-        
+
         return $items;
     }
 
