@@ -738,47 +738,11 @@ The mixed content check identifies elements on your HTTPS pages that are loaded 
 // returns an array of OhDear\PhpSdk\Dto\MixedContent
 $mixedContentItems = $ohDear->mixedContent($monitorId);
 
-if (empty($mixedContentItems)) {
-    echo "No mixed content issues found!";
-} else {
-    echo "Found " . count($mixedContentItems) . " mixed content issues:";
-    
-    foreach ($mixedContentItems as $mixedContent) {
-        echo "Element: {$mixedContent->element_name}";
-        echo "Insecure URL: {$mixedContent->mixed_content_url}";
-        echo "Found on page: {$mixedContent->found_on_url}";
-        echo "---";
-    }
-    
-    // Group by page to see which pages have the most issues
-    $issuesByPage = [];
-    foreach ($mixedContentItems as $item) {
-        $page = $item->found_on_url;
-        if (!isset($issuesByPage[$page])) {
-            $issuesByPage[$page] = 0;
-        }
-        $issuesByPage[$page]++;
-    }
-    
-    echo "Pages with mixed content issues:";
-    foreach ($issuesByPage as $page => $count) {
-        echo "- {$page}: {$count} issues";
-    }
-    
-    // Group by element type
-    $issuesByElement = [];
-    foreach ($mixedContentItems as $item) {
-        $element = $item->element_name;
-        if (!isset($issuesByElement[$element])) {
-            $issuesByElement[$element] = 0;
-        }
-        $issuesByElement[$element]++;
-    }
-    
-    echo "Issues by element type:";
-    foreach ($issuesByElement as $element => $count) {
-        echo "- {$element}: {$count} issues";
-    }
+foreach ($mixedContentItems as $mixedContent) {
+    echo "Element: {$mixedContent->element_name}";
+    echo "Insecure URL: {$mixedContent->mixed_content_url}";
+    echo "Found on page: {$mixedContent->found_on_url}";
+    echo "---";
 }
 ```
 
