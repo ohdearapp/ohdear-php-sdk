@@ -2,11 +2,14 @@
 
 namespace OhDear\PhpSdk;
 
+use OhDear\PhpSdk\Concerns\SupportsBrokenLinksEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsCertificateHealthEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsCheckEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsCronCheckDefinitionsEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsMaintenancePeriodEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMeEndpoint;
 use OhDear\PhpSdk\Concerns\SupportsMonitorEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsStatusPageEndpoints;
-use OhDear\PhpSdk\Concerns\SupportsCheckEndpoints;
-use OhDear\PhpSdk\Concerns\SupportsMaintenancePeriodEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsUptimeMetricsEndpoints;
 use OhDear\PhpSdk\Exceptions\OhDearException;
 use OhDear\PhpSdk\Exceptions\ValidationException;
@@ -25,11 +28,14 @@ class OhDear extends Connector implements HasPagination
 {
     use AcceptsJson;
     use AlwaysThrowOnErrors;
+    use SupportsBrokenLinksEndpoints;
+    use SupportsCertificateHealthEndpoints;
+    use SupportsCheckEndpoints;
+    use SupportsCronCheckDefinitionsEndpoints;
+    use SupportsMaintenancePeriodEndpoints;
     use SupportsMeEndpoint;
     use SupportsMonitorEndpoints;
     use SupportsStatusPageEndpoints;
-    use SupportsCheckEndpoints;
-    use SupportsMaintenancePeriodEndpoints;
     use SupportsUptimeMetricsEndpoints;
 
     protected string $apiToken;

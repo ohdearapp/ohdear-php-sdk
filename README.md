@@ -126,6 +126,42 @@ You can use the `deleteMonitor` method to delete a monitor.
 $ohDear->deleteMonitor($monitorId);
 ```
 
+#### Getting certificate health for a monitor
+
+You can get detailed certificate health information including certificate details, validation checks, and certificate chain:
+
+```php
+// returns OhDear\PhpSdk\Dto\CertificateHealth
+$certificateHealth = $ohDear->certificateHealth($monitorId);
+
+// Certificate details
+echo "Issuer: {$certificateHealth->getIssuer()}\n";
+echo "Valid from: {$certificateHealth->getValidFrom()}\n";
+echo "Valid until: {$certificateHealth->getValidUntil()}\n";
+
+// Overall health status
+echo "Certificate healthy: " . ($certificateHealth->isHealthy() ? 'Yes' : 'No') . "\n";
+
+// Check specific validations
+echo "Domain matches: " . ($certificateHealth->checkPassed('domain_matches') ? 'Yes' : 'No') . "\n";
+echo "Not expired: " . ($certificateHealth->checkPassed('not_expired') ? 'Yes' : 'No') . "\n";
+
+// Get failed checks
+$failedChecks = $certificateHealth->getFailedChecks();
+if (!empty($failedChecks)) {
+    echo "Failed checks:\n";
+    foreach ($failedChecks as $check) {
+        echo "- {$check['label']} ({$check['type']})\n";
+    }
+}
+
+// Certificate chain issuers
+echo "Certificate chain:\n";
+foreach ($certificateHealth->certificate_chain_issuers as $issuer) {
+    echo "- $issuer\n";
+}
+```
+
 ### Status pages
 
 Status pages provide a public way to communicate the status of your services to your users. They automatically reflect the health of your monitors and allow you to post updates during incidents or maintenance windows.
@@ -355,6 +391,105 @@ foreach ($metrics as $metric) {
     echo "Time to connect: {$metric->time_to_connect_in_ms}ms";
     echo "Uptime: {$metric->uptime_percentage}%";
     echo "Downtime: {$metric->downtime_percentage}%";
+}
+```
+
+### Cron Check Definitions
+
+Cron check definitions allow you to monitor scheduled tasks and ensure they execute on time. You can create different types of cron checks including traditional cron expressions and simple frequency-based checks.
+
+#### Getting all cron check definitions for a monitor
+
+```php
+// returns an iterator of OhDear\PhpSdk\Dto\CronCheckDefinition
+$cronCheckDefinitions = $ohDear->cronCheckDefinitions($monitorId);
+
+foreach ($cronCheckDefinitions as $cronCheckDefinition) {
+    echo "Cron Check: {$cronCheckDefinition->name} ({$cronCheckDefinition->type})\n";
+    echo "Latest result: {$cronCheckDefinition->latest_result_label}\n";
+}
+```
+
+#### Creating a cron check definition
+
+You can create frequency-based or cron expression-based checks:
+
+```php
+use OhDear\PhpSdk\Enums\CronType;
+
+// Frequency-based cron check (ping every 30 minutes, 5 minute grace period)
+$cronCheckDefinition = $ohDear->createCronCheckDefinition($monitorId, [
+    'name' => 'Daily Backup',
+    'type' => CronType::Simple, // Uses frequency_in_minutes
+    'frequency_in_minutes' => 1440, // 24 hours
+    'grace_time_in_minutes' => 60,
+    'description' => 'Daily database backup task',
+]);
+
+// Cron expression-based check
+$cronCheckDefinition = $ohDear->createCronCheckDefinition($monitorId, [
+    'name' => 'Nightly Reports',
+    'type' => CronType::Cron, // Uses cron_expression
+    'cron_expression' => '0 2 * * *', // Run at 2:00 AM daily
+    'grace_time_in_minutes' => 30,
+    'server_timezone' => 'Europe/Brussels',
+    'description' => 'Generate nightly reports',
+]);
+
+echo $cronCheckDefinition->ping_url; // URL to ping when task completes
+```
+
+#### Updating a cron check definition
+
+```php
+$cronCheckDefinition = $ohDear->updateCronCheckDefinition($monitorId, $cronCheckDefinitionId, [
+    'name' => 'Updated Backup Task',
+    'type' => CronType::Simple,
+    'frequency_in_minutes' => 720, // Change to every 12 hours
+    'grace_time_in_minutes' => 90,
+
+]);
+```
+
+#### Deleting a cron check definition
+
+```php
+$ohDear->deleteCronCheckDefinition($cronCheckDefinitionId);
+```
+
+#### Snoozing a cron check definition
+
+You can temporarily snooze notifications for a cron check:
+
+```php
+// Snooze for 2 hours (120 minutes)
+$cronCheckDefinition = $ohDear->snoozeCronCheckDefinition($cronCheckDefinitionId, 120);
+
+echo $cronCheckDefinition->active_snooze['ends_at'];
+```
+
+#### Unsnoozing a cron check definition
+
+```php
+$cronCheckDefinition = $ohDear->unsnoozeCronCheckDefinition($cronCheckDefinitionId);
+```
+
+### Broken Links
+
+The broken links feature crawls your website and identifies links that return HTTP error status codes, helping you maintain a healthy website.
+
+#### Getting broken links for a monitor
+
+```php
+// returns an iterator of OhDear\PhpSdk\Dto\BrokenLink
+$brokenLinks = $ohDear->brokenLinks($monitorId);
+
+foreach ($brokenLinks as $brokenLink) {
+    echo "Broken link: {$brokenLink->crawled_url}";
+    echo "Status: {$brokenLink->status_code}";
+    echo "Found on: {$brokenLink->found_on_url}";
+    echo "Link text: {$brokenLink->link_text}";
+    echo "Internal link: " . ($brokenLink->internal ? 'Yes' : 'No') . "";
 }
 ```
 

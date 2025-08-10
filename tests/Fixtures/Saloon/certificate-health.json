@@ -1,0 +1,24 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Sun, 10 Aug 2025 08:04:17 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "499",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=4rRapNM8CJlLEs6BGIxS72IoMnUuPhXDvgXv17QBapmlwmziFHLlGEIeqI8MHetXBQCXsuv%2FQ8%2B5iThwY6hBKfBo91xkLozpRQ8hqWoBqg%3D%3D\"}]}",
+        "Cf-Cache-Status": "BYPASS",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "CF-RAY": "96cdfb47ee15b9b4-BRU"
+    },
+    "data": "{\"certificate_details\":{\"issuer\":\"WE1\",\"valid_from\":\"2025-07-15 17:32:00\",\"valid_until\":\"2025-10-13 18:29:08\"},\"certificate_checks\":[{\"type\":\"notFound\",\"label\":\"Certificate is present\",\"passed\":true},{\"type\":\"expiresSoon\",\"label\":\"Will not expire soon\",\"passed\":true},{\"type\":\"coversWrongDomain\",\"label\":\"Covers the right domain\",\"passed\":true},{\"type\":\"doesNotConnectWithRootCertificate\",\"label\":\"Connects with a known root certificate\",\"passed\":true},{\"type\":\"notYetActive\",\"label\":\"Is currently active\",\"passed\":true},{\"type\":\"isSelfSigned\",\"label\":\"Is not self-signed\",\"passed\":true},{\"type\":\"usesInvalidHash\",\"label\":\"Uses a valid hashing algorithm\",\"passed\":true},{\"type\":\"hasExpired\",\"label\":\"Has not expired\",\"passed\":true},{\"type\":\"hasChanged\",\"label\":\"Unchanged since last checked\",\"passed\":true},{\"type\":\"lifetimeTooLong\",\"label\":\"Certificate is not valid for too long\",\"passed\":true},{\"type\":\"couldNotConnectToHost\",\"label\":\"Could not connect to host\",\"passed\":true},{\"type\":\"hostDoesNotExist\",\"label\":\"Host does not exist\",\"passed\":true},{\"type\":\"noCertificateInstalled\",\"label\":\"No certificate installed\",\"passed\":true},{\"type\":\"couldNotDownloadCertificate\",\"label\":\"Could not download certificate\",\"passed\":true}],\"certificate_chain_issuers\":[\"US, Google Trust Services, WE1\",\"US, Google Trust Services LLC, GTS Root R4\",\"BE, GlobalSign nv-sa, Root CA, GlobalSign Root CA\"]}",
+    "context": []
+}
