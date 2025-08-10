@@ -35,6 +35,7 @@ class OhDear extends Connector implements HasPagination
 {
     use AcceptsJson;
     use AlwaysThrowOnErrors;
+
     use SupportsApplicationHealthChecksEndpoints;
     use SupportsBrokenLinksEndpoints;
     use SupportsCertificateHealthEndpoints;
