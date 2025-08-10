@@ -493,6 +493,48 @@ foreach ($brokenLinks as $brokenLink) {
 }
 ```
 
+### Detected Certificates
+
+Detected certificates provide information about SSL certificates that Oh Dear has discovered while monitoring your site, including their details, validity, and fingerprints.
+
+#### Getting all detected certificates for a monitor
+
+```php
+// returns an array of OhDear\PhpSdk\Dto\DetectedCertificate
+$detectedCertificates = $ohDear->detectedCertificates($monitorId);
+
+foreach ($detectedCertificates as $certificate) {
+    echo "Certificate ID: {$certificate->id}";
+    echo "Fingerprint: {$certificate->fingerprint}";
+    
+    if ($certificate->certificate_details) {
+        $details = $certificate->certificate_details;
+        echo "Issuer: {$details['issuer']}";
+        echo "Domain: {$details['domain']}";
+        echo "Valid from: {$details['valid_from']}";
+        echo "Valid until: {$details['valid_until']}";
+        echo "Days until expiration: {$details['days_until_expiration']}";
+        echo "Is valid: " . ($details['is_valid'] ? 'Yes' : 'No');
+        echo "Is expired: " . ($details['is_expired'] ? 'Yes' : 'No');
+        
+        // Additional domains covered by this certificate
+        if (!empty($details['additional_domains'])) {
+            echo "Additional domains: " . implode(', ', $details['additional_domains']);
+        }
+    }
+}
+```
+
+#### Getting a single detected certificate
+
+```php
+// returns OhDear\PhpSdk\Dto\DetectedCertificate
+$certificate = $ohDear->detectedCertificate($monitorId, $certificateId);
+
+echo "Certificate fingerprint: {$certificate->fingerprint}";
+echo "Created at: {$certificate->created_at}";
+```
+
 ### Using Saloon requests directly
 
 This SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests. Instead of using the `OhDear` class, you can the underlying request classes directly. This way, you have full power to customize the requests.

@@ -1,0 +1,24 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Sun, 10 Aug 2025 09:39:46 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "499",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=ajF3fctQFYCddUSE9bgfrYm%2FFVfdXPzpb26jNjdWCgSkMqJpWEL1qGNa1FLNX0bm7Eywrr%2Fq1WsvSzqvXJRW1f7mj9wlC15pFqzzojlCyT4lKWZ%2FRH8RQASJGA%3D%3D\"}]}",
+        "Cf-Cache-Status": "BYPASS",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "CF-RAY": "96ce87286b78b733-BRU"
+    },
+    "data": "{\"id\":10,\"monitor_id\":82060,\"fingerprint\":\"9a8d6cd8d1acdfb7834988b6055a1206d62c3015\",\"certificate_details\":{\"issuer\":\"WE1\",\"domain\":\"freek.dev\",\"additional_domains\":[\"freek.dev\",\"*.freek.dev\"],\"valid_from\":\"2025-07-15 17:32:00\",\"valid_until\":\"2025-10-13 18:29:08\",\"days_until_expiration\":64,\"signature_algorithm\":\"ecdsa-with-SHA256\",\"is_valid\":true,\"is_expired\":false},\"created_at\":\"2025-08-07 15:38:51\",\"updated_at\":\"2025-08-07 15:38:51\"}",
+    "context": []
+}

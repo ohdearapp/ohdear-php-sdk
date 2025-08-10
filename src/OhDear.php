@@ -6,6 +6,7 @@ use OhDear\PhpSdk\Concerns\SupportsBrokenLinksEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsCertificateHealthEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsCheckEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsCronCheckDefinitionsEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsDetectedCertificatesEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMaintenancePeriodEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMeEndpoint;
 use OhDear\PhpSdk\Concerns\SupportsMonitorEndpoints;
@@ -32,6 +33,7 @@ class OhDear extends Connector implements HasPagination
     use SupportsCertificateHealthEndpoints;
     use SupportsCheckEndpoints;
     use SupportsCronCheckDefinitionsEndpoints;
+    use SupportsDetectedCertificatesEndpoints;
     use SupportsMaintenancePeriodEndpoints;
     use SupportsMeEndpoint;
     use SupportsMonitorEndpoints;
