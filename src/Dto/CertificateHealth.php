@@ -62,7 +62,7 @@ class CertificateHealth
      */
     public function getFailedChecks(): array
     {
-        return array_filter($this->certificate_checks, fn($check) => !($check['passed'] ?? false));
+        return array_filter($this->certificate_checks, fn ($check) => ! ($check['passed'] ?? false));
     }
 
     /**
