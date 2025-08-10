@@ -56,11 +56,16 @@ class OhDear extends Connector implements HasPagination
 
     protected string $baseUrl;
 
-    public function __construct(string $apiToken, string $baseUrl = 'https://ohdear.app/api/')
-    {
-        $this->apiToken = $apiToken;
+    protected int $timeoutInSeconds;
 
+    public function __construct(
+        string $apiToken,
+        string $baseUrl = 'https://ohdear.app/api/',
+        int $timeoutInSeconds = 10,
+    ) {
+        $this->apiToken = $apiToken;
         $this->baseUrl = rtrim($baseUrl, '/');
+        $this->timeoutInSeconds = $timeoutInSeconds;
     }
 
     public function getRequestException(Response $response, ?Throwable $senderException): ?Throwable
@@ -97,7 +102,7 @@ class OhDear extends Connector implements HasPagination
     protected function defaultConfig(): array
     {
         return [
-            'timeout' => 10,
+            'timeout' => $this->timeoutInSeconds,
         ];
     }
 

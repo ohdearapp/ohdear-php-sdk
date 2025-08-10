@@ -51,6 +51,15 @@ use OhDear\PhpSdk\OhDear;
 $ohDear = new OhDear('your-api-token');
 ```
 
+### Setting a timeout
+
+By default, the SDK will wait for a response from Oh Dear for 10 seconds. You can change this by passing a `timeoutInSeconds` option to the constructor:
+
+```php
+$ohDear = new OhDear('your-api-token', timeoutInSeconds: 30);
+```
+
+
 ### Handling errors
 
 The SDK will throw an exception if the API returns an error. For validation errors, the SDK will throw a `ValidationException`.
