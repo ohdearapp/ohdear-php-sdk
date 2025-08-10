@@ -2,6 +2,7 @@
 
 namespace OhDear\PhpSdk;
 
+use OhDear\PhpSdk\Concerns\SupportsApplicationHealthChecksEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsBrokenLinksEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsCertificateHealthEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsCheckEndpoints;
@@ -31,6 +32,7 @@ class OhDear extends Connector implements HasPagination
 {
     use AcceptsJson;
     use AlwaysThrowOnErrors;
+    use SupportsApplicationHealthChecksEndpoints;
     use SupportsBrokenLinksEndpoints;
     use SupportsCertificateHealthEndpoints;
     use SupportsCheckEndpoints;

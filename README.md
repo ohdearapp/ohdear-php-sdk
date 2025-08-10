@@ -625,6 +625,58 @@ echo "Latest performance score: {$latestReport->performance_score}/100";
 echo "Report generated: {$latestReport->created_at}";
 ```
 
+### Application Health Checks
+
+Application health checks monitor custom endpoints in your application to ensure they're responding correctly and returning expected health status information.
+
+#### Getting all application health checks for a monitor
+
+```php
+// returns an array of OhDear\PhpSdk\Dto\ApplicationHealthCheck
+$healthChecks = $ohDear->applicationHealthChecks($monitorId);
+
+foreach ($healthChecks as $healthCheck) {
+    echo "Health Check: {$healthCheck->name} ({$healthCheck->label})";
+    echo "Status: {$healthCheck->status}";
+    echo "Message: {$healthCheck->message}";
+    echo "Short summary: {$healthCheck->short_summary}";
+    
+    if ($healthCheck->detected_at) {
+        echo "Detected at: {$healthCheck->detected_at}";
+    }
+    
+    if ($healthCheck->updated_at) {
+        echo "Last updated: {$healthCheck->updated_at}";
+    }
+    
+    // Check if snoozed
+    if ($healthCheck->active_snooze) {
+        echo "Currently snoozed until: {$healthCheck->active_snooze['ends_at']}";
+    }
+    
+    // Additional metadata
+    if (!empty($healthCheck->meta)) {
+        echo "Metadata: " . json_encode($healthCheck->meta);
+    }
+}
+```
+
+#### Getting history for a specific application health check
+
+```php
+// returns an array of OhDear\PhpSdk\Dto\ApplicationHealthCheckHistoryItem
+$history = $ohDear->applicationHealthCheckHistory($monitorId, $healthCheckId);
+
+foreach ($history as $historyItem) {
+    echo "History Item ID: {$historyItem->id}";
+    echo "Status: {$historyItem->status}";
+    echo "Short summary: {$historyItem->short_summary}";
+    echo "Message: {$historyItem->message}";
+    echo "Detected at: {$historyItem->detected_at}";
+    echo "Updated at: {$historyItem->updated_at}";
+}
+```
+
 ### Using Saloon requests directly
 
 This SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests. Instead of using the `OhDear` class, you can the underlying request classes directly. This way, you have full power to customize the requests.
