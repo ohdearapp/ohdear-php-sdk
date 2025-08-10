@@ -21,7 +21,7 @@ class CreateMaintenancePeriodRequest extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        return "/maintenance-periods";
+        return '/maintenance-periods';
     }
 
     protected function defaultBody(): array
