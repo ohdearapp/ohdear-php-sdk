@@ -16,12 +16,12 @@ it('can get broken links', function () {
     $brokenLinks = $this->ohDear->brokenLinks(82060);
 
     foreach ($brokenLinks as $brokenLink) {
-        expect($brokenLink->status_code)->toBeInt();
-        expect($brokenLink->crawled_url)->toBeString();
-        expect($brokenLink->relative_crawled_url)->toBeString();
-        expect($brokenLink->found_on_url)->toBeString();
-        expect($brokenLink->relative_found_on_url)->toBeString();
-        expect($brokenLink->link_text)->toBeString();
+        expect($brokenLink->statusCode)->toBeInt();
+        expect($brokenLink->crawledUrl)->toBeString();
+        expect($brokenLink->relativeCrawledUrl)->toBeString();
+        expect($brokenLink->foundOnUrl)->toBeString();
+        expect($brokenLink->relativeFoundOnUrl)->toBeString();
+        expect($brokenLink->linkText)->toBeString();
         expect($brokenLink->internal)->toBeBool();
     }
 });

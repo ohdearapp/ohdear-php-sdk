@@ -26,12 +26,12 @@ it('can get cron check definitions', function () {
         expect($cronCheckDefinition->uuid)->toBeString();
         expect($cronCheckDefinition->name)->toBeString();
         expect($cronCheckDefinition->type)->toBeString();
-        expect($cronCheckDefinition->ping_url)->toBeString();
-        expect($cronCheckDefinition->created_at)->toBeString();
-        expect($cronCheckDefinition->latest_result_label)->toBeString();
-        expect($cronCheckDefinition->latest_result_label_color)->toBeString();
-        expect($cronCheckDefinition->human_readable_latest_ping_at)->toBeString();
-        expect($cronCheckDefinition->human_readable_cron_expression)->toBeString();
+        expect($cronCheckDefinition->pingUrl)->toBeString();
+        expect($cronCheckDefinition->createdAt)->toBeString();
+        expect($cronCheckDefinition->latestResultLabel)->toBeString();
+        expect($cronCheckDefinition->latestResultLabelColor)->toBeString();
+        expect($cronCheckDefinition->humanReadableLatestPingAt)->toBeString();
+        expect($cronCheckDefinition->humanReadableCronExpression)->toBeString();
     }
 });
 
@@ -51,7 +51,7 @@ it('can create a cron check definition', function () {
     expect($cronCheckDefinition->id)->toBeInt();
     expect($cronCheckDefinition->name)->toBeString();
     expect($cronCheckDefinition->type)->toBeString();
-    expect($cronCheckDefinition->ping_url)->toBeString();
+    expect($cronCheckDefinition->pingUrl)->toBeString();
 });
 
 it('can update a cron check definition', function () {

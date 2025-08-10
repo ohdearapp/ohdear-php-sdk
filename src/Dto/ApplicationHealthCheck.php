@@ -13,10 +13,10 @@ class ApplicationHealthCheck
         public ?string $status,
         public ?string $message,
         public array $meta,
-        public ?string $short_summary,
-        public ?string $detected_at,
-        public ?string $updated_at,
-        public ?array $active_snooze,
+        public ?string $shortSummary,
+        public ?string $detectedAt,
+        public ?string $updatedAt,
+        public ?array $activeSnooze,
     ) {}
 
     public static function fromResponse(array $data): static
@@ -28,10 +28,10 @@ class ApplicationHealthCheck
             status: $data['status'],
             message: $data['message'],
             meta: $data['meta'] ?? [],
-            short_summary: $data['short_summary'],
-            detected_at: $data['detected_at'],
-            updated_at: $data['updated_at'],
-            active_snooze: $data['active_snooze'],
+            shortSummary: $data['short_summary'],
+            detectedAt: $data['detected_at'],
+            updatedAt: $data['updated_at'],
+            activeSnooze: $data['active_snooze'],
         );
     }
 

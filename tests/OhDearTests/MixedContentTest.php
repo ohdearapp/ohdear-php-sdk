@@ -18,8 +18,8 @@ it('can get mixed content issues', function () {
     expect($mixedContentItems)->toBeArray();
 
     foreach ($mixedContentItems as $mixedContent) {
-        expect($mixedContent->element_name)->toBeString();
-        expect($mixedContent->mixed_content_url)->toBeString();
-        expect($mixedContent->found_on_url)->toBeString();
+        expect($mixedContent->elementName)->toBeString();
+        expect($mixedContent->mixedContentUrl)->toBeString();
+        expect($mixedContent->foundOnUrl)->toBeString();
     }
 });

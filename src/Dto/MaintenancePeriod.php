@@ -6,20 +6,20 @@ class MaintenancePeriod
 {
     public function __construct(
         public int $id,
-        public int $monitor_id,
+        public int $monitorId,
         public ?string $name,
-        public string $starts_at,
-        public string $ends_at,
+        public string $startsAt,
+        public string $endsAt,
     ) {}
 
     public static function fromResponse(array $data): self
     {
         return new self(
             id: $data['id'],
-            monitor_id: $data['monitor_id'],
+            monitorId: $data['monitor_id'],
             name: $data['name'] ?? null,
-            starts_at: $data['starts_at'],
-            ends_at: $data['ends_at'],
+            startsAt: $data['starts_at'],
+            endsAt: $data['ends_at'],
         );
     }
 

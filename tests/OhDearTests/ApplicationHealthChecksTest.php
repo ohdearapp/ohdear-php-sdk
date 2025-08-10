@@ -23,9 +23,9 @@ it('can get application health checks', function () {
         expect($healthCheck->name)->toBeString();
         expect($healthCheck->label)->toBeString();
         expect($healthCheck->meta)->toBeArray();
-        expect($healthCheck->short_summary)->toBeString();
-        expect($healthCheck->detected_at)->toBeString();
-        expect($healthCheck->updated_at)->toBeString();
+        expect($healthCheck->shortSummary)->toBeString();
+        expect($healthCheck->detectedAt)->toBeString();
+        expect($healthCheck->updatedAt)->toBeString();
     }
 });
 
@@ -41,8 +41,8 @@ it('can get application health check history', function () {
     foreach ($history as $historyItem) {
         expect($historyItem->id)->toBeInt();
         expect($historyItem->status)->toBeString();
-        expect($historyItem->short_summary)->toBeString();
-        expect($historyItem->detected_at)->toBeString();
-        expect($historyItem->updated_at)->toBeString();
+        expect($historyItem->shortSummary)->toBeString();
+        expect($historyItem->detectedAt)->toBeString();
+        expect($historyItem->updatedAt)->toBeString();
     }
 });

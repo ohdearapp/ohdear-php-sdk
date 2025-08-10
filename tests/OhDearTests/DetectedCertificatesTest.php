@@ -21,11 +21,11 @@ it('can get detected certificates', function () {
 
     foreach ($detectedCertificates as $certificate) {
         expect($certificate->id)->toBeInt();
-        expect($certificate->monitor_id)->toBeInt();
+        expect($certificate->monitorId)->toBeInt();
         expect($certificate->fingerprint)->toBeString();
-        expect($certificate->certificate_details)->toBeArray();
-        expect($certificate->created_at)->toBeString();
-        expect($certificate->updated_at)->toBeString();
+        expect($certificate->certificateDetails)->toBeArray();
+        expect($certificate->createdAt)->toBeString();
+        expect($certificate->updatedAt)->toBeString();
     }
 });
 
@@ -37,14 +37,14 @@ it('can get a single detected certificate', function () {
     $certificate = $this->ohDear->detectedCertificate(82060, 10);
 
     expect($certificate->id)->toBe(10);
-    expect($certificate->monitor_id)->toBe(82060);
+    expect($certificate->monitorId)->toBe(82060);
     expect($certificate->fingerprint)->toBeString();
-    expect($certificate->certificate_details)->toBeArray();
-    expect($certificate->created_at)->toBeString();
-    expect($certificate->updated_at)->toBeString();
+    expect($certificate->certificateDetails)->toBeArray();
+    expect($certificate->createdAt)->toBeString();
+    expect($certificate->updatedAt)->toBeString();
 
     // Test certificate details structure
-    $details = $certificate->certificate_details;
+    $details = $certificate->certificateDetails;
     expect($details['issuer'])->toBeString();
     expect($details['domain'])->toBeString();
     expect($details['additional_domains'])->toBeArray();

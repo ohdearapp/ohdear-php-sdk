@@ -22,9 +22,9 @@ it('can get maintenance periods for a monitor', function () {
 
     foreach ($maintenancePeriods as $period) {
         expect($period->id)->toBeInt();
-        expect($period->monitor_id)->toBe(82060);
-        expect($period->starts_at)->toBeString();
-        expect($period->ends_at)->toBeString();
+        expect($period->monitorId)->toBe(82060);
+        expect($period->startsAt)->toBeString();
+        expect($period->endsAt)->toBeString();
     }
 });
 
@@ -48,7 +48,7 @@ it('can start a maintenance period', function () {
     $period = $this->ohDear->startMaintenancePeriod(82060);
 
     expect($period->id)->toBeInt();
-    expect($period->monitor_id)->toBe(82060);
+    expect($period->monitorId)->toBe(82060);
 });
 
 it('can start a maintenance period with custom duration and name', function () {
@@ -59,7 +59,7 @@ it('can start a maintenance period with custom duration and name', function () {
     $period = $this->ohDear->startMaintenancePeriod(82060, 60, 'Database Migration');
 
     expect($period->id)->toBeInt();
-    expect($period->monitor_id)->toBe(82060);
+    expect($period->monitorId)->toBe(82060);
     expect($period->name)->toBe('Database Migration');
 });
 
@@ -86,7 +86,7 @@ it('can create a scheduled maintenance period', function () {
     ]);
 
     expect($period->id)->toBeInt();
-    expect($period->monitor_id)->toBe(82060);
+    expect($period->monitorId)->toBe(82060);
     expect($period->name)->toBe('Scheduled Server Maintenance');
 });
 

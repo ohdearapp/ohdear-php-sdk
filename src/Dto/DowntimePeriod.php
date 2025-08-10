@@ -8,20 +8,20 @@ class DowntimePeriod
 {
     public function __construct(
         public int $id,
-        public string $started_at,
-        public ?string $ended_at,
-        public ?string $notes_html,
-        public ?string $notes_markdown,
+        public string $startedAt,
+        public ?string $endedAt,
+        public ?string $notesHtml,
+        public ?string $notesMarkdown,
     ) {}
 
     public static function fromResponse(array $data): static
     {
         return new self(
             id: $data['id'],
-            started_at: $data['started_at'],
-            ended_at: $data['ended_at'],
-            notes_html: $data['notes_html'],
-            notes_markdown: $data['notes_markdown'],
+            startedAt: $data['started_at'],
+            endedAt: $data['ended_at'],
+            notesHtml: $data['notes_html'],
+            notesMarkdown: $data['notes_markdown'],
         );
     }
 

@@ -7,17 +7,17 @@ use Saloon\Http\Response;
 class MixedContent
 {
     public function __construct(
-        public string $element_name,
-        public string $mixed_content_url,
-        public string $found_on_url,
+        public string $elementName,
+        public string $mixedContentUrl,
+        public string $foundOnUrl,
     ) {}
 
     public static function fromResponse(array $data): static
     {
         return new self(
-            element_name: $data['element_name'],
-            mixed_content_url: $data['mixed_content_url'],
-            found_on_url: $data['found_on_url'],
+            elementName: $data['element_name'],
+            mixedContentUrl: $data['mixed_content_url'],
+            foundOnUrl: $data['found_on_url'],
         );
     }
 

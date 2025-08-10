@@ -157,7 +157,7 @@ if (!empty($failedChecks)) {
 
 // Certificate chain issuers
 echo "Certificate chain:\n";
-foreach ($certificateHealth->certificate_chain_issuers as $issuer) {
+foreach ($certificateHealth->certificateChainIssuers as $issuer) {
     echo "- $issuer\n";
 }
 ```
@@ -244,7 +244,7 @@ You can snooze a check for a specified number of minutes (1 to 144000 minutes):
 // Snooze a check for 60 minutes
 $check = $ohDear->snoozeCheck($checkId, 60);
 
-echo $check->active_snooze ? 'Check is snoozed' : 'Check is active';
+echo $check->activeSnooze ? 'Check is snoozed' : 'Check is active';
 ```
 
 #### Unsnoozing a check
@@ -254,7 +254,7 @@ You can unsnooze a check to make it active again:
 ```php
 $check = $ohDear->unsnoozeCheck($checkId);
 
-echo $check->active_snooze ? 'Check is still snoozed' : 'Check is now active';
+echo $check->activeSnooze ? 'Check is still snoozed' : 'Check is now active';
 ```
 
 ### Maintenance Periods
@@ -270,7 +270,7 @@ You can get all maintenance periods for a specific monitor:
 $maintenancePeriods = $ohDear->maintenancePeriods($monitorId);
 
 foreach ($maintenancePeriods as $period) {
-    echo "Maintenance: {$period->name} from {$period->starts_at} to {$period->ends_at}\n";
+    echo "Maintenance: {$period->name} from {$period->startsAt} to {$period->endsAt}\n";
 }
 
 // You can also filter by date range
@@ -353,11 +353,11 @@ $metrics = $ohDear->httpUptimeMetrics($monitorId, $startDate, $endDate, UptimeMe
 
 foreach ($metrics as $metric) {
     echo "Date: {$metric->date};
-    echo "Total time: {$metric->total_time_in_seconds}s;
-    echo "DNS time: {$metric->dns_time_in_seconds}s;
-    echo "TCP time: {$metric->tcp_time_in_seconds}s;
-    echo "SSL handshake: {$metric->ssl_handshake_time_in_seconds}s;
-    echo "Download time: {$metric->download_time_in_seconds}s;
+    echo "Total time: {$metric->totalTimeInSeconds}s;
+    echo "DNS time: {$metric->dnsTimeInSeconds}s;
+    echo "TCP time: {$metric->tcpTimeInSeconds}s;
+    echo "SSL handshake: {$metric->sslHandshakeTimeInSeconds}s;
+    echo "Download time: {$metric->downloadTimeInSeconds}s;
     echo "cURL total time: {$metric->curl['total_time']}s;
 }
 ```
@@ -371,11 +371,11 @@ $metrics = $ohDear->pingUptimeMetrics($monitorId, $startDate, $endDate, UptimeMe
 
 foreach ($metrics as $metric) {
     echo "Date: {$metric->date}";
-    echo "Average response time: {$metric->average_time_in_ms}ms";
-    echo "Packet loss: {$metric->packet_loss_percentage}%";
-    echo "Uptime: {$metric->uptime_percentage}%";
-    echo "Uptime seconds: {$metric->uptime_seconds}";
-    echo "Downtime seconds: {$metric->downtime_seconds}";
+    echo "Average response time: {$metric->averageTimeInMs}ms";
+    echo "Packet loss: {$metric->packetLossPercentage}%";
+    echo "Uptime: {$metric->uptimePercentage}%";
+    echo "Uptime seconds: {$metric->uptimeSeconds}";
+    echo "Downtime seconds: {$metric->downtimeSeconds}";
 }
 ```
 
@@ -388,9 +388,9 @@ $metrics = $ohDear->tcpUptimeMetrics($monitorId, $startDate, $endDate, UptimeMet
 
 foreach ($metrics as $metric) {
     echo "Date: {$metric->date}";
-    echo "Time to connect: {$metric->time_to_connect_in_ms}ms";
-    echo "Uptime: {$metric->uptime_percentage}%";
-    echo "Downtime: {$metric->downtime_percentage}%";
+    echo "Time to connect: {$metric->timeToConnectInMs}ms";
+    echo "Uptime: {$metric->uptimePercentage}%";
+    echo "Downtime: {$metric->downtimePercentage}%";
 }
 ```
 
@@ -406,7 +406,7 @@ $cronCheckDefinitions = $ohDear->cronCheckDefinitions($monitorId);
 
 foreach ($cronCheckDefinitions as $cronCheckDefinition) {
     echo "Cron Check: {$cronCheckDefinition->name} ({$cronCheckDefinition->type})\n";
-    echo "Latest result: {$cronCheckDefinition->latest_result_label}\n";
+    echo "Latest result: {$cronCheckDefinition->latestResultLabel}\n";
 }
 ```
 
@@ -436,7 +436,7 @@ $cronCheckDefinition = $ohDear->createCronCheckDefinition($monitorId, [
     'description' => 'Generate nightly reports',
 ]);
 
-echo $cronCheckDefinition->ping_url; // URL to ping when task completes
+echo $cronCheckDefinition->pingUrl; // URL to ping when task completes
 ```
 
 #### Updating a cron check definition
@@ -465,7 +465,7 @@ You can temporarily snooze notifications for a cron check:
 // Snooze for 2 hours (120 minutes)
 $cronCheckDefinition = $ohDear->snoozeCronCheckDefinition($cronCheckDefinitionId, 120);
 
-echo $cronCheckDefinition->active_snooze['ends_at'];
+echo $cronCheckDefinition->activeSnooze['ends_at'];
 ```
 
 #### Unsnoozing a cron check definition
@@ -485,10 +485,10 @@ The broken links feature crawls your website and identifies links that return HT
 $brokenLinks = $ohDear->brokenLinks($monitorId);
 
 foreach ($brokenLinks as $brokenLink) {
-    echo "Broken link: {$brokenLink->crawled_url}";
-    echo "Status: {$brokenLink->status_code}";
-    echo "Found on: {$brokenLink->found_on_url}";
-    echo "Link text: {$brokenLink->link_text}";
+    echo "Broken link: {$brokenLink->crawledUrl}";
+    echo "Status: {$brokenLink->statusCode}";
+    echo "Found on: {$brokenLink->foundOnUrl}";
+    echo "Link text: {$brokenLink->linkText}";
     echo "Internal link: " . ($brokenLink->internal ? 'Yes' : 'No') . "";
 }
 ```
@@ -507,8 +507,8 @@ foreach ($detectedCertificates as $certificate) {
     echo "Certificate ID: {$certificate->id}";
     echo "Fingerprint: {$certificate->fingerprint}";
     
-    if ($certificate->certificate_details) {
-        $details = $certificate->certificate_details;
+    if ($certificate->certificateDetails) {
+        $details = $certificate->certificateDetails;
         echo "Issuer: {$details['issuer']}";
         echo "Domain: {$details['domain']}";
         echo "Valid from: {$details['valid_from']}";
@@ -532,7 +532,7 @@ foreach ($detectedCertificates as $certificate) {
 $certificate = $ohDear->detectedCertificate($monitorId, $certificateId);
 
 echo "Certificate fingerprint: {$certificate->fingerprint}";
-echo "Created at: {$certificate->created_at}";
+echo "Created at: {$certificate->createdAt}";
 ```
 
 ### DNS History Items
@@ -547,11 +547,11 @@ $dnsHistoryItems = $ohDear->dnsHistoryItems($monitorId);
 
 foreach ($dnsHistoryItems as $historyItem) {
     echo "DNS History Item ID: {$historyItem->id}";
-    echo "Created at: {$historyItem->created_at}";
-    echo "Diff summary: {$historyItem->diff_summary}";
+    echo "Created at: {$historyItem->createdAt}";
+    echo "Diff summary: {$historyItem->diffSummary}";
     
-    print_r($historyItem->authoritative_nameservers);
-    print_r($historyItem->dns_records);
+    print_r($historyItem->authoritativeNameservers);
+    print_r($historyItem->dnsRecords);
 }
 ```
 
@@ -574,23 +574,23 @@ $lighthouseReports = $ohDear->lighthouseReports($monitorId);
 
 foreach ($lighthouseReports as $report) {
     echo "Report ID: {$report->id}";
-    echo "Created at: {$report->created_at}";
-    echo "Performance Score: {$report->performance_score}/100";
-    echo "Accessibility Score: {$report->accessibility_score}/100";
-    echo "Best Practices Score: {$report->best_practices_score}/100";
-    echo "SEO Score: {$report->seo_score}/100";
-    echo "PWA Score: {$report->progressive_web_app_score}/100";
+    echo "Created at: {$report->createdAt}";
+    echo "Performance Score: {$report->performanceScore}/100";
+    echo "Accessibility Score: {$report->accessibilityScore}/100";
+    echo "Best Practices Score: {$report->bestPracticesScore}/100";
+    echo "SEO Score: {$report->seoScore}/100";
+    echo "PWA Score: {$report->progressiveWebAppScore}/100";
     
     // Core Web Vitals
-    echo "First Contentful Paint: {$report->first_contentful_paint_in_ms}ms";
-    echo "Speed Index: {$report->speed_index_in_ms}ms";
-    echo "Largest Contentful Paint: {$report->largest_contentful_paint_in_ms}ms";
-    echo "Time to Interactive: {$report->time_to_interactive_in_ms}ms";
-    echo "Total Blocking Time: {$report->total_blocking_time_in_ms}ms";
-    echo "Cumulative Layout Shift: {$report->cumulative_layout_shift}";
+    echo "First Contentful Paint: {$report->firstContentfulPaintInMs}ms";
+    echo "Speed Index: {$report->speedIndexInMs}ms";
+    echo "Largest Contentful Paint: {$report->largestContentfulPaintInMs}ms";
+    echo "Time to Interactive: {$report->timeToInteractiveInMs}ms";
+    echo "Total Blocking Time: {$report->totalBlockingTimeInMs}ms";
+    echo "Cumulative Layout Shift: {$report->cumulativeLayoutShift}";
     
     // Server location
-    echo "Performed on server: {$report->performed_on_checker_server}";
+    echo "Performed on server: {$report->performedOnCheckerServer}";
     
     // Issues detected
     if ($report->issues && !empty($report->issues)) {
@@ -605,12 +605,12 @@ foreach ($lighthouseReports as $report) {
 // returns OhDear\PhpSdk\Dto\LighthouseReport (includes full json_report)
 $report = $ohDear->lighthouseReport($monitorId, $reportId);
 
-echo "Performance Score: {$report->performance_score}/100";
-echo "Accessibility Score: {$report->accessibility_score}/100";
+echo "Performance Score: {$report->performanceScore}/100";
+echo "Accessibility Score: {$report->accessibilityScore}/100";
 
 // Full Lighthouse JSON report (only available when fetching single report)
-if ($report->json_report) {
-    $fullReport = $report->json_report;
+if ($report->jsonReport) {
+    $fullReport = $report->jsonReport;
     // Access detailed lighthouse audit data
 }
 ```
@@ -621,8 +621,8 @@ if ($report->json_report) {
 // returns OhDear\PhpSdk\Dto\LighthouseReport
 $latestReport = $ohDear->latestLighthouseReport($monitorId);
 
-echo "Latest performance score: {$latestReport->performance_score}/100";
-echo "Report generated: {$latestReport->created_at}";
+echo "Latest performance score: {$latestReport->performanceScore}/100";
+echo "Report generated: {$latestReport->createdAt}";
 ```
 
 ### Application Health Checks
@@ -639,19 +639,19 @@ foreach ($healthChecks as $healthCheck) {
     echo "Health Check: {$healthCheck->name} ({$healthCheck->label})";
     echo "Status: {$healthCheck->status}";
     echo "Message: {$healthCheck->message}";
-    echo "Short summary: {$healthCheck->short_summary}";
+    echo "Short summary: {$healthCheck->shortSummary}";
     
-    if ($healthCheck->detected_at) {
-        echo "Detected at: {$healthCheck->detected_at}";
+    if ($healthCheck->detectedAt) {
+        echo "Detected at: {$healthCheck->detectedAt}";
     }
     
-    if ($healthCheck->updated_at) {
-        echo "Last updated: {$healthCheck->updated_at}";
+    if ($healthCheck->updatedAt) {
+        echo "Last updated: {$healthCheck->updatedAt}";
     }
     
     // Check if snoozed
-    if ($healthCheck->active_snooze) {
-        echo "Currently snoozed until: {$healthCheck->active_snooze['ends_at']}";
+    if ($healthCheck->activeSnooze) {
+        echo "Currently snoozed until: {$healthCheck->activeSnooze['ends_at']}";
     }
     
     // Additional metadata
@@ -670,10 +670,10 @@ $history = $ohDear->applicationHealthCheckHistory($monitorId, $healthCheckId);
 foreach ($history as $historyItem) {
     echo "History Item ID: {$historyItem->id}";
     echo "Status: {$historyItem->status}";
-    echo "Short summary: {$historyItem->short_summary}";
+    echo "Short summary: {$historyItem->shortSummary}";
     echo "Message: {$historyItem->message}";
-    echo "Detected at: {$historyItem->detected_at}";
-    echo "Updated at: {$historyItem->updated_at}";
+    echo "Detected at: {$historyItem->detectedAt}";
+    echo "Updated at: {$historyItem->updatedAt}";
 }
 ```
 
@@ -739,9 +739,9 @@ The mixed content check identifies elements on your HTTPS pages that are loaded 
 $mixedContentItems = $ohDear->mixedContent($monitorId);
 
 foreach ($mixedContentItems as $mixedContent) {
-    echo "Element: {$mixedContent->element_name}";
-    echo "Insecure URL: {$mixedContent->mixed_content_url}";
-    echo "Found on page: {$mixedContent->found_on_url}";
+    echo "Element: {$mixedContent->elementName}";
+    echo "Insecure URL: {$mixedContent->mixedContentUrl}";
+    echo "Found on page: {$mixedContent->foundOnUrl}";
     echo "---";
 }
 ```
@@ -761,14 +761,14 @@ $downtimePeriods = $ohDear->downtime($monitorId, '2024-01-01 00:00:00', '2024-12
     
 foreach ($downtimePeriods as $downtime) {
     echo "Downtime ID: {$downtime->id}";
-    echo "Started: {$downtime->started_at}";
+    echo "Started: {$downtime->startedAt}";
     
-    if ($downtime->ended_at) {
-        echo "Ended: {$downtime->ended_at}";
+    if ($downtime->endedAt) {
+        echo "Ended: {$downtime->endedAt}";
         
         // Calculate duration
-        $start = new DateTime($downtime->started_at);
-        $end = new DateTime($downtime->ended_at);
+        $start = new DateTime($downtime->startedAt);
+        $end = new DateTime($downtime->endedAt);
         $duration = $end->diff($start);
         echo "Duration: {$duration->format('%h hours, %i minutes')}";
     } else {
@@ -776,12 +776,12 @@ foreach ($downtimePeriods as $downtime) {
     }
     
     // Display notes if available
-    if ($downtime->notes_html) {
-        echo "Notes (HTML): {$downtime->notes_html}";
+    if ($downtime->notesHtml) {
+        echo "Notes (HTML): {$downtime->notesHtml}";
     }
     
-    if ($downtime->notes_markdown) {
-        echo "Notes (Markdown): {$downtime->notes_markdown}";
+    if ($downtime->notesMarkdown) {
+        echo "Notes (Markdown): {$downtime->notesMarkdown}";
     }
 }
 ```

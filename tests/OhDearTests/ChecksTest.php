@@ -65,7 +65,7 @@ it('can snooze a check', function () {
     $check = $this->ohDear->snoozeCheck(940704, 60);
 
     expect($check->id)->toBe(940704);
-    expect($check->active_snooze)->not->toBeNull();
+    expect($check->activeSnooze)->not->toBeNull();
 });
 
 it('can unsnooze a check', function () {
@@ -76,5 +76,5 @@ it('can unsnooze a check', function () {
     $check = $this->ohDear->unsnoozeCheck(940704);
 
     expect($check->id)->toBe(940704);
-    expect($check->active_snooze)->toBeNull();
+    expect($check->activeSnooze)->toBeNull();
 });

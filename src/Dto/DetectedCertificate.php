@@ -8,22 +8,22 @@ class DetectedCertificate
 {
     public function __construct(
         public int $id,
-        public int $monitor_id,
+        public int $monitorId,
         public string $fingerprint,
-        public ?array $certificate_details,
-        public string $created_at,
-        public string $updated_at,
+        public ?array $certificateDetails,
+        public string $createdAt,
+        public string $updatedAt,
     ) {}
 
     public static function fromResponse(array $data): static
     {
         return new self(
             id: $data['id'],
-            monitor_id: $data['monitor_id'],
+            monitorId: $data['monitor_id'],
             fingerprint: $data['fingerprint'],
-            certificate_details: $data['certificate_details'],
-            created_at: $data['created_at'],
-            updated_at: $data['updated_at'],
+            certificateDetails: $data['certificate_details'],
+            createdAt: $data['created_at'],
+            updatedAt: $data['updated_at'],
         );
     }
 

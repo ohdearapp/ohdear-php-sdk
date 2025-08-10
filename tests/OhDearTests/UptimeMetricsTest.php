@@ -22,12 +22,12 @@ it('can get HTTP uptime metrics', function () {
     $metrics = $this->ohDear->httpUptimeMetrics(82060, $startDate, $endDate, UptimeMetricsSplit::Hour);
 
     foreach ($metrics as $metric) {
-        expect($metric->dns_time_in_seconds)->toBeFloat();
-        expect($metric->tcp_time_in_seconds)->toBeFloat();
-        expect($metric->ssl_handshake_time_in_seconds)->toBeFloat();
-        expect($metric->remote_server_processing_time_in_seconds)->toBeFloat();
-        expect($metric->download_time_in_seconds)->toBeFloat();
-        expect($metric->total_time_in_seconds)->toBeFloat();
+        expect($metric->dnsTimeInSeconds)->toBeFloat();
+        expect($metric->tcpTimeInSeconds)->toBeFloat();
+        expect($metric->sslHandshakeTimeInSeconds)->toBeFloat();
+        expect($metric->remoteServerProcessingTimeInSeconds)->toBeFloat();
+        expect($metric->downloadTimeInSeconds)->toBeFloat();
+        expect($metric->totalTimeInSeconds)->toBeFloat();
         expect($metric->curl)->toBeArray();
         expect($metric->date)->toBeString();
     }
@@ -44,14 +44,14 @@ it('can get ping uptime metrics', function () {
     $metrics = $this->ohDear->pingUptimeMetrics(82060, $startDate, $endDate, UptimeMetricsSplit::Hour);
 
     foreach ($metrics as $metric) {
-        expect($metric->minimum_time_in_ms)->toBeFloat();
-        expect($metric->maximum_time_in_ms)->toBeFloat();
-        expect($metric->average_time_in_ms)->toBeFloat();
-        expect($metric->packet_loss_percentage)->toBeFloat();
-        expect($metric->uptime_percentage)->toBeFloat();
-        expect($metric->downtime_percentage)->toBeFloat();
-        expect($metric->uptime_seconds)->toBeInt();
-        expect($metric->downtime_seconds)->toBeInt();
+        expect($metric->minimumTimeInMs)->toBeFloat();
+        expect($metric->maximumTimeInMs)->toBeFloat();
+        expect($metric->averageTimeInMs)->toBeFloat();
+        expect($metric->packetLossPercentage)->toBeFloat();
+        expect($metric->uptimePercentage)->toBeFloat();
+        expect($metric->downtimePercentage)->toBeFloat();
+        expect($metric->uptimeSeconds)->toBeInt();
+        expect($metric->downtimeSeconds)->toBeInt();
         expect($metric->date)->toBeString();
     }
 });
@@ -67,11 +67,11 @@ it('can get TCP uptime metrics', function () {
     $metrics = $this->ohDear->tcpUptimeMetrics(82060, $startDate, $endDate, UptimeMetricsSplit::Hour);
 
     foreach ($metrics as $metric) {
-        expect($metric->time_to_connect_in_ms)->toBeFloat();
-        expect($metric->uptime_percentage)->toBeFloat();
-        expect($metric->downtime_percentage)->toBeFloat();
-        expect($metric->uptime_seconds)->toBeInt();
-        expect($metric->downtime_seconds)->toBeInt();
+        expect($metric->timeToConnectInMs)->toBeFloat();
+        expect($metric->uptimePercentage)->toBeFloat();
+        expect($metric->downtimePercentage)->toBeFloat();
+        expect($metric->uptimeSeconds)->toBeInt();
+        expect($metric->downtimeSeconds)->toBeInt();
         expect($metric->date)->toBeString();
     }
 });

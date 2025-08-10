@@ -9,11 +9,11 @@ class Check
         public string $type,
         public string $label,
         public bool $enabled,
-        public ?string $latest_run_ended_at,
-        public ?string $latest_run_result,
+        public ?string $latestRunEndedAt,
+        public ?string $latestRunResult,
         public ?string $summary,
         public array $settings,
-        public ?array $active_snooze,
+        public ?array $activeSnooze,
     ) {}
 
     public static function fromResponse(array $data): self
@@ -23,11 +23,11 @@ class Check
             type: $data['type'],
             label: $data['label'] ?? '',
             enabled: $data['enabled'],
-            latest_run_ended_at: $data['latest_run_ended_at'] ?? null,
-            latest_run_result: $data['latest_run_result'] ?? null,
+            latestRunEndedAt: $data['latest_run_ended_at'] ?? null,
+            latestRunResult: $data['latest_run_result'] ?? null,
             summary: $data['summary'] ?? null,
             settings: $data['settings'] ?? [],
-            active_snooze: $data['active_snooze'] ?? null,
+            activeSnooze: $data['active_snooze'] ?? null,
         );
     }
 

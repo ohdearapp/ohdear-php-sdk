@@ -20,7 +20,7 @@ it('can get downtime periods', function () {
 
     foreach ($downtimePeriods as $downtime) {
         expect($downtime->id)->toBeInt();
-        expect($downtime->started_at)->toBeString();
+        expect($downtime->startedAt)->toBeString();
     }
 });
 

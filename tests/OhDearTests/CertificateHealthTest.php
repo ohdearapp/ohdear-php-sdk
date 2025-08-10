@@ -15,7 +15,7 @@ it('can get certificate health', function () {
 
     $certificateHealth = $this->ohDear->certificateHealth(82060);
 
-    expect($certificateHealth->certificate_details)->toBeArray();
-    expect($certificateHealth->certificate_checks)->toBeArray();
-    expect($certificateHealth->certificate_chain_issuers)->toBeArray();
+    expect($certificateHealth->certificateDetails)->toBeArray();
+    expect($certificateHealth->certificateChecks)->toBeArray();
+    expect($certificateHealth->certificateChainIssuers)->toBeArray();
 });

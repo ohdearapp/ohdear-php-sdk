@@ -10,15 +10,15 @@ class StatusPage
         public ?string $title,
         public ?string $domain,
         public ?string $secret,
-        public ?string $badge_id,
+        public ?string $badgeId,
         public ?string $slug,
-        public ?string $full_url,
+        public ?string $fullUrl,
         public ?string $timezone,
-        public ?string $summarized_status,
+        public ?string $summarizedStatus,
         public ?array $updates,
         public ?array $monitors,
-        public string $created_at,
-        public string $updated_at,
+        public string $createdAt,
+        public string $updatedAt,
     ) {}
 
     public static function fromResponse(array $data): self
@@ -29,15 +29,15 @@ class StatusPage
             title: $data['title'],
             domain: $data['domain'] ?? null,
             secret: $data['secret'] ?? null,
-            badge_id: $data['badge_id'] ?? null,
+            badgeId: $data['badge_id'] ?? null,
             slug: $data['slug'] ?? null,
-            full_url: $data['full_url'] ?? null,
+            fullUrl: $data['full_url'] ?? null,
             timezone: $data['timezone'] ?? null,
-            summarized_status: $data['summarized_status'] ?? null,
+            summarizedStatus: $data['summarized_status'] ?? null,
             updates: $data['updates'] ?? [],
             monitors: $data['monitors'] ?? [],
-            created_at: $data['created_at'],
-            updated_at: $data['updated_at'],
+            createdAt: $data['created_at'],
+            updatedAt: $data['updated_at'],
         );
     }
 

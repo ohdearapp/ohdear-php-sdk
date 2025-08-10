@@ -21,19 +21,19 @@ it('can get lighthouse reports', function () {
 
     foreach ($lighthouseReports as $report) {
         expect($report->id)->toBeInt();
-        expect($report->performance_score)->toBeInt();
-        expect($report->accessibility_score)->toBeInt();
-        expect($report->best_practices_score)->toBeInt();
-        expect($report->seo_score)->toBeInt();
-        expect($report->progressive_web_app_score)->toBeInt();
-        expect($report->first_contentful_paint_in_ms)->toBeFloat();
-        expect($report->speed_index_in_ms)->toBeFloat();
-        expect($report->largest_contentful_paint_in_ms)->toBeFloat();
-        expect($report->time_to_interactive_in_ms)->toBeFloat();
-        expect($report->total_blocking_time_in_ms)->toBeFloat();
-        expect($report->cumulative_layout_shift)->toBeFloat();
-        expect($report->performed_on_checker_server)->toBeString();
-        expect($report->created_at)->toBeString();
+        expect($report->performanceScore)->toBeInt();
+        expect($report->accessibilityScore)->toBeInt();
+        expect($report->bestPracticesScore)->toBeInt();
+        expect($report->seoScore)->toBeInt();
+        expect($report->progressiveWebAppScore)->toBeInt();
+        expect($report->firstContentfulPaintInMs)->toBeFloat();
+        expect($report->speedIndexInMs)->toBeFloat();
+        expect($report->largestContentfulPaintInMs)->toBeFloat();
+        expect($report->timeToInteractiveInMs)->toBeFloat();
+        expect($report->totalBlockingTimeInMs)->toBeFloat();
+        expect($report->cumulativeLayoutShift)->toBeFloat();
+        expect($report->performedOnCheckerServer)->toBeString();
+        expect($report->createdAt)->toBeString();
     }
 });
 
@@ -45,20 +45,20 @@ it('can get a single lighthouse report', function () {
     $report = $this->ohDear->lighthouseReport(82060, 2851696);
 
     expect($report->id)->toBeInt();
-    expect($report->performance_score)->toBeInt();
-    expect($report->accessibility_score)->toBeInt();
-    expect($report->best_practices_score)->toBeInt();
-    expect($report->seo_score)->toBeInt();
-    expect($report->progressive_web_app_score)->toBeInt();
-    expect($report->first_contentful_paint_in_ms)->toBeFloat();
-    expect($report->speed_index_in_ms)->toBeFloat();
-    expect($report->largest_contentful_paint_in_ms)->toBeFloat();
-    expect($report->time_to_interactive_in_ms)->toBeFloat();
-    expect($report->total_blocking_time_in_ms)->toBeFloat();
-    expect($report->cumulative_layout_shift)->toBeFloat();
-    expect($report->performed_on_checker_server)->toBeString();
-    expect($report->json_report)->toBeArray();
-    expect($report->created_at)->toBeString();
+    expect($report->performanceScore)->toBeInt();
+    expect($report->accessibilityScore)->toBeInt();
+    expect($report->bestPracticesScore)->toBeInt();
+    expect($report->seoScore)->toBeInt();
+    expect($report->progressiveWebAppScore)->toBeInt();
+    expect($report->firstContentfulPaintInMs)->toBeFloat();
+    expect($report->speedIndexInMs)->toBeFloat();
+    expect($report->largestContentfulPaintInMs)->toBeFloat();
+    expect($report->timeToInteractiveInMs)->toBeFloat();
+    expect($report->totalBlockingTimeInMs)->toBeFloat();
+    expect($report->cumulativeLayoutShift)->toBeFloat();
+    expect($report->performedOnCheckerServer)->toBeString();
+    expect($report->jsonReport)->toBeArray();
+    expect($report->createdAt)->toBeString();
 });
 
 it('can get the latest lighthouse report', function () {
@@ -69,18 +69,18 @@ it('can get the latest lighthouse report', function () {
     $latestReport = $this->ohDear->latestLighthouseReport(82060);
 
     expect($latestReport->id)->toBeInt();
-    expect($latestReport->performance_score)->toBeInt();
-    expect($latestReport->accessibility_score)->toBeInt();
-    expect($latestReport->best_practices_score)->toBeInt();
-    expect($latestReport->seo_score)->toBeInt();
-    expect($latestReport->progressive_web_app_score)->toBeInt();
-    expect($latestReport->first_contentful_paint_in_ms)->toBeFloat();
-    expect($latestReport->speed_index_in_ms)->toBeFloat();
-    expect($latestReport->largest_contentful_paint_in_ms)->toBeFloat();
-    expect($latestReport->time_to_interactive_in_ms)->toBeFloat();
-    expect($latestReport->total_blocking_time_in_ms)->toBeFloat();
-    expect($latestReport->cumulative_layout_shift)->toBeFloat();
-    expect($latestReport->performed_on_checker_server)->toBeString();
-    expect($latestReport->json_report)->toBeArray();
-    expect($latestReport->created_at)->toBeString();
+    expect($latestReport->performanceScore)->toBeInt();
+    expect($latestReport->accessibilityScore)->toBeInt();
+    expect($latestReport->bestPracticesScore)->toBeInt();
+    expect($latestReport->seoScore)->toBeInt();
+    expect($latestReport->progressiveWebAppScore)->toBeInt();
+    expect($latestReport->firstContentfulPaintInMs)->toBeFloat();
+    expect($latestReport->speedIndexInMs)->toBeFloat();
+    expect($latestReport->largestContentfulPaintInMs)->toBeFloat();
+    expect($latestReport->timeToInteractiveInMs)->toBeFloat();
+    expect($latestReport->totalBlockingTimeInMs)->toBeFloat();
+    expect($latestReport->cumulativeLayoutShift)->toBeFloat();
+    expect($latestReport->performedOnCheckerServer)->toBeString();
+    expect($latestReport->jsonReport)->toBeArray();
+    expect($latestReport->createdAt)->toBeString();
 });

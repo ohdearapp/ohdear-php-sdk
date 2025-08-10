@@ -5,22 +5,22 @@ namespace OhDear\PhpSdk\Dto\UptimeMetric;
 class TcpUptimeMetric
 {
     public function __construct(
-        public float $time_to_connect_in_ms,
-        public float $uptime_percentage,
-        public float $downtime_percentage,
-        public int $uptime_seconds,
-        public int $downtime_seconds,
+        public float $timeToConnectInMs,
+        public float $uptimePercentage,
+        public float $downtimePercentage,
+        public int $uptimeSeconds,
+        public int $downtimeSeconds,
         public string $date,
     ) {}
 
     public static function fromResponse(array $data): self
     {
         return new self(
-            time_to_connect_in_ms: $data['time_to_connect_in_ms'],
-            uptime_percentage: $data['uptime_percentage'],
-            downtime_percentage: $data['downtime_percentage'],
-            uptime_seconds: $data['uptime_seconds'],
-            downtime_seconds: $data['downtime_seconds'],
+            timeToConnectInMs: $data['time_to_connect_in_ms'],
+            uptimePercentage: $data['uptime_percentage'],
+            downtimePercentage: $data['downtime_percentage'],
+            uptimeSeconds: $data['uptime_seconds'],
+            downtimeSeconds: $data['downtime_seconds'],
             date: $data['date'],
         );
     }

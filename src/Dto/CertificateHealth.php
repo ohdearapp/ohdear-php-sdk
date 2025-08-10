@@ -5,17 +5,17 @@ namespace OhDear\PhpSdk\Dto;
 class CertificateHealth
 {
     public function __construct(
-        public array $certificate_details,
-        public array $certificate_checks,
-        public array $certificate_chain_issuers,
+        public array $certificateDetails,
+        public array $certificateChecks,
+        public array $certificateChainIssuers,
     ) {}
 
     public static function fromResponse(array $data): self
     {
         return new self(
-            certificate_details: $data['certificate_details'] ?? [],
-            certificate_checks: $data['certificate_checks'] ?? [],
-            certificate_chain_issuers: $data['certificate_chain_issuers'] ?? [],
+            certificateDetails: $data['certificate_details'] ?? [],
+            certificateChecks: $data['certificate_checks'] ?? [],
+            certificateChainIssuers: $data['certificate_chain_issuers'] ?? [],
         );
     }
 
@@ -24,7 +24,7 @@ class CertificateHealth
      */
     public function getIssuer(): ?string
     {
-        return $this->certificate_details['issuer'] ?? null;
+        return $this->certificateDetails['issuer'] ?? null;
     }
 
     /**
@@ -32,7 +32,7 @@ class CertificateHealth
      */
     public function getValidFrom(): ?string
     {
-        return $this->certificate_details['valid_from'] ?? null;
+        return $this->certificateDetails['valid_from'] ?? null;
     }
 
     /**
@@ -40,7 +40,7 @@ class CertificateHealth
      */
     public function getValidUntil(): ?string
     {
-        return $this->certificate_details['valid_until'] ?? null;
+        return $this->certificateDetails['valid_until'] ?? null;
     }
 
     /**
@@ -48,7 +48,7 @@ class CertificateHealth
      */
     public function checkPassed(string $checkType): bool
     {
-        foreach ($this->certificate_checks as $check) {
+        foreach ($this->certificateChecks as $check) {
             if (($check['type'] ?? '') === $checkType) {
                 return $check['passed'] ?? false;
             }
@@ -62,7 +62,7 @@ class CertificateHealth
      */
     public function getFailedChecks(): array
     {
-        return array_filter($this->certificate_checks, fn ($check) => ! ($check['passed'] ?? false));
+        return array_filter($this->certificateChecks, fn ($check) => ! ($check['passed'] ?? false));
     }
 
     /**

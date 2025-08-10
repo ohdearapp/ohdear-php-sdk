@@ -9,11 +9,11 @@ class ApplicationHealthCheckHistoryItem
     public function __construct(
         public int $id,
         public string $status,
-        public string $short_summary,
+        public string $shortSummary,
         public ?string $message,
         public ?array $meta,
-        public string $detected_at,
-        public string $updated_at,
+        public string $detectedAt,
+        public string $updatedAt,
     ) {}
 
     public static function fromResponse(array $data): static
@@ -21,11 +21,11 @@ class ApplicationHealthCheckHistoryItem
         return new self(
             id: $data['id'],
             status: $data['status'],
-            short_summary: $data['short_summary'],
+            shortSummary: $data['short_summary'],
             message: $data['message'],
             meta: $data['meta'],
-            detected_at: $data['detected_at'],
-            updated_at: $data['updated_at'],
+            detectedAt: $data['detected_at'],
+            updatedAt: $data['updated_at'],
         );
     }
 

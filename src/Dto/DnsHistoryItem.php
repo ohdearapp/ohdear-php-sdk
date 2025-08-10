@@ -8,24 +8,24 @@ class DnsHistoryItem
 {
     public function __construct(
         public int $id,
-        public array $authoritative_nameservers,
-        public array $dns_records,
-        public array $raw_dns_records,
+        public array $authoritativeNameservers,
+        public array $dnsRecords,
+        public array $rawDnsRecords,
         public mixed $issues,
-        public string $diff_summary,
-        public string $created_at,
+        public string $diffSummary,
+        public string $createdAt,
     ) {}
 
     public static function fromResponse(array $data): static
     {
         return new self(
             id: $data['id'],
-            authoritative_nameservers: $data['authoritative_nameservers'] ?? [],
-            dns_records: $data['dns_records'] ?? [],
-            raw_dns_records: $data['raw_dns_records'] ?? [],
+            authoritativeNameservers: $data['authoritative_nameservers'] ?? [],
+            dnsRecords: $data['dns_records'] ?? [],
+            rawDnsRecords: $data['raw_dns_records'] ?? [],
             issues: $data['issues'],
-            diff_summary: $data['diff_summary'],
-            created_at: $data['created_at'],
+            diffSummary: $data['diff_summary'],
+            createdAt: $data['created_at'],
         );
     }
 
