@@ -19,7 +19,7 @@ trait SupportsMonitorEndpoints
 
         /** @var iterable<int, Monitor> $items */
         $items = $this->paginate($request)->items();
-        
+
         return $items;
     }
 
