@@ -560,9 +560,69 @@ foreach ($dnsHistoryItems as $historyItem) {
 ```php
 // returns OhDear\PhpSdk\Dto\DnsHistoryItem
 $historyItem = $ohDear->dnsHistoryItem($monitorId, $historyItemId);
+```
 
-echo "DNS changes detected at: {$historyItem->created_at}";
-echo "Summary of changes: {$historyItem->diff_summary}";
+### Lighthouse Reports
+
+Lighthouse reports provide detailed performance, accessibility, SEO, and best practices analysis of your web pages using Google's Lighthouse auditing tool.
+
+#### Getting all lighthouse reports for a monitor
+
+```php
+// returns an array of OhDear\PhpSdk\Dto\LighthouseReport
+$lighthouseReports = $ohDear->lighthouseReports($monitorId);
+
+foreach ($lighthouseReports as $report) {
+    echo "Report ID: {$report->id}";
+    echo "Created at: {$report->created_at}";
+    echo "Performance Score: {$report->performance_score}/100";
+    echo "Accessibility Score: {$report->accessibility_score}/100";
+    echo "Best Practices Score: {$report->best_practices_score}/100";
+    echo "SEO Score: {$report->seo_score}/100";
+    echo "PWA Score: {$report->progressive_web_app_score}/100";
+    
+    // Core Web Vitals
+    echo "First Contentful Paint: {$report->first_contentful_paint_in_ms}ms";
+    echo "Speed Index: {$report->speed_index_in_ms}ms";
+    echo "Largest Contentful Paint: {$report->largest_contentful_paint_in_ms}ms";
+    echo "Time to Interactive: {$report->time_to_interactive_in_ms}ms";
+    echo "Total Blocking Time: {$report->total_blocking_time_in_ms}ms";
+    echo "Cumulative Layout Shift: {$report->cumulative_layout_shift}";
+    
+    // Server location
+    echo "Performed on server: {$report->performed_on_checker_server}";
+    
+    // Issues detected
+    if ($report->issues && !empty($report->issues)) {
+        echo "Issues detected: " . json_encode($report->issues);
+    }
+}
+```
+
+#### Getting a single lighthouse report
+
+```php
+// returns OhDear\PhpSdk\Dto\LighthouseReport (includes full json_report)
+$report = $ohDear->lighthouseReport($monitorId, $reportId);
+
+echo "Performance Score: {$report->performance_score}/100";
+echo "Accessibility Score: {$report->accessibility_score}/100";
+
+// Full Lighthouse JSON report (only available when fetching single report)
+if ($report->json_report) {
+    $fullReport = $report->json_report;
+    // Access detailed lighthouse audit data
+}
+```
+
+#### Getting the latest lighthouse report
+
+```php
+// returns OhDear\PhpSdk\Dto\LighthouseReport
+$latestReport = $ohDear->latestLighthouseReport($monitorId);
+
+echo "Latest performance score: {$latestReport->performance_score}/100";
+echo "Report generated: {$latestReport->created_at}";
 ```
 
 ### Using Saloon requests directly
