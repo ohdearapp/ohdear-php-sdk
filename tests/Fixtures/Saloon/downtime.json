@@ -1,0 +1,24 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Sun, 10 Aug 2025 12:22:29 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "499",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=j8xBSIZ0p4PdjrIy08oIiVmNIC%2BRpd2KiWk7FdwgO6l97GIWj8VAS0Ubih0LX1KQ5%2FKBfTFvcI17QDyk7CThEoOCMxr7sCf3SPedAD5W%2Fw%3D%3D\"}]}",
+        "Cf-Cache-Status": "BYPASS",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "CF-RAY": "96cf75824df8ba7b-BRU"
+    },
+    "data": "{\"data\":[{\"id\":25774283,\"started_at\":\"2025-08-10 12:06:39\",\"ended_at\":\"2025-08-10 12:09:11\",\"notes_html\":null,\"notes_markdown\":null}],\"links\":{\"first\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/downtime?filter%5Bstarted_at%5D=20250810000000&filter%5Bended_at%5D=20250810235959&page%5Bnumber%5D=1\",\"last\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/downtime?filter%5Bstarted_at%5D=20250810000000&filter%5Bended_at%5D=20250810235959&page%5Bnumber%5D=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/downtime?filter%5Bstarted_at%5D=20250810000000&filter%5Bended_at%5D=20250810235959&page%5Bnumber%5D=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/downtime\",\"per_page\":200,\"to\":1,\"total\":1}}",
+    "context": []
+}

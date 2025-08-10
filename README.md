@@ -746,6 +746,54 @@ foreach ($mixedContentItems as $mixedContent) {
 }
 ```
 
+### Downtime
+
+Downtime periods track when your monitored sites were unavailable, providing historical data about outages and their duration.
+
+#### Getting downtime periods for a monitor
+
+```php
+// Get downtime periods with date filters (both parameters required)
+// Use Y-m-d H:i:s format - the SDK will convert to the API's expected format
+$downtimePeriods = $ohDear->downtime($monitorId, '2024-01-01 00:00:00', '2024-12-31 23:59:59');
+
+    echo "Found " . count($downtimePeriods) . " downtime periods:";
+    
+foreach ($downtimePeriods as $downtime) {
+    echo "Downtime ID: {$downtime->id}";
+    echo "Started: {$downtime->started_at}";
+    
+    if ($downtime->ended_at) {
+        echo "Ended: {$downtime->ended_at}";
+        
+        // Calculate duration
+        $start = new DateTime($downtime->started_at);
+        $end = new DateTime($downtime->ended_at);
+        $duration = $end->diff($start);
+        echo "Duration: {$duration->format('%h hours, %i minutes')}";
+    } else {
+        echo "Status: Still ongoing";
+    }
+    
+    // Display notes if available
+    if ($downtime->notes_html) {
+        echo "Notes (HTML): {$downtime->notes_html}";
+    }
+    
+    if ($downtime->notes_markdown) {
+        echo "Notes (Markdown): {$downtime->notes_markdown}";
+    }
+}
+```
+
+#### Deleting a downtime period
+
+You can delete downtime periods that were recorded incorrectly or are no longer needed:
+
+```php
+$ohDear->deleteDowntimePeriod($downtimePeriodId);
+```
+
 ### Using Saloon requests directly
 
 This SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests. Instead of using the `OhDear` class, you can the underlying request classes directly. This way, you have full power to customize the requests.
