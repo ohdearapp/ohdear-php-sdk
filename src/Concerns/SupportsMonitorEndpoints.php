@@ -2,9 +2,12 @@
 
 namespace OhDear\PhpSdk\Concerns;
 
+use OhDear\PhpSdk\Dto\CheckSummary;
 use OhDear\PhpSdk\Dto\Monitor;
+use OhDear\PhpSdk\Enums\CheckType;
 use OhDear\PhpSdk\Requests\Monitors\CreateMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\DeleteMonitorRequest;
+use OhDear\PhpSdk\Requests\Monitors\GetCheckSummaryRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;
 use OhDear\PhpSdk\Requests\Monitors\UpdateMonitorRequest;
@@ -51,5 +54,12 @@ trait SupportsMonitorEndpoints
         $this->send($request);
 
         return $this;
+    }
+
+    public function checkSummary(int $monitorId, CheckType $checkType): CheckSummary
+    {
+        $request = new GetCheckSummaryRequest($monitorId, $checkType);
+
+        return $this->send($request)->dto();
     }
 }

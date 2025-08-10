@@ -126,6 +126,22 @@ You can use the `deleteMonitor` method to delete a monitor.
 $ohDear->deleteMonitor($monitorId);
 ```
 
+#### Getting a check summary for a monitor
+
+You can get a summary of a specific check type for a monitor, which provides the current status and a human-readable summary:
+
+```php
+use OhDear\PhpSdk\Enums\CheckType;
+
+// returns OhDear\PhpSdk\Dto\CheckSummary
+$checkSummary = $ohDear->checkSummary($monitorId, CheckType::CertificateHealth);
+
+echo "Check result: {$checkSummary->result}\n";
+echo "Summary: {$checkSummary->summary}\n";
+```
+
+You can request a summary for all available cases in the `CheckType` enum.`
+
 #### Getting certificate health for a monitor
 
 You can get detailed certificate health information including certificate details, validation checks, and certificate chain:

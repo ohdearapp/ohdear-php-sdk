@@ -1,7 +1,9 @@
 <?php
 
+use OhDear\PhpSdk\Enums\CheckType;
 use OhDear\PhpSdk\Requests\Monitors\CreateMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\DeleteMonitorRequest;
+use OhDear\PhpSdk\Requests\Monitors\GetCheckSummaryRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;
 use Saloon\Http\Faking\MockClient;
@@ -58,4 +60,14 @@ it('can delete a monitor', function () {
     $this->ohDear->deleteMonitor(82065);
 
     markTestComplete();
+});
+
+it('can get check summary for a monitor', function () {
+    MockClient::global([
+        GetCheckSummaryRequest::class => MockResponse::fixture('check-summary'),
+    ]);
+
+    $checkSummary = $this->ohDear->checkSummary(82060, CheckType::CertificateHealth);
+
+    expect($checkSummary->result)->toBe('succeeded');
 });
