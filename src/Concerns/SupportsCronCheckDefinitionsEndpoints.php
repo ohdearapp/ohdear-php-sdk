@@ -35,12 +35,14 @@ trait SupportsCronCheckDefinitionsEndpoints
         return $this->send($request)->dtoOrFail();
     }
 
-    public function deleteCronCheckDefinition($cronCheckDefinitionId): void
+    public function deleteCronCheckDefinition($cronCheckDefinitionId): self
     {
         $request = new DeleteCronCheckDefinitionRequest($cronCheckDefinitionId);
 
-        $response = $this->send($request);
-        var_dump($response->body());
+        $this->send($request);
+
+        return $this;
+
     }
 
     public function snoozeCronCheckDefinition(int $cronCheckDefinitionId, int $minutes): CronCheckDefinition
