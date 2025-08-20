@@ -47,6 +47,9 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "pestphp/pest-plugin": true
+        },
+        "branch-alias": {
+            "dev-monitors": "4.0.x-dev"
         }
     }
 }
