@@ -49,7 +49,9 @@
             "pestphp/pest-plugin": true
         }
     },
-    "branch-alias": {
-        "dev-monitors": "4.0.x-dev"
+    "extra": {
+        "branch-alias": {
+            "dev-monitors": "4.0.x-dev"
+        }
     }
 }
