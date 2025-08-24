@@ -84,7 +84,7 @@ For all other errors, the SDK will throw an `\OhDear\PhpSdk\Exceptions\OhDearExc
 // returns OhDear\PhpSdk\Dto\User
 $user = $ohDear->me();
 
-echo $user->email // returns the email address of the authenticated user
+echo $user->email; // returns the email address of the authenticated user
 ```
 
 ### Monitors
