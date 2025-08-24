@@ -1,0 +1,23 @@
+{
+    "statusCode": 201,
+    "headers": {
+        "Date": "Sun, 10 Aug 2025 08:51:47 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "498",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cf-Cache-Status": "DYNAMIC",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=wERo4BL8S7HglOvPO7FK66TWf5MKTb%2FdYHwL5nLZA77AfWghZzsWIYTzU3%2BuWn%2FrN%2B5%2BusT%2Fq7yDa7ga7T1KEy98hBqpKQG3gfcZe4kHAXQ7ScWREf9B9tVAYA%3D%3D\"}]}",
+        "CF-RAY": "96ce40dfdf02ba6f-BRU"
+    },
+    "data": "{\"id\":208283,\"uuid\":\"a2313fbd-27a1-48b5-9e8f-c743362bb0df\",\"name\":\"Test Cron Check\",\"type\":\"simple\",\"description\":\"Test cron check description\",\"frequency_in_minutes\":60,\"grace_time_in_minutes\":10,\"cron_expression\":\"\",\"human_readable_cron_expression\":\"\",\"server_timezone\":null,\"ping_url\":\"https:\\\/\\\/ping-staging.ohdear.app\\\/a2313fbd-27a1-48b5-9e8f-c743362bb0df\",\"created_at\":\"2025-08-10 08:51:47\",\"latest_result\":\"\",\"latest_result_label\":\"waiting on first ping\",\"latest_result_label_color\":\"blue\",\"latest_ping_at\":\"\",\"human_readable_latest_ping_at\":\"\",\"active_snooze\":null}",
+    "context": []
+}

@@ -1,0 +1,17 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Fri, 08 Aug 2025 15:23:27 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "499",
+        "Access-Control-Allow-Origin": "*"
+    },
+    "data": "{\"id\":110,\"name\":\"Freek staging2\",\"email\":\"freek@ohdear.app\",\"photo_url\":\"https:\\\/\\\/www.gravatar.com\\\/avatar\\\/9247b8f48b74ba349885dcfaaca69572.jpg?s=100&d=mm\",\"teams\":[{\"id\":19245,\"name\":\"Test API\",\"role\":\"Owner\"}]}",
+    "context": []
+}

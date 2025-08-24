@@ -1,0 +1,24 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Sat, 09 Aug 2025 19:20:52 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "498",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=cgUUyx3uqKpUs51uIWuzR%2Bq1m5zy4yH4k3X%2B9XEaCMIZM2Cd%2Bh8vnlua1G4JB9P%2Fq9xVJ8f6Zn2aaLUrdYxQJXJ7T76MFBSD5RLVd8c%2B0g%3D%3D\"}]}",
+        "Cf-Cache-Status": "DYNAMIC",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "CF-RAY": "96c99cfcaa462e2c-BRU"
+    },
+    "data": "{\"id\":207101,\"monitor_id\":82060,\"name\":\"Updated Maintenance Window\",\"starts_at\":\"2024-12-25 01:00:00\",\"ends_at\":\"2024-12-25 05:00:00\"}",
+    "context": []
+}

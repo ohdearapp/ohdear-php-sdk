@@ -1,0 +1,24 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Sun, 10 Aug 2025 11:47:45 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "499",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=6J%2BLyZEVFR0roSp41ekCvJawZgrM%2BjhURSIoVpu4qj1tp6AMGEL8dmTa8TX%2B4lxjnGIqZu0%2BDXMhAftIyvajlj%2FHtW30FKSqP9LxINuBIw%3D%3D\"}]}",
+        "Cf-Cache-Status": "BYPASS",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "CF-RAY": "96cf429efd41ba64-BRU"
+    },
+    "data": "{\"checkUrl\":\"https:\\\/\\\/backlinko.com\\\/sitemap.xml\",\"totalIssuesCount\":10,\"totalUrlCount\":628,\"hasIssues\":true,\"issues\":[],\"sitemapIndexes\":[{\"url\":\"https:\\\/\\\/backlinko.com\\\/post-sitemap.xml\",\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/page-sitemap.xml\",\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/backlinko_tool-sitemap.xml\",\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/backlinko_deal-sitemap.xml\",\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/hub_resource-sitemap.xml\",\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/templ_lib_resource-sitemap.xml\",\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/category-sitemap.xml\",\"issues\":[{\"name\":\"CouldNotLoadSitemapIndex\",\"url\":\"https:\\\/\\\/backlinko.com\\\/category-sitemap.xml\",\"responseCode\":404}]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/hub_topic-sitemap.xml\",\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/templates_library_topic-sitemap.xml\",\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/author-sitemap.xml\",\"issues\":[]}],\"sitemaps\":[{\"url\":\"https:\\\/\\\/backlinko.com\\\/post-sitemap.xml\",\"urlCount\":411,\"checkedReachabilityOfAllUrls\":true,\"issuesCount\":0,\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/page-sitemap.xml\",\"urlCount\":22,\"checkedReachabilityOfAllUrls\":true,\"issuesCount\":0,\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/backlinko_tool-sitemap.xml\",\"urlCount\":16,\"checkedReachabilityOfAllUrls\":true,\"issuesCount\":0,\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/backlinko_deal-sitemap.xml\",\"urlCount\":1,\"checkedReachabilityOfAllUrls\":true,\"issuesCount\":0,\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/hub_resource-sitemap.xml\",\"urlCount\":116,\"checkedReachabilityOfAllUrls\":true,\"issuesCount\":0,\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/templ_lib_resource-sitemap.xml\",\"urlCount\":28,\"checkedReachabilityOfAllUrls\":true,\"issuesCount\":0,\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/hub_topic-sitemap.xml\",\"urlCount\":20,\"checkedReachabilityOfAllUrls\":true,\"issuesCount\":0,\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/templates_library_topic-sitemap.xml\",\"urlCount\":5,\"checkedReachabilityOfAllUrls\":true,\"issuesCount\":0,\"issues\":[]},{\"url\":\"https:\\\/\\\/backlinko.com\\\/author-sitemap.xml\",\"urlCount\":9,\"checkedReachabilityOfAllUrls\":true,\"issuesCount\":9,\"issues\":[{\"name\":\"FailedUrlResponse\",\"url\":\"https:\\\/\\\/backlinko.com\\\/author\\\/boris-mustapic\",\"responseCode\":404},{\"name\":\"FailedUrlResponse\",\"url\":\"https:\\\/\\\/backlinko.com\\\/author\\\/backlinko-team\",\"responseCode\":404},{\"name\":\"FailedUrlResponse\",\"url\":\"https:\\\/\\\/backlinko.com\\\/author\\\/brian-dean\",\"responseCode\":404},{\"name\":\"FailedUrlResponse\",\"url\":\"https:\\\/\\\/backlinko.com\\\/author\\\/edwin-romero\",\"responseCode\":404},{\"name\":\"FailedUrlResponse\",\"url\":\"https:\\\/\\\/backlinko.com\\\/author\\\/jon-nastor\",\"responseCode\":404},{\"name\":\"FailedUrlResponse\",\"url\":\"https:\\\/\\\/backlinko.com\\\/author\\\/leigh-mckenzie\",\"responseCode\":404},{\"name\":\"FailedUrlResponse\",\"url\":\"https:\\\/\\\/backlinko.com\\\/author\\\/michael-ofei\",\"responseCode\":404},{\"name\":\"FailedUrlResponse\",\"url\":\"https:\\\/\\\/backlinko.com\\\/author\\\/saphia-lainer\",\"responseCode\":404},{\"name\":\"FailedUrlResponse\",\"url\":\"https:\\\/\\\/backlinko.com\\\/author\\\/taylor-scher\",\"responseCode\":404}]}]}",
+    "context": []
+}

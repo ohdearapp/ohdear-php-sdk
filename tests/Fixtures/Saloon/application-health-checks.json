@@ -1,0 +1,24 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Sun, 10 Aug 2025 11:24:42 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "498",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=1BUB1dX2eQUa%2F9mzhqasrGPrbU9kWadp0gKucYbbYjGaxfbfWjJOfTlJSvfa3MDsdTOsxvId4YtW7WjAbdoO6JOc4Y9IpfJTJlJ3rQcNFw%3D%3D\"}]}",
+        "Cf-Cache-Status": "BYPASS",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "CF-RAY": "96cf20dceb67b9a5-BRU"
+    },
+    "data": "{\"data\":[{\"id\":2608325,\"name\":\"Database\",\"label\":\"Database\",\"status\":\"ok\",\"message\":\"\",\"meta\":[],\"short_summary\":\"Ok\",\"detected_at\":\"2025-08-10 11:19:33\",\"updated_at\":\"2025-08-10 11:24:05\",\"active_snooze\":null},{\"id\":2608326,\"name\":\"DebugMode\",\"label\":\"Debug Mode\",\"status\":\"ok\",\"message\":\"\",\"meta\":[],\"short_summary\":\"false\",\"detected_at\":\"2025-08-10 11:19:33\",\"updated_at\":\"2025-08-10 11:24:05\",\"active_snooze\":null},{\"id\":2608327,\"name\":\"Environment\",\"label\":\"Environment\",\"status\":\"ok\",\"message\":\"\",\"meta\":[],\"short_summary\":\"production\",\"detected_at\":\"2025-08-10 11:19:33\",\"updated_at\":\"2025-08-10 11:24:05\",\"active_snooze\":null},{\"id\":2608328,\"name\":\"Horizon\",\"label\":\"Horizon\",\"status\":\"ok\",\"message\":\"\",\"meta\":[],\"short_summary\":\"Running\",\"detected_at\":\"2025-08-10 11:19:33\",\"updated_at\":\"2025-08-10 11:24:05\",\"active_snooze\":null},{\"id\":2608329,\"name\":\"MeiliSearch\",\"label\":\"MeiliSearch\",\"status\":\"ok\",\"message\":\"\",\"meta\":[],\"short_summary\":\"Available\",\"detected_at\":\"2025-08-10 11:19:33\",\"updated_at\":\"2025-08-10 11:24:05\",\"active_snooze\":null},{\"id\":2608330,\"name\":\"OptimizedApp\",\"label\":\"Optimized App\",\"status\":\"ok\",\"message\":\"\",\"meta\":[],\"short_summary\":\"Ok\",\"detected_at\":\"2025-08-10 11:19:33\",\"updated_at\":\"2025-08-10 11:24:05\",\"active_snooze\":null},{\"id\":2608331,\"name\":\"SecurityAdvisories\",\"label\":\"Security Advisories\",\"status\":\"ok\",\"message\":\"No security vulnerability advisories found\",\"meta\":[],\"short_summary\":\"Ok\",\"detected_at\":\"2025-08-10 11:19:33\",\"updated_at\":\"2025-08-10 11:24:05\",\"active_snooze\":null},{\"id\":2608332,\"name\":\"UsedDiskSpace\",\"label\":\"Used Disk Space\",\"status\":\"ok\",\"message\":\"\",\"meta\":[],\"short_summary\":\"51%\",\"detected_at\":\"2025-08-10 11:19:33\",\"updated_at\":\"2025-08-10 11:24:05\",\"active_snooze\":null}],\"links\":{\"first\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/application-health-checks?page%5Bnumber%5D=1\",\"last\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/application-health-checks?page%5Bnumber%5D=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/application-health-checks?page%5Bnumber%5D=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/application-health-checks\",\"per_page\":200,\"to\":8,\"total\":8}}",
+    "context": []
+}

@@ -8,4 +8,5 @@ tests/ApiTest.php
 .php_cs.cache
 .php-cs-fixer.cache
 .phpunit.cache
+tests/TestSupport/.env
 

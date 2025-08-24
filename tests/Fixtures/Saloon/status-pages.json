@@ -1,0 +1,24 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Sat, 09 Aug 2025 15:45:14 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "499",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=APvw%2FRHG0Dwc3Gvg9DN394iZN4XK2KXwmRAR%2FzQHPNgDdmu%2BiH2tANsaUVSoGkb8gx0MsatAtM%2BKbhO6K3m48CUF3yCbIzCBtNkONjXqyw%3D%3D\"}]}",
+        "Cf-Cache-Status": "BYPASS",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "CF-RAY": "96c86121ae04b721-BRU"
+    },
+    "data": "{\"data\":[{\"id\":9338,\"title\":\"First status page\",\"domain\":null,\"secret\":null,\"badge_id\":\"01k27r36c4x878tjcvxxcc070h\",\"slug\":\"first-status-page\",\"full_url\":\"https:\\\/\\\/staging.ohdear.app\\\/status-page\\\/first-status-page\",\"timezone\":\"Europe\\\/Brussels\",\"summarized_status\":\"up\",\"updates\":[],\"monitors\":[],\"created_at\":\"2025-08-09 15:44:52\",\"updated_at\":\"2025-08-09 15:44:52\"},{\"id\":9339,\"title\":\"Second status page\",\"domain\":null,\"secret\":null,\"badge_id\":\"01k27r3mdswhx1s00z07m6zb8k\",\"slug\":\"second-status-page\",\"full_url\":\"https:\\\/\\\/staging.ohdear.app\\\/status-page\\\/second-status-page\",\"timezone\":\"Europe\\\/Brussels\",\"summarized_status\":\"up\",\"updates\":[],\"monitors\":[],\"created_at\":\"2025-08-09 15:45:06\",\"updated_at\":\"2025-08-09 15:45:06\"}],\"links\":{\"first\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/status-pages?page=1&page%5Bnumber%5D=1\",\"last\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/status-pages?page=1&page%5Bnumber%5D=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/status-pages?page=1&page%5Bnumber%5D=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/status-pages\",\"per_page\":200,\"to\":2,\"total\":2}}",
+    "context": []
+}

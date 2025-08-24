@@ -1,0 +1,23 @@
+{
+    "statusCode": 201,
+    "headers": {
+        "Date": "Sat, 09 Aug 2025 19:19:12 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "499",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cf-Cache-Status": "DYNAMIC",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=EDuwKuw7m3XbZos5A5Xzhq8Hrts8pYZRLBZ0L7u7mXPq%2BYK4H8x0wvnLkyyvyKJgIJmURjztGdo%2FunoGB4h0KZj3HslSmng12weoSesgDA%3D%3D\"}]}",
+        "CF-RAY": "96c99a8c2e15ba7c-BRU"
+    },
+    "data": "{\"id\":207100,\"monitor_id\":82060,\"name\":\"Database Migration\",\"starts_at\":\"2025-08-09 21:19:12\",\"ends_at\":\"2025-08-09 21:20:12\"}",
+    "context": []
+}

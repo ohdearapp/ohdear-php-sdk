@@ -1,0 +1,24 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Sun, 10 Aug 2025 11:13:14 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "499",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=dPqp8HtJQVP0tcSwtH3Y95j3mAc3YZ9f5uRqRZmb7SrXqsQOrCqCiGd93IkikpqPHHOBlMr7cshLv%2FOcMKPgd1De9DL%2Bqsu1l4rK4FnmEw%3D%3D\"}]}",
+        "Cf-Cache-Status": "BYPASS",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "CF-RAY": "96cf10129d5db72c-BRU"
+    },
+    "data": "{\"data\":[{\"id\":2851696,\"performance_score\":70,\"accessibility_score\":96,\"best_practices_score\":93,\"seo_score\":91,\"progressive_web_app_score\":28,\"first_contentful_paint_in_ms\":1526.72,\"speed_index_in_ms\":1573,\"largest_contentful_paint_in_ms\":1526.72,\"time_to_interactive_in_ms\":2383.12,\"total_blocking_time_in_ms\":401.76,\"cumulative_layout_shift\":0.01,\"performed_on_checker_server\":\"lighthouse-checker-frankfurt-1\",\"issues\":[],\"created_at\":\"2025-08-10 11:30:29\"}],\"links\":{\"first\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/lighthouse-reports?page%5Bnumber%5D=1\",\"last\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/lighthouse-reports?page%5Bnumber%5D=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/lighthouse-reports?page%5Bnumber%5D=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/lighthouse-reports\",\"per_page\":200,\"to\":1,\"total\":1}}",
+    "context": []
+}
