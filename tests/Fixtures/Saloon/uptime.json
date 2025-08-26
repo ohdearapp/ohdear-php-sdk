@@ -1,0 +1,9 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Tue, 26 Aug 2025 14:40:00 GMT",
+        "Content-Type": "application\/json"
+    },
+    "data": "[{\"datetime\":\"2025-08-01 00:00:00.\", \"uptime_percentage\": 100}]",
+    "context": []
+}
