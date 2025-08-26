@@ -2,6 +2,14 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 4.0.0 - 2025-08-26
+
+### What's Changed
+
+* v4 - uses monitors endpoint - now built on Saloon by @freekmurze in https://github.com/ohdearapp/ohdear-php-sdk/pull/55
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/3.10.3...4.0.0
+
 ## 3.10.3 - 2024-12-18
 
 Support added for updating a site and using the Sitemap resources via the SDK
