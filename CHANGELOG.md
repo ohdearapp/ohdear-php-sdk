@@ -2,6 +2,15 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 4.2.0 - 2025-08-26
+
+### What's Changed
+
+* feat: add `int` type hint for param by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/58
+* feat: add support for Uptime API by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/56
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/4.1.0...4.2.0
+
 ## 4.1.0 - 2025-08-26
 
 ### What's Changed
