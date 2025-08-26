@@ -2,10 +2,8 @@
 
 namespace OhDear\PhpSdk\Requests\StatusPages;
 
-use OhDear\PhpSdk\Dto\StatusPage;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Http\Response;
 
 class DeleteStatusPageUpdateRequest extends Request
 {
