@@ -2,85 +2,126 @@
 
 namespace OhDear\PhpSdk;
 
-use GuzzleHttp\Client;
-use OhDear\PhpSdk\Actions\ManagesApplicationHealthChecks;
-use OhDear\PhpSdk\Actions\ManagesBrokenLinks;
-use OhDear\PhpSdk\Actions\ManagesCertificateHealth;
-use OhDear\PhpSdk\Actions\ManagesChecks;
-use OhDear\PhpSdk\Actions\ManagesCronChecks;
-use OhDear\PhpSdk\Actions\ManagesDnsHistoryItems;
-use OhDear\PhpSdk\Actions\ManagesDomainMonitoring;
-use OhDear\PhpSdk\Actions\ManagesDowntime;
-use OhDear\PhpSdk\Actions\ManagesLighthouseReports;
-use OhDear\PhpSdk\Actions\ManagesMaintenancePeriods;
-use OhDear\PhpSdk\Actions\ManagesMixedContent;
-use OhDear\PhpSdk\Actions\ManagesNotifications;
-use OhDear\PhpSdk\Actions\ManagesPerformance;
-use OhDear\PhpSdk\Actions\ManagesSitemaps;
-use OhDear\PhpSdk\Actions\ManagesSites;
-use OhDear\PhpSdk\Actions\ManagesStatusPages;
-use OhDear\PhpSdk\Actions\ManagesStatusPageUpdates;
-use OhDear\PhpSdk\Actions\ManagesUptime;
-use OhDear\PhpSdk\Actions\ManagesUsers;
+use OhDear\PhpSdk\Concerns\SupportsApplicationHealthChecksEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsBrokenLinksEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsCertificateHealthEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsCheckEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsCronCheckDefinitionsEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsDetectedCertificatesEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsDnsHistoryItemsEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsDowntimeEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsLighthouseReportsEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsMaintenancePeriodEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsMeEndpoint;
+use OhDear\PhpSdk\Concerns\SupportsMixedContentEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsMonitorEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsSitemapEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsStatusPageEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsUptimeMetricsEndpoints;
+use OhDear\PhpSdk\Exceptions\OhDearException;
+use OhDear\PhpSdk\Exceptions\ValidationException;
+use Saloon\Http\Auth\TokenAuthenticator;
+use Saloon\Http\Connector;
+use Saloon\Http\Request;
+use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\HasPagination;
+use Saloon\PaginationPlugin\PagedPaginator;
+use Saloon\PaginationPlugin\Paginator;
+use Saloon\Traits\Plugins\AcceptsJson;
+use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
+use Throwable;
 
-class OhDear
+class OhDear extends Connector implements HasPagination
 {
-    use MakesHttpRequests;
-    use ManagesApplicationHealthChecks;
-    use ManagesBrokenLinks;
-    use ManagesCertificateHealth;
-    use ManagesChecks;
-    use ManagesCronChecks;
-    use ManagesDnsHistoryItems;
-    use ManagesDomainMonitoring;
-    use ManagesDowntime;
-    use ManagesLighthouseReports;
-    use ManagesMaintenancePeriods;
-    use ManagesMixedContent;
-    use ManagesNotifications;
-    use ManagesPerformance;
-    use ManagesSitemaps;
-    use ManagesSites;
-    use ManagesStatusPages;
-    use ManagesStatusPageUpdates;
-    use ManagesUptime;
-    use ManagesUsers;
+    use AcceptsJson;
+    use AlwaysThrowOnErrors;
+    use SupportsApplicationHealthChecksEndpoints;
+    use SupportsBrokenLinksEndpoints;
+    use SupportsCertificateHealthEndpoints;
+    use SupportsCheckEndpoints;
+    use SupportsCronCheckDefinitionsEndpoints;
+    use SupportsDetectedCertificatesEndpoints;
+    use SupportsDnsHistoryItemsEndpoints;
+    use SupportsDowntimeEndpoints;
+    use SupportsLighthouseReportsEndpoints;
+    use SupportsMaintenancePeriodEndpoints;
+    use SupportsMeEndpoint;
+    use SupportsMixedContentEndpoints;
+    use SupportsMonitorEndpoints;
+    use SupportsSitemapEndpoints;
+    use SupportsStatusPageEndpoints;
+    use SupportsUptimeMetricsEndpoints;
 
-    public string $apiToken;
+    protected string $apiToken;
 
-    public Client $client;
+    protected string $baseUrl;
 
-    public function __construct(string $apiToken, string $baseUri = 'https://ohdear.app/api/')
-    {
+    protected int $timeoutInSeconds;
+
+    public function __construct(
+        string $apiToken,
+        string $baseUrl = 'https://ohdear.app/api/',
+        int $timeoutInSeconds = 10,
+    ) {
         $this->apiToken = $apiToken;
-
-        $this->client = new Client([
-            'base_uri' => $baseUri,
-            'http_errors' => false,
-            'headers' => [
-                'Authorization' => "Bearer {$this->apiToken}",
-                'Accept' => 'application/json',
-                'Content-Type' => 'application/json',
-            ],
-        ]);
+        $this->baseUrl = rtrim($baseUrl, '/');
+        $this->timeoutInSeconds = $timeoutInSeconds;
     }
 
-    public function setClient(Client $client): self
+    public function getRequestException(Response $response, ?Throwable $senderException): ?Throwable
     {
-        $this->client = $client;
+        if ($response->status() === 422) {
+            return new ValidationException($response);
+        }
 
-        return $this;
+        return new OhDearException(
+            $response,
+            $senderException?->getMessage() ?? 'Request failed',
+            $senderException?->getCode() ?? 0,
+        );
     }
 
-    protected function transformCollection(array $collection, string $class): array
+    public function resolveBaseUrl(): string
     {
-        return array_map(function ($attributes) use ($class) {
-            return new $class($attributes, $this);
-        }, $collection);
+        return $this->baseUrl;
     }
 
-    public function convertDateFormat(string $date, $format = 'YmdHis'): string
+    protected function defaultAuth(): TokenAuthenticator
     {
-        return (new \DateTimeImmutable($date))->format($format);
+        return new TokenAuthenticator($this->apiToken);
+    }
+
+    protected function defaultHeaders(): array
+    {
+        return [
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+        ];
+    }
+
+    protected function defaultConfig(): array
+    {
+        return [
+            'timeout' => $this->timeoutInSeconds,
+        ];
+    }
+
+    public function paginate(Request $request): Paginator
+    {
+        return new class(connector: $this, request: $request) extends PagedPaginator
+        {
+            protected function isLastPage(Response $response): bool
+            {
+                $currentPage = $response->json('meta.current_page');
+                $lastPage = $response->json('meta.last_page');
+
+                return $currentPage === $lastPage;
+            }
+
+            protected function getPageItems(Response $response, Request $request): array
+            {
+                return $request->createDtoFromResponse($response);
+            }
+        };
     }
 }

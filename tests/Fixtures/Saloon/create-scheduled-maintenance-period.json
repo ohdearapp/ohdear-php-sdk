@@ -1,0 +1,23 @@
+{
+    "statusCode": 201,
+    "headers": {
+        "Date": "Sat, 09 Aug 2025 19:20:19 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "499",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cf-Cache-Status": "DYNAMIC",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=cTx4H1DRgLMflOGMc8F7NGYho6PPdgLv%2FbijIWad7HgeFv8VDTqGC%2FWUg6GmaqrZzdRuTGMvxeDNCKHHbxkSp%2FVHLzWy%2BUCQjYpCS5OnqA%3D%3D\"}]}",
+        "CF-RAY": "96c99c3108997500-BRU"
+    },
+    "data": "{\"id\":207101,\"monitor_id\":82060,\"name\":\"Scheduled Server Maintenance\",\"starts_at\":\"2024-12-25 02:00:00\",\"ends_at\":\"2024-12-25 06:00:00\"}",
+    "context": []
+}

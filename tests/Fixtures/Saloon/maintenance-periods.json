@@ -1,0 +1,24 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Sat, 09 Aug 2025 19:15:10 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "499",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=LvHAh8dg0jOePL9sVwJqaCD9A6klQNN7t23FKfWFljKVcrCs8nVOsqivN7zbIudx4vpeSFdGWV3dh7nxqGDTgOjTZXNOph%2FgA8MmwkfRLQ%3D%3D\"}]}",
+        "Cf-Cache-Status": "BYPASS",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "CF-RAY": "96c994a4d90b2e56-BRU"
+    },
+    "data": "{\"data\":[{\"id\":207098,\"monitor_id\":82060,\"name\":\"Test\",\"starts_at\":\"2025-08-04 21:14:00\",\"ends_at\":\"2025-08-06 23:14:00\"}],\"links\":{\"first\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/maintenance-periods?page=1&page%5Bnumber%5D=1\",\"last\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/maintenance-periods?page=1&page%5Bnumber%5D=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/maintenance-periods?page=1&page%5Bnumber%5D=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"https:\\\/\\\/staging.ohdear.app\\\/api\\\/monitors\\\/82060\\\/maintenance-periods\",\"per_page\":200,\"to\":1,\"total\":1}}",
+    "context": []
+}

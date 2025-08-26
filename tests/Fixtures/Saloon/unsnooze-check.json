@@ -1,0 +1,24 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Sat, 09 Aug 2025 19:00:10 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "498",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=q0UaSSSwyD1o54gFRtrtHLFtaSeZc10kdBEgkkhVovKsyfMmk9czhKkFn40SoczAJHw4RkO0h%2BeKiEeTJ40qFwZhVNbg4ORgPT7%2BeLHB4g%3D%3D\"}]}",
+        "Cf-Cache-Status": "DYNAMIC",
+        "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "CF-RAY": "96c97e903859b9ab-BRU"
+    },
+    "data": "{\"id\":940704,\"type\":\"uptime\",\"label\":\"Uptime\",\"enabled\":false,\"latest_run_ended_at\":\"2025-08-09 18:57:40\",\"latest_run_result\":\"succeeded\",\"summary\":\"Disabled\",\"settings\":{\"location\":\"paris\",\"look_for_string\":\"\",\"absent_string\":null,\"expected_response_headers\":[],\"failed_notification_threshold\":2,\"http_verb\":\"get\",\"payload\":[],\"timeout\":5,\"valid_status_codes\":[\"2*\"],\"max_redirect_count\":5,\"expected_final_redirect_url\":null,\"http_client_headers\":[]},\"active_snooze\":null}",
+    "context": []
+}
