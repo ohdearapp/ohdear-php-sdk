@@ -1,7 +1,5 @@
 <?php
 
-use OhDear\PhpSdk\Requests\Downtime\DeleteDowntimePeriodRequest;
-use OhDear\PhpSdk\Requests\Downtime\GetDowntimeRequest;
 use OhDear\PhpSdk\Requests\Uptime\GetUptimeRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
