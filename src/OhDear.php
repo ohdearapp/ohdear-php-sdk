@@ -17,6 +17,7 @@ use OhDear\PhpSdk\Concerns\SupportsMixedContentEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMonitorEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsSitemapEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsStatusPageEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsUptimeEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsUptimeMetricsEndpoints;
 use OhDear\PhpSdk\Exceptions\OhDearException;
 use OhDear\PhpSdk\Exceptions\ValidationException;
@@ -50,6 +51,7 @@ class OhDear extends Connector implements HasPagination
     use SupportsMonitorEndpoints;
     use SupportsSitemapEndpoints;
     use SupportsStatusPageEndpoints;
+    use SupportsUptimeEndpoints;
     use SupportsUptimeMetricsEndpoints;
 
     protected string $apiToken;
