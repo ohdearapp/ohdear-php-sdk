@@ -2,6 +2,14 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 4.1.0 - 2025-08-26
+
+### What's Changed
+
+* feat: add support for Status Page Updates API by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/57
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/4.0.0...4.1.0
+
 ## 4.0.0 - 2025-08-26
 
 ### What's Changed
