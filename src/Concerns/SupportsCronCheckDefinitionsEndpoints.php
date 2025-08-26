@@ -38,7 +38,7 @@ trait SupportsCronCheckDefinitionsEndpoints
         return $this->send($request)->dtoOrFail();
     }
 
-    public function deleteCronCheckDefinition($cronCheckDefinitionId): self
+    public function deleteCronCheckDefinition(int $cronCheckDefinitionId): self
     {
         $request = new DeleteCronCheckDefinitionRequest($cronCheckDefinitionId);
 
