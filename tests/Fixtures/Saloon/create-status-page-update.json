@@ -1,0 +1,9 @@
+{
+    "statusCode": 201,
+    "headers": {
+        "Date": "Tue, 26 Aug 2025 14:08:24 GMT",
+        "Content-Type": "application\/json"
+    },
+    "data": "{\n    \"id\": 66,\n    \"title\": \"Our site is down\",\n    \"text\": \"We are working on it!\",\n    \"pinned\": true,\n    \"severity\": \"high\",\n    \"time\": \"2025-01-01 00:00:00\",\n    \"status_page_url\": \"https://ohdear.app/status-page/your-slug\"\n}",
+    "context": []
+}
