@@ -19,6 +19,6 @@ it('can get uptime periods', function () {
 
     foreach ($uptimePeriods as $uptime) {
         expect($uptime->datetime)->toBeString();
-        expect($uptime->uptimePercentage)->toBeInt();
+        expect($uptime->uptimePercentage)->toBeFloat();
     }
 });
