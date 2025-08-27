@@ -2,6 +2,14 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 4.2.2 - 2025-08-27
+
+### What's Changed
+
+* fix: resolve uptime percentage as float by @owenvoke in https://github.com/ohdearapp/ohdear-php-sdk/pull/61
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/4.2.1...4.2.2
+
 ## 4.2.1 - 2025-08-27
 
 ### What's Changed
