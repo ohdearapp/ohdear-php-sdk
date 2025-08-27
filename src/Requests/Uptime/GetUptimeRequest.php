@@ -3,6 +3,7 @@
 namespace OhDear\PhpSdk\Requests\Uptime;
 
 use OhDear\PhpSdk\Dto\Uptime;
+use OhDear\PhpSdk\Enums\UptimeSplit;
 use OhDear\PhpSdk\Helpers\Helpers;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -16,6 +17,7 @@ class GetUptimeRequest extends Request
         protected int $monitorId,
         protected string $startedAt,
         protected string $endedAt,
+        protected UptimeSplit $split = UptimeSplit::Hour,
     ) {}
 
     public function resolveEndpoint(): string
@@ -30,6 +32,7 @@ class GetUptimeRequest extends Request
                 'started_at' => Helpers::convertDateFormat($this->startedAt),
                 'ended_at' => Helpers::convertDateFormat($this->endedAt),
             ],
+            'split' => $this->split->value,
         ];
     }
 
