@@ -10,7 +10,7 @@ class Uptime
 {
     public function __construct(
         public string $datetime,
-        public int $uptimePercentage,
+        public float $uptimePercentage,
     ) {}
 
     public static function fromResponse(array $data): self
