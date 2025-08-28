@@ -10,6 +10,7 @@ use OhDear\PhpSdk\Requests\Monitors\DeleteMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetCheckSummaryRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;
+use OhDear\PhpSdk\Requests\Monitors\GetNotificationDestinationsRequest;
 use OhDear\PhpSdk\Requests\Monitors\UpdateMonitorRequest;
 
 /** @mixin \OhDear\PhpSdk\OhDear */
@@ -59,6 +60,13 @@ trait SupportsMonitorEndpoints
     public function checkSummary(int $monitorId, CheckType $checkType): CheckSummary
     {
         $request = new GetCheckSummaryRequest($monitorId, $checkType);
+
+        return $this->send($request)->dto();
+    }
+
+    public function notificationDestinations(int $monitorId): array
+    {
+        $request = new GetNotificationDestinationsRequest($monitorId);
 
         return $this->send($request)->dto();
     }

@@ -6,6 +6,7 @@ use OhDear\PhpSdk\Requests\Monitors\DeleteMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetCheckSummaryRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;
+use OhDear\PhpSdk\Requests\Monitors\GetNotificationDestinationsRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 
@@ -70,4 +71,16 @@ it('can get check summary for a monitor', function () {
     $checkSummary = $this->ohDear->checkSummary(82060, CheckType::CertificateHealth);
 
     expect($checkSummary->result)->toBe('succeeded');
+});
+
+it('can get notification destinations for a monitor', function () {
+    MockClient::global([
+        GetNotificationDestinationsRequest::class => MockResponse::fixture('notification-destinations'),
+    ]);
+
+    $notificationDestinations = $this->ohDear->notificationDestinations(82060);
+
+    foreach ($notificationDestinations as $notificationDestination) {
+        expect($notificationDestination->id)->toBeInt();
+    }
 });
