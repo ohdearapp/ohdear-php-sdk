@@ -2,6 +2,18 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 4.3.0 - 2025-08-28
+
+### What's Changed
+
+* Add Notification Destinations to Monitors Endpoints by @evan-burrell in https://github.com/ohdearapp/ohdear-php-sdk/pull/62
+
+### New Contributors
+
+* @evan-burrell made their first contribution in https://github.com/ohdearapp/ohdear-php-sdk/pull/62
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/4.2.2...4.3.0
+
 ## 4.2.2 - 2025-08-27
 
 ### What's Changed
