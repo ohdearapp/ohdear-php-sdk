@@ -2,6 +2,7 @@
 
 use OhDear\PhpSdk\Enums\CheckType;
 use OhDear\PhpSdk\Requests\Monitors\CreateMonitorRequest;
+use OhDear\PhpSdk\Requests\Monitors\CreateNotificationDestinationsRequest;
 use OhDear\PhpSdk\Requests\Monitors\DeleteMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetCheckSummaryRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorRequest;
@@ -83,4 +84,21 @@ it('can get notification destinations for a monitor', function () {
     foreach ($notificationDestinations as $notificationDestination) {
         expect($notificationDestination->id)->toBeInt();
     }
+});
+
+it('can create a notification destination', function () {
+    MockClient::global([
+        CreateNotificationDestinationsRequest::class => MockResponse::fixture('create-notification-destination'),
+    ]);
+
+    $notificationDestination = $this->ohDear->createNotificationDestination(82060, [
+        'channel' => 'mail',
+        'destination' => [
+            'mail' => 'example@example.com',
+        ],
+    ]);
+
+    expect($notificationDestination->id)->toBeInt('19245');
+    expect($notificationDestination->channel)->toBe('mail');
+    expect($notificationDestination->destination['mail'])->toBe('example@example.com');
 });

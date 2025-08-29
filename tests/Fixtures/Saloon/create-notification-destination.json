@@ -1,0 +1,13 @@
+{
+    "statusCode": 201,
+    "headers": {
+        "Date": "Sat, 09 Aug 2025 14:25:50 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Cache-Control": "no-cache, private"
+    },
+    "data": "{\"id\": 456,\"channel\":\"mail\",\"destination\":{\"mail\": \"example@example.com\"}}",
+    "context": []
+}

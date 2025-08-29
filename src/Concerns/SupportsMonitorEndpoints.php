@@ -4,8 +4,10 @@ namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\CheckSummary;
 use OhDear\PhpSdk\Dto\Monitor;
+use OhDear\PhpSdk\Dto\NotificationDestination;
 use OhDear\PhpSdk\Enums\CheckType;
 use OhDear\PhpSdk\Requests\Monitors\CreateMonitorRequest;
+use OhDear\PhpSdk\Requests\Monitors\CreateNotificationDestinationsRequest;
 use OhDear\PhpSdk\Requests\Monitors\DeleteMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetCheckSummaryRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorRequest;
@@ -67,6 +69,13 @@ trait SupportsMonitorEndpoints
     public function notificationDestinations(int $monitorId): array
     {
         $request = new GetNotificationDestinationsRequest($monitorId);
+
+        return $this->send($request)->dto();
+    }
+
+    public function createNotificationDestination(int $monitorId, array $properties): NotificationDestination
+    {
+        $request = new CreateNotificationDestinationsRequest($monitorId, $properties);
 
         return $this->send($request)->dto();
     }
