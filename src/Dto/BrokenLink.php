@@ -5,7 +5,7 @@ namespace OhDear\PhpSdk\Dto;
 class BrokenLink
 {
     public function __construct(
-        public int $statusCode,
+        public ?int $statusCode,
         public string $crawledUrl,
         public string $relativeCrawledUrl,
         public string $foundOnUrl,

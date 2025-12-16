@@ -1,0 +1,7 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "data": "{\"data\":[{\"status_code\":null,\"crawled_url\":\"https://2019.wiadswitzerland.org/\",\"relative_crawled_url\":\"https://2019.wiadswitzerland.org/\",\"found_on_url\":\"https://zeix.com/magazin/inclusive-design-in-der-sprache\",\"relative_found_on_url\":\"/magazin/inclusive-design-in-der-sprache\",\"link_text\":\"WorldInformationArchitectureDay(WIAD)inZürich\",\"internal\":false}],\"links\":{\"first\":\"/?page=1\",\"last\":\"/?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo;Previous\",\"page\":null,\"active\":false},{\"url\":\"/?page=1\",\"label\":\"1\",\"page\":1,\"active\":true},{\"url\":null,\"label\":\"Next&raquo;\",\"page\":null,\"active\":false}],\"path\":\"/\",\"per_page\":1000,\"to\":1,\"total\":1}}"
+}
