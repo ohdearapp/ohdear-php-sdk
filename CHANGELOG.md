@@ -2,6 +2,10 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 4.4.1 - 2025-12-16
+
+Bugfix: handle null status codes in BrokenLink DTO and update tests
+
 ## 4.4.0 - 2025-08-29
 
 ### What's Changed
