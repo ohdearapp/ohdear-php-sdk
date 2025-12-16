@@ -25,3 +25,21 @@ it('can get broken links', function () {
         expect($brokenLink->internal)->toBeBool();
     }
 });
+
+it('handles null status codes in broken links payload without throwing', function () {
+    MockClient::global([
+        GetBrokenLinksRequest::class => MockResponse::fixture('broken-links-null-status'),
+    ]);
+
+    $brokenLinks = $this->ohDear->brokenLinks(82060);
+
+    foreach ($brokenLinks as $brokenLink) {
+        expect($brokenLink->statusCode)->toBeNull()
+            ->and($brokenLink->crawledUrl)->toBeString()
+            ->and($brokenLink->relativeCrawledUrl)->toBeString()
+            ->and($brokenLink->foundOnUrl)->toBeString()
+            ->and($brokenLink->relativeFoundOnUrl)->toBeString()
+            ->and($brokenLink->linkText)->toBeString()
+            ->and($brokenLink->internal)->toBeBool();
+    }
+});
