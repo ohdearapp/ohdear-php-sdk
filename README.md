@@ -78,7 +78,7 @@ try {
 
 For all other errors, the SDK will throw an `\OhDear\PhpSdk\Exceptions\OhDearException`.
 
-### Get user info
+### [Get user info](https://ohdear.app/docs/api/user-info)
 
 ```php
 // returns OhDear\PhpSdk\Dto\User
@@ -87,9 +87,11 @@ $user = $ohDear->me();
 echo $user->email; // returns the email address of the authenticated user
 ```
 
-### Monitors
+### [Monitors](https://ohdear.app/docs/api/monitors)
 
 Monitors are the core of Oh Dear - they watch your websites, APIs, and services for uptime, performance, SSL certificates, broken links, and more. You can create different types of monitors (HTTP, ping, TCP) and configure various checks for each one.
+
+[View all monitor API documentation](https://ohdear.app/docs/api/monitors)
 
 #### Get all monitors
 
@@ -190,7 +192,7 @@ foreach ($certificateHealth->certificateChainIssuers as $issuer) {
 }
 ```
 
-### Status pages
+### [Status pages](https://ohdear.app/docs/api/status-pages)
 
 Status pages provide a public way to communicate the status of your services to your users. They automatically reflect the health of your monitors and allow you to post updates during incidents or maintenance windows.
 
@@ -285,7 +287,7 @@ $template = $ohDear->updateStatusPageUpdateTemplate($templateId, [
 $ohDear->deleteStatusPageUpdateTemplate($templateId);
 ```
 
-### Checks
+### [Checks](https://ohdear.app/docs/api/checks)
 
 Checks are individual monitoring tasks that belong to monitors (like uptime, SSL certificate, performance, broken links, etc.). You can control each check independently - enabling, disabling, requesting immediate runs, and temporarily snoozing notifications.
 
@@ -348,7 +350,7 @@ $check = $ohDear->unsnoozeCheck($checkId);
 echo $check->activeSnooze ? 'Check is still snoozed' : 'Check is now active';
 ```
 
-### Maintenance Periods
+### [Maintenance Periods](https://ohdear.app/docs/api/maintenance-windows)
 
 Maintenance periods allow you to temporarily disable notifications for monitors during planned maintenance windows.
 
@@ -425,7 +427,7 @@ You can delete a maintenance period:
 $ohDear->deleteMaintenancePeriod($maintenancePeriodId);
 ```
 
-### Uptime Metrics
+### [Uptime Metrics](https://ohdear.app/docs/api/uptime-metrics)
 
 Uptime metrics provide detailed performance and timing data for your monitors over time. Different monitor types (Http, Ping, TCP) provide different metrics.
 
@@ -485,7 +487,7 @@ foreach ($metrics as $metric) {
 }
 ```
 
-### Cron Check Definitions
+### [Cron Check Definitions](https://ohdear.app/docs/api/cron-job-monitoring)
 
 Cron check definitions allow you to monitor scheduled tasks and ensure they execute on time. You can create different types of cron checks including traditional cron expressions and simple frequency-based checks.
 
@@ -576,7 +578,7 @@ $cronCheckDefinitions = $ohDear->syncCronCheckDefinitions($monitorId, [
 ]);
 ```
 
-### Broken Links
+### [Broken Links](https://ohdear.app/docs/api/broken-links)
 
 The broken links feature crawls your website and identifies links that return HTTP error status codes, helping you maintain a healthy website.
 
@@ -595,7 +597,7 @@ foreach ($brokenLinks as $brokenLink) {
 }
 ```
 
-### Detected Certificates
+### [Detected Certificates](https://ohdear.app/docs/api/certificate-health)
 
 Detected certificates provide information about SSL certificates that Oh Dear has discovered while monitoring your site, including their details, validity, and fingerprints.
 
@@ -637,7 +639,7 @@ echo "Certificate fingerprint: {$certificate->fingerprint}";
 echo "Created at: {$certificate->createdAt}";
 ```
 
-### DNS History Items
+### [DNS History Items](https://ohdear.app/docs/api/dns-records)
 
 DNS history items track changes to your domain's DNS records over time, helping you monitor DNS propagation and detect unauthorized changes.
 
@@ -664,7 +666,7 @@ foreach ($dnsHistoryItems as $historyItem) {
 $historyItem = $ohDear->dnsHistoryItem($monitorId, $historyItemId);
 ```
 
-### Lighthouse Reports
+### [Lighthouse Reports](https://ohdear.app/docs/api/lighthouse)
 
 Lighthouse reports provide detailed performance, accessibility, SEO, and best practices analysis of your web pages using Google's Lighthouse auditing tool.
 
@@ -727,7 +729,7 @@ echo "Latest performance score: {$latestReport->performanceScore}/100";
 echo "Report generated: {$latestReport->createdAt}";
 ```
 
-### Application Health Checks
+### [Application Health Checks](https://ohdear.app/docs/api/application-health)
 
 Application health checks monitor custom endpoints in your application to ensure they're responding correctly and returning expected health status information.
 
@@ -784,7 +786,7 @@ $healthCheck = $ohDear->snoozeApplicationHealthCheck($monitorId, $healthCheckId,
 $healthCheck = $ohDear->unsnoozeApplicationHealthCheck($monitorId, $healthCheckId);
 ```
 
-### Sitemap
+### [Sitemap](https://ohdear.app/docs/api/sitemap)
 
 The sitemap check analyzes your website's XML sitemap(s) to ensure they're accessible and properly formatted, and can also check the reachability of URLs within the sitemaps.
 
@@ -835,7 +837,7 @@ if (!empty($sitemap->sitemaps)) {
 }
 ```
 
-### Mixed Content
+### [Mixed Content](https://ohdear.app/docs/api/mixed-content)
 
 The mixed content check identifies elements on your HTTPS pages that are loaded over HTTP, which can cause security warnings in browsers and degrade user experience.
 
@@ -853,7 +855,7 @@ foreach ($mixedContentItems as $mixedContent) {
 }
 ```
 
-### Downtime
+### [Downtime](https://ohdear.app/docs/api/uptime)
 
 Downtime periods track when your monitored sites were unavailable, providing historical data about outages and their duration.
 
@@ -901,7 +903,7 @@ You can delete downtime periods that were recorded incorrectly or are no longer 
 $ohDear->deleteDowntimePeriod($downtimePeriodId);
 ```
 
-### Domain Monitoring
+### [Domain Monitoring](https://ohdear.app/docs/api/domain-monitoring)
 
 ```php
 $domainInfo = $ohDear->domain($monitorId);
@@ -910,7 +912,7 @@ echo "Expires at: {$domainInfo->expiresAt}";
 echo "Registered at: {$domainInfo->registeredAt}";
 ```
 
-### AI Responses
+### [AI Responses](https://ohdear.app/docs/api/ai-monitoring)
 
 ```php
 // List all AI responses
@@ -926,7 +928,7 @@ echo "Prompt: {$aiResponse->prompt}";
 echo "Response: {$aiResponse->response}";
 ```
 
-### Port Scanning
+### [Port Scanning](https://ohdear.app/docs/api/port-scanning)
 
 ```php
 // List port scan results
@@ -939,7 +941,7 @@ echo "Scanned host: {$item->scannedHost}";
 echo "Scan time: {$item->scanTimeMs}ms";
 ```
 
-### DNS Blocklist
+### [DNS Blocklist](https://ohdear.app/docs/api/dns-blocklist)
 
 ```php
 // List blocklist check results
@@ -951,7 +953,7 @@ $item = $ohDear->dnsBlocklistHistoryItem($monitorId, $dnsBlocklistHistoryItemId)
 echo "Domain: {$item->domain}";
 ```
 
-### Tags
+### [Tags](https://ohdear.app/docs/api/tags-and-tag-groups)
 
 ```php
 $tags = $ohDear->tags();
@@ -962,7 +964,7 @@ $tag = $ohDear->createTag([
 ]);
 ```
 
-### Tag Groups
+### [Tag Groups](https://ohdear.app/docs/api/tags-and-tag-groups)
 
 ```php
 $tagGroups = $ohDear->tagGroups();
@@ -979,7 +981,7 @@ $tagGroup = $ohDear->updateTagGroup($tagGroupId, [
 $ohDear->deleteTagGroup($tagGroupId);
 ```
 
-### Recurring Maintenance Periods
+### [Recurring Maintenance Periods](https://ohdear.app/docs/api/maintenance-windows)
 
 ```php
 // List recurring periods for a monitor
@@ -1007,7 +1009,7 @@ $period = $ohDear->updateRecurringMaintenancePeriod($id, [
 $ohDear->deleteRecurringMaintenancePeriod($id);
 ```
 
-### Notification Destinations
+### [Notification Destinations](https://ohdear.app/docs/api/notification-destinations)
 
 Notification destinations can be managed at the monitor, team, tag, and tag group level.
 
