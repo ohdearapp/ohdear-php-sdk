@@ -13,7 +13,7 @@ trait SupportsStatusPageUpdateTemplateEndpoints
 {
     public function statusPageUpdateTemplates(): array
     {
-        $request = new GetStatusPageUpdateTemplatesRequest();
+        $request = new GetStatusPageUpdateTemplatesRequest;
 
         return $this->send($request)->dtoOrFail();
     }

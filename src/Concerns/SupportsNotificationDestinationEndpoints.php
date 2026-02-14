@@ -21,7 +21,7 @@ trait SupportsNotificationDestinationEndpoints
 {
     public function teamNotificationDestinations(): array
     {
-        $request = new GetTeamNotificationDestinationsRequest();
+        $request = new GetTeamNotificationDestinationsRequest;
 
         return $this->send($request)->dto();
     }
@@ -51,7 +51,7 @@ trait SupportsNotificationDestinationEndpoints
 
     public function tagNotificationDestinations(): array
     {
-        $request = new GetTagNotificationDestinationsRequest();
+        $request = new GetTagNotificationDestinationsRequest;
 
         return $this->send($request)->dto();
     }

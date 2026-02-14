@@ -11,7 +11,7 @@ trait SupportsTagEndpoints
 {
     public function tags(): array
     {
-        $request = new GetTagsRequest();
+        $request = new GetTagsRequest;
 
         return $this->send($request)->dtoOrFail();
     }
