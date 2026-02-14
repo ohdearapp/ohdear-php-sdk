@@ -1,0 +1,1 @@
+{"statusCode":200,"headers":{"Content-Type":"application/json"},"data":"{\"data\":[{\"id\":200,\"label\":\"Tag Email\",\"channel\":\"mail\",\"destination\":{\"mail\":\"tag@example.com\"},\"notification_types\":[]}]}","context":[]}

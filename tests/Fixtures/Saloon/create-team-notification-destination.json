@@ -1,0 +1,1 @@
+{"statusCode":201,"headers":{"Content-Type":"application/json"},"data":"{\"id\":101,\"label\":null,\"channel\":\"mail\",\"destination\":{\"mail\":\"team@example.com\"},\"notification_types\":[]}","context":[]}

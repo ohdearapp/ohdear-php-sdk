@@ -7,6 +7,7 @@ use OhDear\PhpSdk\Requests\CronCheckDefinitions\CreateCronCheckDefinitionRequest
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\DeleteCronCheckDefinitionRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\GetCronCheckDefinitionsRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\SnoozeCronCheckDefinitionRequest;
+use OhDear\PhpSdk\Requests\CronCheckDefinitions\SyncCronCheckDefinitionsRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\UnsnoozeCronCheckDefinitionRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\UpdateCronCheckDefinitionRequest;
 
@@ -58,6 +59,13 @@ trait SupportsCronCheckDefinitionsEndpoints
     public function unsnoozeCronCheckDefinition(int $cronCheckDefinitionId): CronCheckDefinition
     {
         $request = new UnsnoozeCronCheckDefinitionRequest($cronCheckDefinitionId);
+
+        return $this->send($request)->dtoOrFail();
+    }
+
+    public function syncCronCheckDefinitions(int $monitorId, array $cronChecks): array
+    {
+        $request = new SyncCronCheckDefinitionsRequest($monitorId, $cronChecks);
 
         return $this->send($request)->dtoOrFail();
     }

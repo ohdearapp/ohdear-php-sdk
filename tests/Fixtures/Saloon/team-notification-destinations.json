@@ -1,0 +1,1 @@
+{"statusCode":200,"headers":{"Content-Type":"application/json"},"data":"{\"data\":[{\"id\":100,\"label\":\"Team Slack\",\"channel\":\"slack\",\"destination\":{\"webhook_url\":\"https://hooks.slack.com/test\"},\"notification_types\":[]}]}","context":[]}

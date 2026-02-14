@@ -1,0 +1,1 @@
+{"statusCode":201,"headers":{"Content-Type":"application/json"},"data":"{\"id\":301,\"label\":null,\"channel\":\"mail\",\"destination\":{\"mail\":\"taggroup@example.com\"},\"notification_types\":[]}","context":[]}

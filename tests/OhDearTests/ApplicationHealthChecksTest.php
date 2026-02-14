@@ -2,6 +2,8 @@
 
 use OhDear\PhpSdk\Requests\ApplicationHealthChecks\GetApplicationHealthCheckHistoryRequest;
 use OhDear\PhpSdk\Requests\ApplicationHealthChecks\GetApplicationHealthChecksRequest;
+use OhDear\PhpSdk\Requests\ApplicationHealthChecks\SnoozeApplicationHealthCheckRequest;
+use OhDear\PhpSdk\Requests\ApplicationHealthChecks\UnsnoozeApplicationHealthCheckRequest;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 
@@ -45,4 +47,28 @@ it('can get application health check history', function () {
         expect($historyItem->detectedAt)->toBeString();
         expect($historyItem->updatedAt)->toBeString();
     }
+});
+
+it('can snooze an application health check', function () {
+    MockClient::global([
+        SnoozeApplicationHealthCheckRequest::class => MockResponse::fixture('snooze-application-health-check'),
+    ]);
+
+    $healthCheck = $this->ohDear->snoozeApplicationHealthCheck(82060, 2608325, 60);
+
+    expect($healthCheck->id)->toBe(2608325);
+    expect($healthCheck->name)->toBe('Database');
+    expect($healthCheck->activeSnooze)->toBeArray();
+});
+
+it('can unsnooze an application health check', function () {
+    MockClient::global([
+        UnsnoozeApplicationHealthCheckRequest::class => MockResponse::fixture('unsnooze-application-health-check'),
+    ]);
+
+    $healthCheck = $this->ohDear->unsnoozeApplicationHealthCheck(82060, 2608325);
+
+    expect($healthCheck->id)->toBe(2608325);
+    expect($healthCheck->name)->toBe('Database');
+    expect($healthCheck->activeSnooze)->toBeNull();
 });

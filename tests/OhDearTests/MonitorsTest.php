@@ -1,10 +1,12 @@
 <?php
 
 use OhDear\PhpSdk\Enums\CheckType;
+use OhDear\PhpSdk\Requests\Monitors\AddToBrokenLinksWhitelistRequest;
 use OhDear\PhpSdk\Requests\Monitors\CreateMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\CreateNotificationDestinationsRequest;
 use OhDear\PhpSdk\Requests\Monitors\DeleteMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetCheckSummaryRequest;
+use OhDear\PhpSdk\Requests\Monitors\GetMonitorByUrlRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetMonitorsRequest;
 use OhDear\PhpSdk\Requests\Monitors\GetNotificationDestinationsRequest;
@@ -101,4 +103,25 @@ it('can create a notification destination', function () {
     expect($notificationDestination->id)->toBeInt('19245');
     expect($notificationDestination->channel)->toBe('mail');
     expect($notificationDestination->destination['mail'])->toBe('example@example.com');
+});
+
+it('can get a monitor by url', function () {
+    MockClient::global([
+        GetMonitorByUrlRequest::class => MockResponse::fixture('monitor-by-url'),
+    ]);
+
+    $monitor = $this->ohDear->monitorByUrl('https://laravel.com');
+
+    expect($monitor->id)->toBe(82063);
+    expect($monitor->url)->toBe('https://laravel.com');
+});
+
+it('can add a url to broken links whitelist', function () {
+    MockClient::global([
+        AddToBrokenLinksWhitelistRequest::class => MockResponse::fixture('add-to-broken-links-whitelist'),
+    ]);
+
+    $this->ohDear->addToBrokenLinksWhitelist(82060, 'https://example.com/skip');
+
+    markTestComplete();
 });

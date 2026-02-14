@@ -1,0 +1,1 @@
+{"statusCode":200,"headers":{"Content-Type":"application/json"},"data":"{\"data\":[{\"id\":1,\"scanned_host\":\"example.com\",\"expected_open_results\":[{\"port\":80,\"status\":\"open\"}],\"expected_closed_results\":[{\"port\":23,\"status\":\"closed\"}],\"issues\":[],\"scan_time_ms\":1500,\"created_at\":\"2025-01-01 00:00:00\"}]}","context":[]}

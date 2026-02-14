@@ -2,21 +2,30 @@
 
 namespace OhDear\PhpSdk;
 
+use OhDear\PhpSdk\Concerns\SupportsAiResponsesEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsApplicationHealthChecksEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsBrokenLinksEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsCertificateHealthEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsCheckEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsCronCheckDefinitionsEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsDetectedCertificatesEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsDnsBlocklistHistoryItemsEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsDnsHistoryItemsEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsDomainEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsDowntimeEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsLighthouseReportsEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMaintenancePeriodEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMeEndpoint;
 use OhDear\PhpSdk\Concerns\SupportsMixedContentEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMonitorEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsNotificationDestinationEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsPortsHistoryItemsEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsRecurringMaintenancePeriodEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsSitemapEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsStatusPageEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsStatusPageUpdateTemplateEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsTagEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsTagGroupEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsUptimeEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsUptimeMetricsEndpoints;
 use OhDear\PhpSdk\Exceptions\OhDearException;
@@ -36,21 +45,30 @@ class OhDear extends Connector implements HasPagination
 {
     use AcceptsJson;
     use AlwaysThrowOnErrors;
+    use SupportsAiResponsesEndpoints;
     use SupportsApplicationHealthChecksEndpoints;
     use SupportsBrokenLinksEndpoints;
     use SupportsCertificateHealthEndpoints;
     use SupportsCheckEndpoints;
     use SupportsCronCheckDefinitionsEndpoints;
     use SupportsDetectedCertificatesEndpoints;
+    use SupportsDnsBlocklistHistoryItemsEndpoints;
     use SupportsDnsHistoryItemsEndpoints;
+    use SupportsDomainEndpoints;
     use SupportsDowntimeEndpoints;
     use SupportsLighthouseReportsEndpoints;
     use SupportsMaintenancePeriodEndpoints;
     use SupportsMeEndpoint;
     use SupportsMixedContentEndpoints;
     use SupportsMonitorEndpoints;
+    use SupportsNotificationDestinationEndpoints;
+    use SupportsPortsHistoryItemsEndpoints;
+    use SupportsRecurringMaintenancePeriodEndpoints;
     use SupportsSitemapEndpoints;
     use SupportsStatusPageEndpoints;
+    use SupportsStatusPageUpdateTemplateEndpoints;
+    use SupportsTagEndpoints;
+    use SupportsTagGroupEndpoints;
     use SupportsUptimeEndpoints;
     use SupportsUptimeMetricsEndpoints;
 
