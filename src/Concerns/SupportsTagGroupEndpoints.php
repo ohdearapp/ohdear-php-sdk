@@ -13,7 +13,7 @@ trait SupportsTagGroupEndpoints
 {
     public function tagGroups(): array
     {
-        $request = new GetTagGroupsRequest();
+        $request = new GetTagGroupsRequest;
 
         return $this->send($request)->dtoOrFail();
     }
