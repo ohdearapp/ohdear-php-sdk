@@ -7,8 +7,10 @@ class Tag
     public function __construct(
         public int $id,
         public ?int $teamId,
+        public ?string $teamName,
         public string $name,
-        public array $monitors,
+        public ?string $slug,
+        public array $sites,
         public ?string $createdAt,
         public ?string $updatedAt,
     ) {}
@@ -18,8 +20,10 @@ class Tag
         return new self(
             id: $data['id'],
             teamId: $data['team_id'] ?? null,
+            teamName: $data['team_name'] ?? null,
             name: $data['name'],
-            monitors: $data['monitors'] ?? [],
+            slug: $data['slug'] ?? null,
+            sites: $data['sites'] ?? [],
             createdAt: $data['created_at'] ?? null,
             updatedAt: $data['updated_at'] ?? null,
         );

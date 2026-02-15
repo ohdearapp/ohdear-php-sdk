@@ -7,6 +7,7 @@ class TagGroup
     public function __construct(
         public int $id,
         public ?int $teamId,
+        public ?string $teamName,
         public string $label,
         public array $tags,
         public ?string $createdAt,
@@ -18,6 +19,7 @@ class TagGroup
         return new self(
             id: $data['id'],
             teamId: $data['team_id'] ?? null,
+            teamName: $data['team_name'] ?? null,
             label: $data['label'],
             tags: $data['tags'] ?? [],
             createdAt: $data['created_at'] ?? null,

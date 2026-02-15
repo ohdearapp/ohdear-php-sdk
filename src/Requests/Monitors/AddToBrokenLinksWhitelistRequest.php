@@ -26,7 +26,7 @@ class AddToBrokenLinksWhitelistRequest extends Request implements HasBody
     protected function defaultBody(): array
     {
         return [
-            'url' => $this->url,
+            'whitelistUrl' => $this->url,
         ];
     }
 }

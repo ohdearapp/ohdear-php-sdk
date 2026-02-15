@@ -13,6 +13,8 @@ class RecurringMaintenancePeriod
         public ?string $endTime,
         public array $daysOfWeek,
         public ?int $dayOfMonth,
+        public ?string $humanReadableSchedule,
+        public ?string $lastGeneratedUntil,
         public ?string $createdAt,
         public ?string $updatedAt,
     ) {}
@@ -28,6 +30,8 @@ class RecurringMaintenancePeriod
             endTime: $data['end_time'] ?? null,
             daysOfWeek: $data['days_of_week'] ?? [],
             dayOfMonth: $data['day_of_month'] ?? null,
+            humanReadableSchedule: $data['human_readable_schedule'] ?? null,
+            lastGeneratedUntil: $data['last_generated_until'] ?? null,
             createdAt: $data['created_at'] ?? null,
             updatedAt: $data['updated_at'] ?? null,
         );

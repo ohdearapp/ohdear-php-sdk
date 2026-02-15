@@ -6,9 +6,10 @@ class DnsBlocklistHistoryItem
 {
     public function __construct(
         public int $id,
-        public ?string $domain,
+        public ?string $checkedDomain,
         public array $resolvedIps,
-        public array $blocklists,
+        public array $blocklistResults,
+        public mixed $issues,
         public ?string $createdAt,
     ) {}
 
@@ -16,9 +17,10 @@ class DnsBlocklistHistoryItem
     {
         return new self(
             id: $data['id'],
-            domain: $data['domain'] ?? null,
+            checkedDomain: $data['checked_domain'] ?? null,
             resolvedIps: $data['resolved_ips'] ?? [],
-            blocklists: $data['blocklists'] ?? [],
+            blocklistResults: $data['blocklist_results'] ?? [],
+            issues: $data['issues'] ?? null,
             createdAt: $data['created_at'] ?? null,
         );
     }

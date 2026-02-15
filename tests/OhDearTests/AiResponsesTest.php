@@ -20,7 +20,8 @@ it('can get ai responses', function () {
     expect($responses)->toBeArray();
     foreach ($responses as $response) {
         expect($response->id)->toBeInt();
-        expect($response->monitorId)->toBe(82060);
+        expect($response->result)->toBe('ok');
+        expect($response->text)->toBeString();
     }
 });
 
@@ -32,8 +33,10 @@ it('can get a single ai response', function () {
     $response = $this->ohDear->aiResponse(82060, 1);
 
     expect($response->id)->toBe(1);
-    expect($response->monitorId)->toBe(82060);
+    expect($response->result)->toBe('ok');
+    expect($response->finishReason)->toBe('stop');
     expect($response->prompt)->toBeString();
+    expect($response->text)->toBeString();
 });
 
 it('can get the latest ai response', function () {
@@ -44,5 +47,6 @@ it('can get the latest ai response', function () {
     $response = $this->ohDear->latestAiResponse(82060);
 
     expect($response->id)->toBe(1);
-    expect($response->monitorId)->toBe(82060);
+    expect($response->result)->toBe('ok');
+    expect($response->rawResponse)->toBeString();
 });

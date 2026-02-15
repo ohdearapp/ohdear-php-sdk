@@ -19,7 +19,7 @@ it('can get dns blocklist history items', function () {
     expect($items)->toBeArray();
     foreach ($items as $item) {
         expect($item->id)->toBeInt();
-        expect($item->domain)->toBeString();
+        expect($item->checkedDomain)->toBeString();
     }
 });
 
@@ -31,7 +31,7 @@ it('can get a single dns blocklist history item', function () {
     $item = $this->ohDear->dnsBlocklistHistoryItem(82060, 1);
 
     expect($item->id)->toBe(1);
-    expect($item->domain)->toBe('example.com');
+    expect($item->checkedDomain)->toBe('example.com');
     expect($item->resolvedIps)->toBeArray();
-    expect($item->blocklists)->toBeArray();
+    expect($item->blocklistResults)->toBeArray();
 });

@@ -16,6 +16,6 @@ enum CheckType: string
     case Dns = 'dns';
     case Domain = 'domain';
     case DnsBlocklist = 'dns_blocklist';
-    case PortScanning = 'port_scanning';
+    case Ports = 'ports';
     case Ai = 'ai';
 }
