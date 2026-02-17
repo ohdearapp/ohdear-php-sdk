@@ -7,6 +7,7 @@ use OhDear\PhpSdk\Requests\LighthouseReports\GetLatestLighthouseReportRequest;
 use OhDear\PhpSdk\Requests\LighthouseReports\GetLighthouseReportRequest;
 use OhDear\PhpSdk\Requests\LighthouseReports\GetLighthouseReportsRequest;
 
+/** @mixin \OhDear\PhpSdk\OhDear */
 trait SupportsLighthouseReportsEndpoints
 {
     public function lighthouseReports(int $monitorId): array

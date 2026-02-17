@@ -6,6 +6,7 @@ use OhDear\PhpSdk\Dto\DnsHistoryItem;
 use OhDear\PhpSdk\Requests\DnsHistoryItems\GetDnsHistoryItemRequest;
 use OhDear\PhpSdk\Requests\DnsHistoryItems\GetDnsHistoryItemsRequest;
 
+/** @mixin \OhDear\PhpSdk\OhDear */
 trait SupportsDnsHistoryItemsEndpoints
 {
     public function dnsHistoryItems(int $monitorId): array

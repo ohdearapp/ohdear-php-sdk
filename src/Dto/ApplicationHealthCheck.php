@@ -25,13 +25,13 @@ class ApplicationHealthCheck
             id: $data['id'],
             name: $data['name'],
             label: $data['label'],
-            status: $data['status'],
-            message: $data['message'],
+            status: $data['status'] ?? null,
+            message: $data['message'] ?? null,
             meta: $data['meta'] ?? [],
-            shortSummary: $data['short_summary'],
-            detectedAt: $data['detected_at'],
-            updatedAt: $data['updated_at'],
-            activeSnooze: $data['active_snooze'],
+            shortSummary: $data['short_summary'] ?? null,
+            detectedAt: $data['detected_at'] ?? null,
+            updatedAt: $data['updated_at'] ?? null,
+            activeSnooze: $data['active_snooze'] ?? null,
         );
     }
 

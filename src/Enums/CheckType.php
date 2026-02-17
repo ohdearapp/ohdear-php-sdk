@@ -15,4 +15,7 @@ enum CheckType: string
     case Sitemap = 'sitemap';
     case Dns = 'dns';
     case Domain = 'domain';
+    case DnsBlocklist = 'dns_blocklist';
+    case Ports = 'ports';
+    case Ai = 'ai';
 }

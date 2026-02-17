@@ -13,6 +13,7 @@ class Check
         public ?string $latestRunResult,
         public ?string $summary,
         public array $settings,
+        public ?float $averageResponseTimeInMs,
         public ?array $activeSnooze,
     ) {}
 
@@ -27,6 +28,7 @@ class Check
             latestRunResult: $data['latest_run_result'] ?? null,
             summary: $data['summary'] ?? null,
             settings: $data['settings'] ?? [],
+            averageResponseTimeInMs: $data['average_response_time_in_ms'] ?? null,
             activeSnooze: $data['active_snooze'] ?? null,
         );
     }

@@ -17,8 +17,10 @@ class StatusPage
         public ?string $summarizedStatus,
         public ?array $updates,
         public ?array $monitors,
-        public string $createdAt,
-        public string $updatedAt,
+        public bool $preventIndexing = false,
+        public bool $addHstsHeader = false,
+        public string $createdAt = '',
+        public string $updatedAt = '',
     ) {}
 
     public static function fromResponse(array $data): self
@@ -26,7 +28,7 @@ class StatusPage
         return new self(
             id: $data['id'],
             team: $data['team'] ?? null,
-            title: $data['title'],
+            title: $data['title'] ?? null,
             domain: $data['domain'] ?? null,
             secret: $data['secret'] ?? null,
             badgeId: $data['badge_id'] ?? null,
@@ -36,8 +38,10 @@ class StatusPage
             summarizedStatus: $data['summarized_status'] ?? null,
             updates: $data['updates'] ?? [],
             monitors: $data['monitors'] ?? [],
-            createdAt: $data['created_at'],
-            updatedAt: $data['updated_at'],
+            preventIndexing: $data['prevent_indexing'] ?? false,
+            addHstsHeader: $data['add_hsts_header'] ?? false,
+            createdAt: $data['created_at'] ?? '',
+            updatedAt: $data['updated_at'] ?? '',
         );
     }
 

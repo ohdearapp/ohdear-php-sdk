@@ -1,0 +1,1 @@
+{"statusCode":200,"headers":{"Content-Type":"application/json"},"data":"{\"data\":[{\"id\":300,\"label\":\"TagGroup Slack\",\"channel\":\"slack\",\"destination\":{\"webhook_url\":\"https://hooks.slack.com/tg\"},\"notification_types\":[]}]}","context":[]}

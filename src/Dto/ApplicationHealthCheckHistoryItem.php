@@ -22,8 +22,8 @@ class ApplicationHealthCheckHistoryItem
             id: $data['id'],
             status: $data['status'],
             shortSummary: $data['short_summary'],
-            message: $data['message'],
-            meta: $data['meta'],
+            message: $data['message'] ?? null,
+            meta: $data['meta'] ?? null,
             detectedAt: $data['detected_at'],
             updatedAt: $data['updated_at'],
         );

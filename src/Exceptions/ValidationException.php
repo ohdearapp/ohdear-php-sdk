@@ -56,12 +56,6 @@ class ValidationException extends OhDearException
     /** @return array<int, string> */
     public function getAllErrorMessages(): array
     {
-        $messages = [];
-
-        foreach ($this->errors as $fieldErrors) {
-            $messages = array_merge($messages, $fieldErrors);
-        }
-
-        return $messages;
+        return array_merge(...array_values($this->errors));
     }
 }

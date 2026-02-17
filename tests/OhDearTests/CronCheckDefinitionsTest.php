@@ -5,6 +5,7 @@ use OhDear\PhpSdk\Requests\CronCheckDefinitions\CreateCronCheckDefinitionRequest
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\DeleteCronCheckDefinitionRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\GetCronCheckDefinitionsRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\SnoozeCronCheckDefinitionRequest;
+use OhDear\PhpSdk\Requests\CronCheckDefinitions\SyncCronCheckDefinitionsRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\UnsnoozeCronCheckDefinitionRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\UpdateCronCheckDefinitionRequest;
 use Saloon\Http\Faking\MockClient;
@@ -101,4 +102,20 @@ it('can unsnooze a cron check definition', function () {
 
     expect($cronCheckDefinition->id)->toBeInt();
     expect($cronCheckDefinition->name)->toBeString();
+});
+
+it('can sync cron check definitions', function () {
+    MockClient::global([
+        SyncCronCheckDefinitionsRequest::class => MockResponse::fixture('sync-cron-check-definitions'),
+    ]);
+
+    $cronCheckDefinitions = $this->ohDear->syncCronCheckDefinitions(82060, [
+        ['name' => 'Sync Test', 'type' => 'simple', 'frequency_in_minutes' => 60],
+    ]);
+
+    expect($cronCheckDefinitions)->toBeArray();
+    foreach ($cronCheckDefinitions as $cronCheckDefinition) {
+        expect($cronCheckDefinition->id)->toBeInt();
+        expect($cronCheckDefinition->name)->toBeString();
+    }
 });

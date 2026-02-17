@@ -19,13 +19,11 @@ class GetCheckSummaryRequest extends Request
 
     public function resolveEndpoint(): string
     {
-        return "monitors/{$this->monitorId}/check-summary/{$this->checkType->value}";
+        return "/monitors/{$this->monitorId}/check-summary/{$this->checkType->value}";
     }
 
     public function createDtoFromResponse(Response $response): CheckSummary
     {
-        $data = $response->json();
-
-        return CheckSummary::fromResponse($data);
+        return CheckSummary::fromResponse($response->json());
     }
 }

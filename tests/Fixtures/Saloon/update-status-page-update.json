@@ -1,0 +1,1 @@
+{"statusCode":200,"headers":{"Content-Type":"application/json"},"data":"{\"id\":1234,\"title\":\"Updated title\",\"text\":\"Updated text\",\"pinned\":false,\"severity\":\"info\",\"time\":\"2025-01-01 00:00:00\",\"status_page_url\":\"https://status.example.com\"}","context":[]}

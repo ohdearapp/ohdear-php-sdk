@@ -1,0 +1,1 @@
+{"statusCode":200,"headers":{"Content-Type":"application/json"},"data":"{\"id\":2608325,\"name\":\"Database\",\"label\":\"Database\",\"status\":\"ok\",\"message\":\"Connected\",\"meta\":[],\"short_summary\":\"OK\",\"detected_at\":\"2025-01-01 00:00:00\",\"updated_at\":\"2025-01-01 00:00:00\",\"active_snooze\":{\"minutes\":60}}","context":[]}

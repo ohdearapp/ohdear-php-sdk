@@ -78,7 +78,7 @@ try {
 
 For all other errors, the SDK will throw an `\OhDear\PhpSdk\Exceptions\OhDearException`.
 
-### Get user info
+### [Get user info](https://ohdear.app/docs/api/user-info)
 
 ```php
 // returns OhDear\PhpSdk\Dto\User
@@ -87,9 +87,11 @@ $user = $ohDear->me();
 echo $user->email; // returns the email address of the authenticated user
 ```
 
-### Monitors
+### [Monitors](https://ohdear.app/docs/api/monitors)
 
 Monitors are the core of Oh Dear - they watch your websites, APIs, and services for uptime, performance, SSL certificates, broken links, and more. You can create different types of monitors (HTTP, ping, TCP) and configure various checks for each one.
+
+[View all monitor API documentation](https://ohdear.app/docs/api/monitors)
 
 #### Get all monitors
 
@@ -104,35 +106,38 @@ foreach($monitors as $monitor) {
 
 #### Create a monitor
 
-You can use the `createMonitor` method to create a monitor.
-
-```php 
+```php
 $monitor = $ohDear->createMonitor([
     'url' => 'https://example.com',
     'type' => 'http',
     'team_id' => 1,
 ]);
-
-echo $monitor->url; // returns https://example.com
 ```
 
-You can find a list of attributes you can pass to the `createMonitor` method in the [Oh Dear API documentation](#oh-dear-documentation).
+See the [Oh Dear API documentation](#oh-dear-documentation) for all available attributes.
 
 #### Getting a single monitor
 
-You can use the `monitor` method to get a single monitor.
-
 ```php
-// returns OhDear\PhpSdk\Dto\Monitor
 $monitor = $ohDear->monitor($monitorId);
 ```
 
 #### Deleting a monitor
 
-You can use the `deleteMonitor` method to delete a monitor.
-
 ```php
 $ohDear->deleteMonitor($monitorId);
+```
+
+#### Getting a monitor by URL
+
+```php
+$monitor = $ohDear->monitorByUrl('https://example.com');
+```
+
+#### Adding a URL to the broken links whitelist
+
+```php
+$ohDear->addToBrokenLinksWhitelist($monitorId, 'https://example.com/skip');
 ```
 
 #### Getting a check summary for a monitor
@@ -187,7 +192,7 @@ foreach ($certificateHealth->certificateChainIssuers as $issuer) {
 }
 ```
 
-### Status pages
+### [Status pages](https://ohdear.app/docs/api/status-pages)
 
 Status pages provide a public way to communicate the status of your services to your users. They automatically reflect the health of your monitors and allow you to post updates during incidents or maintenance windows.
 
@@ -211,15 +216,78 @@ You can use the `statusPage` method to get a single status page.
 $statusPage = $ohDear->statusPage($statusPageId);
 ```
 
-#### Deleting a status page
-
-You can use the `deleteStatusPage` method to delete a status page.
+#### Creating a status page
 
 ```php
-$ohDear->deleteStatusPage($statusPageId)
+$statusPage = $ohDear->createStatusPage([
+    'title' => 'My Status Page',
+    'team_id' => 1,
+]);
 ```
 
-### Checks
+#### Deleting a status page
+
+```php
+$ohDear->deleteStatusPage($statusPageId);
+```
+
+#### Managing monitors on a status page
+
+```php
+// Add monitors
+$statusPage = $ohDear->addStatusPageMonitors($statusPageId, [
+    'monitors' => [82060],
+]);
+
+// Remove a monitor
+$ohDear->deleteStatusPageMonitor($statusPageId, $monitorId);
+```
+
+#### Status page updates
+
+```php
+// List updates
+$updates = $ohDear->statusPageUpdates($statusPageId);
+
+// Create an update
+$update = $ohDear->createStatusPageUpdate([
+    'status_page_id' => $statusPageId,
+    'title' => 'Our site is down',
+    'text' => 'We are working on it!',
+    'severity' => 'high',
+    'time' => '2025-01-01 00:00:00',
+    'pinned' => true,
+]);
+
+// Update an existing update
+$update = $ohDear->updateStatusPageUpdate($updateId, [
+    'title' => 'Issue resolved',
+]);
+
+// Delete an update
+$ohDear->deleteStatusPageUpdate($updateId);
+```
+
+#### Status page update templates
+
+```php
+$templates = $ohDear->statusPageUpdateTemplates();
+
+$template = $ohDear->createStatusPageUpdateTemplate([
+    'name' => 'Maintenance',
+    'title' => 'Scheduled maintenance',
+    'text' => 'We are performing scheduled maintenance.',
+    'severity' => 'info',
+]);
+
+$template = $ohDear->updateStatusPageUpdateTemplate($templateId, [
+    'name' => 'Updated template',
+]);
+
+$ohDear->deleteStatusPageUpdateTemplate($templateId);
+```
+
+### [Checks](https://ohdear.app/docs/api/checks)
 
 Checks are individual monitoring tasks that belong to monitors (like uptime, SSL certificate, performance, broken links, etc.). You can control each check independently - enabling, disabling, requesting immediate runs, and temporarily snoozing notifications.
 
@@ -282,7 +350,7 @@ $check = $ohDear->unsnoozeCheck($checkId);
 echo $check->activeSnooze ? 'Check is still snoozed' : 'Check is now active';
 ```
 
-### Maintenance Periods
+### [Maintenance Periods](https://ohdear.app/docs/api/maintenance-windows)
 
 Maintenance periods allow you to temporarily disable notifications for monitors during planned maintenance windows.
 
@@ -359,7 +427,7 @@ You can delete a maintenance period:
 $ohDear->deleteMaintenancePeriod($maintenancePeriodId);
 ```
 
-### Uptime Metrics
+### [Uptime Metrics](https://ohdear.app/docs/api/uptime-metrics)
 
 Uptime metrics provide detailed performance and timing data for your monitors over time. Different monitor types (Http, Ping, TCP) provide different metrics.
 
@@ -419,7 +487,7 @@ foreach ($metrics as $metric) {
 }
 ```
 
-### Cron Check Definitions
+### [Cron Check Definitions](https://ohdear.app/docs/api/cron-job-monitoring)
 
 Cron check definitions allow you to monitor scheduled tasks and ensure they execute on time. You can create different types of cron checks including traditional cron expressions and simple frequency-based checks.
 
@@ -499,7 +567,18 @@ echo $cronCheckDefinition->activeSnooze['ends_at'];
 $cronCheckDefinition = $ohDear->unsnoozeCronCheckDefinition($cronCheckDefinitionId);
 ```
 
-### Broken Links
+#### Syncing cron check definitions
+
+Bulk sync cron check definitions for a monitor — creates, updates, or removes definitions to match the provided list:
+
+```php
+$cronCheckDefinitions = $ohDear->syncCronCheckDefinitions($monitorId, [
+    ['name' => 'Backup', 'type' => 'simple', 'frequency_in_minutes' => 60],
+    ['name' => 'Cleanup', 'type' => 'simple', 'frequency_in_minutes' => 1440],
+]);
+```
+
+### [Broken Links](https://ohdear.app/docs/api/broken-links)
 
 The broken links feature crawls your website and identifies links that return HTTP error status codes, helping you maintain a healthy website.
 
@@ -518,7 +597,7 @@ foreach ($brokenLinks as $brokenLink) {
 }
 ```
 
-### Detected Certificates
+### [Detected Certificates](https://ohdear.app/docs/api/certificate-health)
 
 Detected certificates provide information about SSL certificates that Oh Dear has discovered while monitoring your site, including their details, validity, and fingerprints.
 
@@ -560,7 +639,7 @@ echo "Certificate fingerprint: {$certificate->fingerprint}";
 echo "Created at: {$certificate->createdAt}";
 ```
 
-### DNS History Items
+### [DNS History Items](https://ohdear.app/docs/api/dns-records)
 
 DNS history items track changes to your domain's DNS records over time, helping you monitor DNS propagation and detect unauthorized changes.
 
@@ -587,7 +666,7 @@ foreach ($dnsHistoryItems as $historyItem) {
 $historyItem = $ohDear->dnsHistoryItem($monitorId, $historyItemId);
 ```
 
-### Lighthouse Reports
+### [Lighthouse Reports](https://ohdear.app/docs/api/lighthouse)
 
 Lighthouse reports provide detailed performance, accessibility, SEO, and best practices analysis of your web pages using Google's Lighthouse auditing tool.
 
@@ -650,7 +729,7 @@ echo "Latest performance score: {$latestReport->performanceScore}/100";
 echo "Report generated: {$latestReport->createdAt}";
 ```
 
-### Application Health Checks
+### [Application Health Checks](https://ohdear.app/docs/api/application-health)
 
 Application health checks monitor custom endpoints in your application to ensure they're responding correctly and returning expected health status information.
 
@@ -689,20 +768,25 @@ foreach ($healthChecks as $healthCheck) {
 #### Getting history for a specific application health check
 
 ```php
-// returns an array of OhDear\PhpSdk\Dto\ApplicationHealthCheckHistoryItem
 $history = $ohDear->applicationHealthCheckHistory($monitorId, $healthCheckId);
 
 foreach ($history as $historyItem) {
-    echo "History Item ID: {$historyItem->id}";
     echo "Status: {$historyItem->status}";
     echo "Short summary: {$historyItem->shortSummary}";
-    echo "Message: {$historyItem->message}";
-    echo "Detected at: {$historyItem->detectedAt}";
-    echo "Updated at: {$historyItem->updatedAt}";
 }
 ```
 
-### Sitemap
+#### Snoozing and unsnoozing application health checks
+
+```php
+// Snooze for 60 minutes
+$healthCheck = $ohDear->snoozeApplicationHealthCheck($monitorId, $healthCheckId, 60);
+
+// Unsnooze
+$healthCheck = $ohDear->unsnoozeApplicationHealthCheck($monitorId, $healthCheckId);
+```
+
+### [Sitemap](https://ohdear.app/docs/api/sitemap)
 
 The sitemap check analyzes your website's XML sitemap(s) to ensure they're accessible and properly formatted, and can also check the reachability of URLs within the sitemaps.
 
@@ -753,7 +837,7 @@ if (!empty($sitemap->sitemaps)) {
 }
 ```
 
-### Mixed Content
+### [Mixed Content](https://ohdear.app/docs/api/mixed-content)
 
 The mixed content check identifies elements on your HTTPS pages that are loaded over HTTP, which can cause security warnings in browsers and degrade user experience.
 
@@ -771,7 +855,7 @@ foreach ($mixedContentItems as $mixedContent) {
 }
 ```
 
-### Downtime
+### [Downtime](https://ohdear.app/docs/api/uptime)
 
 Downtime periods track when your monitored sites were unavailable, providing historical data about outages and their duration.
 
@@ -817,6 +901,164 @@ You can delete downtime periods that were recorded incorrectly or are no longer 
 
 ```php
 $ohDear->deleteDowntimePeriod($downtimePeriodId);
+```
+
+### [Domain Monitoring](https://ohdear.app/docs/api/domain-monitoring)
+
+```php
+$domainInfo = $ohDear->domain($monitorId);
+
+echo "Expires at: {$domainInfo->expiresAt}";
+echo "Registered at: {$domainInfo->registeredAt}";
+```
+
+### [AI Responses](https://ohdear.app/docs/api/ai-monitoring)
+
+```php
+// List all AI responses
+$aiResponses = $ohDear->aiResponses($monitorId);
+
+// Get a specific AI response
+$aiResponse = $ohDear->aiResponse($monitorId, $aiResponseId);
+
+// Get the latest AI response
+$aiResponse = $ohDear->latestAiResponse($monitorId);
+
+echo "Prompt: {$aiResponse->prompt}";
+echo "Response: {$aiResponse->response}";
+```
+
+### [Port Scanning](https://ohdear.app/docs/api/port-scanning)
+
+```php
+// List port scan results
+$items = $ohDear->portsHistoryItems($monitorId);
+
+// Get a specific port scan
+$item = $ohDear->portsHistoryItem($monitorId, $portsHistoryItemId);
+
+echo "Scanned host: {$item->scannedHost}";
+echo "Scan time: {$item->scanTimeMs}ms";
+```
+
+### [DNS Blocklist](https://ohdear.app/docs/api/dns-blocklist)
+
+```php
+// List blocklist check results
+$items = $ohDear->dnsBlocklistHistoryItems($monitorId);
+
+// Get a specific blocklist check
+$item = $ohDear->dnsBlocklistHistoryItem($monitorId, $dnsBlocklistHistoryItemId);
+
+echo "Domain: {$item->domain}";
+```
+
+### [Tags](https://ohdear.app/docs/api/tags-and-tag-groups)
+
+```php
+$tags = $ohDear->tags();
+
+$tag = $ohDear->createTag([
+    'name' => 'production',
+    'team_id' => 1,
+]);
+```
+
+### [Tag Groups](https://ohdear.app/docs/api/tags-and-tag-groups)
+
+```php
+$tagGroups = $ohDear->tagGroups();
+
+$tagGroup = $ohDear->createTagGroup([
+    'label' => 'Environment',
+    'team_id' => 1,
+]);
+
+$tagGroup = $ohDear->updateTagGroup($tagGroupId, [
+    'label' => 'Updated label',
+]);
+
+$ohDear->deleteTagGroup($tagGroupId);
+```
+
+### [Recurring Maintenance Periods](https://ohdear.app/docs/api/maintenance-windows)
+
+```php
+// List recurring periods for a monitor
+$periods = $ohDear->recurringMaintenancePeriods($monitorId);
+
+// Get a single recurring period
+$period = $ohDear->recurringMaintenancePeriod($recurringMaintenancePeriodId);
+
+// Create
+$period = $ohDear->createRecurringMaintenancePeriod([
+    'monitor_id' => $monitorId,
+    'name' => 'Weekly maintenance',
+    'recurrence_type' => 'weekly',
+    'start_time' => '02:00',
+    'end_time' => '04:00',
+    'days_of_week' => [0], // Sunday
+]);
+
+// Update
+$period = $ohDear->updateRecurringMaintenancePeriod($id, [
+    'name' => 'Updated schedule',
+]);
+
+// Delete
+$ohDear->deleteRecurringMaintenancePeriod($id);
+```
+
+### [Notification Destinations](https://ohdear.app/docs/api/notification-destinations)
+
+Notification destinations can be managed at the monitor, team, tag, and tag group level.
+
+#### Monitor-level notification destinations
+
+```php
+$destinations = $ohDear->notificationDestinations($monitorId);
+
+$destination = $ohDear->createNotificationDestination($monitorId, [
+    'channel' => 'mail',
+    'destination' => ['mail' => 'alerts@example.com'],
+]);
+
+$destination = $ohDear->updateNotificationDestination($monitorId, $destinationId, [
+    'destination' => ['mail' => 'new@example.com'],
+]);
+
+$ohDear->deleteNotificationDestination($monitorId, $destinationId);
+```
+
+#### Team-level notification destinations
+
+```php
+$destinations = $ohDear->teamNotificationDestinations();
+
+$destination = $ohDear->createTeamNotificationDestination($teamId, [
+    'channel' => 'slack',
+    'destination' => ['url' => 'https://hooks.slack.com/...'],
+]);
+
+$destination = $ohDear->updateTeamNotificationDestination($teamId, $destinationId, [...]);
+
+$ohDear->deleteTeamNotificationDestination($teamId, $destinationId);
+```
+
+#### Tag and tag group notification destinations
+
+```php
+// Tag destinations
+$destinations = $ohDear->tagNotificationDestinations();
+$destination = $ohDear->createTagNotificationDestination($tagId, [...]);
+$destination = $ohDear->updateTagNotificationDestination($tagId, $destinationId, [...]);
+$ohDear->deleteTagNotificationDestination($tagId, $destinationId);
+
+// Tag group destinations
+$destinations = $ohDear->tagGroupNotificationDestinations($tagGroupId);
+$destination = $ohDear->createTagGroupNotificationDestination($tagGroupId, [...]);
+$destination = $ohDear->updateTagGroupNotificationDestination($tagGroupId, $destinationId, [...]);
+$ohDear->deleteTagGroupNotificationDestination($tagGroupId, $destinationId);
 ```
 
 ### Using Saloon requests directly

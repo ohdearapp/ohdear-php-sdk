@@ -2,11 +2,5 @@ build
 composer.lock
 docs
 vendor
-tests/ApiTest.php
-.phpunit.result.cache
 .env
-.php_cs.cache
-.php-cs-fixer.cache
 .phpunit.cache
-tests/TestSupport/.env
-

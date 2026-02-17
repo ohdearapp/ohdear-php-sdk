@@ -17,7 +17,7 @@ class BrokenLink
     public static function fromResponse(array $data): self
     {
         return new self(
-            statusCode: $data['status_code'],
+            statusCode: $data['status_code'] ?? null,
             crawledUrl: $data['crawled_url'],
             relativeCrawledUrl: $data['relative_crawled_url'],
             foundOnUrl: $data['found_on_url'],
