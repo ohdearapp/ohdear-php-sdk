@@ -2,6 +2,50 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## Add missing API endpoints - 2026-02-17
+
+### What changed
+
+#### New endpoints
+
+- AI responses (get, list, latest)
+- DNS blocklist history items (get, list)
+- Ports history items (get, list)
+- Domain info
+- Notification destinations (team, tag, tag group — full CRUD)
+- Recurring maintenance periods (full CRUD)
+- Status page update templates (full CRUD)
+- Tags (create, list)
+- Tag groups (full CRUD)
+- Additional status page endpoints (create, add/delete monitors, get updates, update updates)
+- Additional monitor endpoints (get by URL, add to broken links whitelist, delete/update notification destinations, check summary)
+- Application health check snooze/unsnooze
+- Cron check definitions sync
+
+#### New DTOs
+
+- `AiResponse`, `DnsBlocklistHistoryItem`, `DomainInfo`, `PortsHistoryItem`, `RecurringMaintenancePeriod`, `StatusPageUpdateTemplate`, `Tag`, `TagGroup`
+
+#### New properties on existing DTOs
+
+- `Check`: added `averageResponseTimeInMs`
+- `Monitor`: added `type`, `portsCheckSettings`, `dnsBlocklistCheckSettings`, `aiCheckSettings`
+- `StatusPage`: added `preventIndexing`, `addHstsHeader`
+- `CheckType` enum: added `DnsBlocklist`, `Ports`, `Ai`
+
+#### Improved null-safety
+
+- Several DTO `fromResponse` methods now use `?? null` / `?? []` defaults for fields that the API may omit, preventing errors on partial responses (`ApplicationHealthCheck`, `ApplicationHealthCheckHistoryItem`, `BrokenLink`, `DetectedCertificate`, `DnsHistoryItem`, `DowntimePeriod`, `LighthouseReport`, `StatusPage`)
+
+#### Housekeeping
+
+- Removed dev-only test scripts and `vlucas/phpdotenv` dev dependency
+- Added `laravel/pint` as dev dependency for CI formatting
+- Dropped PHP 8.1 from CI matrix
+- Updated README with documentation for all new endpoints
+- Removed docblock comments from `CertificateHealth` helper methods (no functional change)
+- Minor refactor of `OhDearException` constructor and `ValidationException::getAllErrorMessages()`
+
 ## 4.4.1 - 2025-12-16
 
 Bugfix: handle null status codes in BrokenLink DTO and update tests
