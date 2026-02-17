@@ -6,6 +6,7 @@ use OhDear\PhpSdk\Dto\Uptime;
 use OhDear\PhpSdk\Enums\UptimeSplit;
 use OhDear\PhpSdk\Requests\Uptime\GetUptimeRequest;
 
+/** @mixin \OhDear\PhpSdk\OhDear */
 trait SupportsUptimeEndpoints
 {
     /** @return list<Uptime> */

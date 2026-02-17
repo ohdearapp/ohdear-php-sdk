@@ -46,7 +46,6 @@ trait SupportsCronCheckDefinitionsEndpoints
         $this->send($request);
 
         return $this;
-
     }
 
     public function snoozeCronCheckDefinition(int $cronCheckDefinitionId, int $minutes): CronCheckDefinition

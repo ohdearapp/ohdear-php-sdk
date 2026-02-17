@@ -28,7 +28,7 @@ class StatusPage
         return new self(
             id: $data['id'],
             team: $data['team'] ?? null,
-            title: $data['title'],
+            title: $data['title'] ?? null,
             domain: $data['domain'] ?? null,
             secret: $data['secret'] ?? null,
             badgeId: $data['badge_id'] ?? null,

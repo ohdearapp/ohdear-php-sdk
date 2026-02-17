@@ -9,7 +9,7 @@ class DnsBlocklistHistoryItem
         public ?string $checkedDomain,
         public array $resolvedIps,
         public array $blocklistResults,
-        public mixed $issues,
+        public ?array $issues,
         public ?string $createdAt,
     ) {}
 

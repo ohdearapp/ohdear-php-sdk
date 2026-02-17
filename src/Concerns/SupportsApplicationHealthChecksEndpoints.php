@@ -8,6 +8,7 @@ use OhDear\PhpSdk\Requests\ApplicationHealthChecks\GetApplicationHealthChecksReq
 use OhDear\PhpSdk\Requests\ApplicationHealthChecks\SnoozeApplicationHealthCheckRequest;
 use OhDear\PhpSdk\Requests\ApplicationHealthChecks\UnsnoozeApplicationHealthCheckRequest;
 
+/** @mixin \OhDear\PhpSdk\OhDear */
 trait SupportsApplicationHealthChecksEndpoints
 {
     public function applicationHealthChecks(int $monitorId): array

@@ -21,7 +21,7 @@ class DetectedCertificate
             id: $data['id'],
             monitorId: $data['monitor_id'],
             fingerprint: $data['fingerprint'],
-            certificateDetails: $data['certificate_details'],
+            certificateDetails: $data['certificate_details'] ?? null,
             createdAt: $data['created_at'],
             updatedAt: $data['updated_at'],
         );

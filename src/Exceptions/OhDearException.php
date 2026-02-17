@@ -7,12 +7,11 @@ use Saloon\Http\Response;
 
 class OhDearException extends Exception
 {
-    public ?Response $response = null;
-
-    public function __construct(Response $response, string $message, int $code)
-    {
+    public function __construct(
+        public Response $response,
+        string $message,
+        int $code,
+    ) {
         parent::__construct($message, $code);
-
-        $this->response = $response;
     }
 }

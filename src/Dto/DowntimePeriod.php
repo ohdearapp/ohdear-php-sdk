@@ -19,9 +19,9 @@ class DowntimePeriod
         return new self(
             id: $data['id'],
             startedAt: $data['started_at'],
-            endedAt: $data['ended_at'],
-            notesHtml: $data['notes_html'],
-            notesMarkdown: $data['notes_markdown'],
+            endedAt: $data['ended_at'] ?? null,
+            notesHtml: $data['notes_html'] ?? null,
+            notesMarkdown: $data['notes_markdown'] ?? null,
         );
     }
 

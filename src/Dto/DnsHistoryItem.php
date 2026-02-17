@@ -11,7 +11,7 @@ class DnsHistoryItem
         public array $authoritativeNameservers,
         public array $dnsRecords,
         public array $rawDnsRecords,
-        public mixed $issues,
+        public ?array $issues,
         public string $diffSummary,
         public string $createdAt,
     ) {}
@@ -23,7 +23,7 @@ class DnsHistoryItem
             authoritativeNameservers: $data['authoritative_nameservers'] ?? [],
             dnsRecords: $data['dns_records'] ?? [],
             rawDnsRecords: $data['raw_dns_records'] ?? [],
-            issues: $data['issues'],
+            issues: $data['issues'] ?? null,
             diffSummary: $data['diff_summary'],
             createdAt: $data['created_at'],
         );
