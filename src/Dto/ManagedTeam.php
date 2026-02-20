@@ -2,28 +2,24 @@
 
 namespace OhDear\PhpSdk\Dto;
 
-class PortsHistoryItem
+class ManagedTeam
 {
     public function __construct(
         public int $id,
-        public ?string $scannedHost,
-        public ?string $resolvedIp,
-        public array $openPorts,
-        public array $issues,
-        public ?int $scanTimeMs,
+        public string $name,
+        public ?string $timezone,
         public ?string $createdAt,
+        public ?int $monitorsCount,
     ) {}
 
     public static function fromResponse(array $data): self
     {
         return new self(
             id: $data['id'],
-            scannedHost: $data['scanned_host'] ?? null,
-            resolvedIp: $data['resolved_ip'] ?? null,
-            openPorts: $data['open_ports'] ?? [],
-            issues: $data['issues'] ?? [],
-            scanTimeMs: $data['scan_time_ms'] ?? null,
+            name: $data['name'],
+            timezone: $data['timezone'] ?? null,
             createdAt: $data['created_at'] ?? null,
+            monitorsCount: $data['monitors_count'] ?? null,
         );
     }
 

@@ -20,6 +20,6 @@ trait SupportsPortsHistoryItemsEndpoints
     {
         $request = new GetPortsHistoryItemRequest($monitorId, $portsHistoryItemId);
 
-        return $this->send($request)->dto();
+        return $this->send($request)->dtoOrFail();
     }
 }
