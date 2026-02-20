@@ -32,5 +32,7 @@ it('can get a single ports history item', function () {
 
     expect($item->id)->toBe(1);
     expect($item->scannedHost)->toBe('example.com');
+    expect($item->resolvedIp)->toBe('93.184.216.34');
+    expect($item->openPorts)->toBe([80, 443]);
     expect($item->scanTimeMs)->toBe(1500);
 });

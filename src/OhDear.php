@@ -15,6 +15,7 @@ use OhDear\PhpSdk\Concerns\SupportsDomainEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsDowntimeEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsLighthouseReportsEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMaintenancePeriodEndpoints;
+use OhDear\PhpSdk\Concerns\SupportsManagedTeamEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMeEndpoint;
 use OhDear\PhpSdk\Concerns\SupportsMixedContentEndpoints;
 use OhDear\PhpSdk\Concerns\SupportsMonitorEndpoints;
@@ -58,6 +59,7 @@ class OhDear extends Connector implements HasPagination
     use SupportsDowntimeEndpoints;
     use SupportsLighthouseReportsEndpoints;
     use SupportsMaintenancePeriodEndpoints;
+    use SupportsManagedTeamEndpoints;
     use SupportsMeEndpoint;
     use SupportsMixedContentEndpoints;
     use SupportsMonitorEndpoints;

@@ -1061,6 +1061,42 @@ $destination = $ohDear->updateTagGroupNotificationDestination($tagGroupId, $dest
 $ohDear->deleteTagGroupNotificationDestination($tagGroupId, $destinationId);
 ```
 
+### [Reseller / Managed Teams](https://ohdear.app/docs/api/reseller)
+
+If you're an Oh Dear reseller, you can manage teams through the reseller API. All methods require your reseller team ID.
+
+```php
+// List all managed teams
+$teams = $ohDear->managedTeams($resellerTeamId);
+
+// Get a single managed team
+$team = $ohDear->managedTeam($resellerTeamId, $managedTeamId);
+
+// Create a managed team
+$team = $ohDear->createManagedTeam($resellerTeamId, [
+    'name' => 'Client Company',
+    'timezone' => 'Europe/Brussels',
+    'default_uptime_check_location' => 'eu-west',
+]);
+
+// Update a managed team
+$team = $ohDear->updateManagedTeam($resellerTeamId, $managedTeamId, [
+    'name' => 'Updated Company Name',
+    'timezone' => 'Europe/London',
+    'default_uptime_check_location' => 'us-east',
+]);
+
+// Get a login link for a managed team
+$loginLink = $ohDear->managedTeamLoginLink($resellerTeamId, $managedTeamId);
+echo $loginLink['login_url'];
+
+// Decouple a team (team becomes independent)
+$ohDear->decoupleManagedTeam($resellerTeamId, $managedTeamId);
+
+// Delete a managed team and all its data
+$ohDear->deleteManagedTeam($resellerTeamId, $managedTeamId);
+```
+
 ### Using Saloon requests directly
 
 This SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests. Instead of using the `OhDear` class, you can the underlying request classes directly. This way, you have full power to customize the requests.
