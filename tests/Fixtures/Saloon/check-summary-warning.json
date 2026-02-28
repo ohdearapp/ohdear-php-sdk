@@ -1,0 +1,21 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Sun, 10 Aug 2025 18:46:17 GMT",
+        "Content-Type": "application\/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "cloudflare",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "no-cache, private",
+        "X-Ratelimit-Limit": "500",
+        "X-Ratelimit-Remaining": "498",
+        "Access-Control-Allow-Origin": "*",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Xss-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cf-Cache-Status": "BYPASS"
+    },
+    "data": "{\"result\":\"warning\",\"summary\":\"Primary location reports down, secondary confirms reachable.\"}",
+    "context": []
+}
