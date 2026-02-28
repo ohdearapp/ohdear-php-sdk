@@ -1,5 +1,6 @@
 <?php
 
+use OhDear\PhpSdk\Enums\CheckResult;
 use OhDear\PhpSdk\Requests\Checks\DisableCheckRequest;
 use OhDear\PhpSdk\Requests\Checks\EnableCheckRequest;
 use OhDear\PhpSdk\Requests\Checks\RequestCheckRunRequest;
@@ -21,6 +22,8 @@ it('can enable a check', function () {
 
     expect($check->id)->toBe(940704);
     expect($check->enabled)->toBe(true);
+    expect($check->latestRunResult)->toBe('succeeded');
+    expect($check->checkResult())->toBe(CheckResult::Succeeded);
 });
 
 it('can disable a check', function () {

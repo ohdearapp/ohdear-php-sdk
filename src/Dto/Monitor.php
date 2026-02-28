@@ -2,6 +2,8 @@
 
 namespace OhDear\PhpSdk\Dto;
 
+use OhDear\PhpSdk\Enums\CheckResult;
+
 class Monitor
 {
     public function __construct(
@@ -39,6 +41,15 @@ class Monitor
         public ?string $createdAt = null,
         public ?string $updatedAt = null,
     ) {}
+
+    public function checkResult(): ?CheckResult
+    {
+        if ($this->summarizedCheckResult === null) {
+            return null;
+        }
+
+        return CheckResult::tryFrom($this->summarizedCheckResult);
+    }
 
     public static function fromResponse(array $data): self
     {

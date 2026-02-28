@@ -2,6 +2,8 @@
 
 namespace OhDear\PhpSdk\Dto;
 
+use OhDear\PhpSdk\Enums\CheckResult;
+
 class Check
 {
     public function __construct(
@@ -16,6 +18,15 @@ class Check
         public ?float $averageResponseTimeInMs,
         public ?array $activeSnooze,
     ) {}
+
+    public function checkResult(): ?CheckResult
+    {
+        if ($this->latestRunResult === null) {
+            return null;
+        }
+
+        return CheckResult::tryFrom($this->latestRunResult);
+    }
 
     public static function fromResponse(array $data): self
     {
