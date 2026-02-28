@@ -2,6 +2,13 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## Add warning state support - 2026-02-28
+
+### What changed
+
+- Added `CheckResult` backed string enum (`pending`, `succeeded`, `warning`, `failed`, `errored-or-timed-out`) with helper methods (`isUp()`, `isDown()`, `isPending()`, `isWarning()`)
+- Added `checkResult()` method to `Check`, `Monitor`, and `CheckSummary` DTOs that returns the typed enum
+
 ## Add missing API endpoints - 2026-02-17
 
 ### What changed

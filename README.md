@@ -152,9 +152,51 @@ $checkSummary = $ohDear->checkSummary($monitorId, CheckType::CertificateHealth);
 
 echo "Check result: {$checkSummary->result}\n";
 echo "Summary: {$checkSummary->summary}\n";
+
+// Use the checkResult() method to get the typed enum with helper methods
+if ($checkSummary->checkResult()->isUp()) {
+    echo "Monitor is reachable\n";
+}
+
+if ($checkSummary->checkResult()->isWarning()) {
+    echo "Partial connectivity issue detected\n";
+}
+
+if ($checkSummary->checkResult()->isDown()) {
+    echo "Monitor is down\n";
+}
 ```
 
-You can request a summary for all available cases in the `CheckType` enum.`
+You can request a summary for all available cases in the `CheckType` enum.
+
+#### Check result enum
+
+The `CheckResult` enum represents the possible states of a check. Access it via the `checkResult()` method available on `Check`, `Monitor`, and `CheckSummary` DTOs:
+
+```php
+use OhDear\PhpSdk\Enums\CheckResult;
+
+$checkSummary = $ohDear->checkSummary($monitorId, CheckType::Uptime);
+
+// The raw string is still available
+echo $checkSummary->result; // 'succeeded', 'warning', 'failed', etc.
+
+// Use checkResult() for the typed enum
+$result = $checkSummary->checkResult();
+
+// Available cases:
+CheckResult::Pending;          // 'pending'
+CheckResult::Succeeded;        // 'succeeded'
+CheckResult::Warning;          // 'warning' — primary location reports down, secondary confirms reachable
+CheckResult::Failed;           // 'failed'
+CheckResult::ErroredOrTimedOut; // 'errored-or-timed-out'
+
+// Helper methods:
+$result->isUp();      // true for Succeeded and Warning
+$result->isDown();    // true for Failed and ErroredOrTimedOut
+$result->isPending(); // true for Pending only
+$result->isWarning(); // true for Warning only
+```
 
 #### Getting certificate health for a monitor
 
