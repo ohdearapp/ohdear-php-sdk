@@ -2,6 +2,18 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 4.6.0 - 2026-03-26
+
+### What's Changed
+
+* Chore | Upgrade to Saloon v4 by @Sammyjo20 in https://github.com/ohdearapp/ohdear-php-sdk/pull/70
+
+### New Contributors
+
+* @Sammyjo20 made their first contribution in https://github.com/ohdearapp/ohdear-php-sdk/pull/70
+
+**Full Changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/4.4.3...4.6.0
+
 ## Add missing API endpoints - 2026-02-17
 
 ### What changed
