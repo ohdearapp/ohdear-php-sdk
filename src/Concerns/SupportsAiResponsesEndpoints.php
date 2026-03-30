@@ -3,11 +3,12 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\AiResponse;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\AiResponses\GetAiResponseRequest;
 use OhDear\PhpSdk\Requests\AiResponses\GetAiResponsesRequest;
 use OhDear\PhpSdk\Requests\AiResponses\GetLatestAiResponseRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsAiResponsesEndpoints
 {
     public function aiResponses(int $monitorId): array

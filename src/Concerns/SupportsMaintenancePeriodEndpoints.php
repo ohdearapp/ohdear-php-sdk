@@ -3,6 +3,7 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\MaintenancePeriod;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\MaintenancePeriods\CreateMaintenancePeriodRequest;
 use OhDear\PhpSdk\Requests\MaintenancePeriods\DeleteMaintenancePeriodRequest;
 use OhDear\PhpSdk\Requests\MaintenancePeriods\GetMaintenancePeriodsRequest;
@@ -10,7 +11,7 @@ use OhDear\PhpSdk\Requests\MaintenancePeriods\StartMaintenancePeriodRequest;
 use OhDear\PhpSdk\Requests\MaintenancePeriods\StopMaintenancePeriodsRequest;
 use OhDear\PhpSdk\Requests\MaintenancePeriods\UpdateMaintenancePeriodRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsMaintenancePeriodEndpoints
 {
     /** @return iterable<int, MaintenancePeriod> */

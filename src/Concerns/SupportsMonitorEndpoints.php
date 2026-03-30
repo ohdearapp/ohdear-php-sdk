@@ -6,6 +6,7 @@ use OhDear\PhpSdk\Dto\CheckSummary;
 use OhDear\PhpSdk\Dto\Monitor;
 use OhDear\PhpSdk\Dto\NotificationDestination;
 use OhDear\PhpSdk\Enums\CheckType;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\Monitors\AddToBrokenLinksWhitelistRequest;
 use OhDear\PhpSdk\Requests\Monitors\CreateMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\CreateNotificationDestinationsRequest;
@@ -19,7 +20,7 @@ use OhDear\PhpSdk\Requests\Monitors\GetNotificationDestinationsRequest;
 use OhDear\PhpSdk\Requests\Monitors\UpdateMonitorRequest;
 use OhDear\PhpSdk\Requests\Monitors\UpdateNotificationDestinationRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsMonitorEndpoints
 {
     /** @return iterable<int, Monitor> */

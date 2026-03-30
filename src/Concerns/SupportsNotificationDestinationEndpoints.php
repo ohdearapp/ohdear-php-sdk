@@ -3,6 +3,7 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\NotificationDestination;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\NotificationDestinations\CreateTagGroupNotificationDestinationRequest;
 use OhDear\PhpSdk\Requests\NotificationDestinations\CreateTagNotificationDestinationRequest;
 use OhDear\PhpSdk\Requests\NotificationDestinations\CreateTeamNotificationDestinationRequest;
@@ -16,7 +17,7 @@ use OhDear\PhpSdk\Requests\NotificationDestinations\UpdateTagGroupNotificationDe
 use OhDear\PhpSdk\Requests\NotificationDestinations\UpdateTagNotificationDestinationRequest;
 use OhDear\PhpSdk\Requests\NotificationDestinations\UpdateTeamNotificationDestinationRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsNotificationDestinationEndpoints
 {
     public function teamNotificationDestinations(): array

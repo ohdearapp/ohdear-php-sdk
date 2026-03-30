@@ -3,12 +3,13 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\TagGroup;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\TagGroups\CreateTagGroupRequest;
 use OhDear\PhpSdk\Requests\TagGroups\DeleteTagGroupRequest;
 use OhDear\PhpSdk\Requests\TagGroups\GetTagGroupsRequest;
 use OhDear\PhpSdk\Requests\TagGroups\UpdateTagGroupRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsTagGroupEndpoints
 {
     public function tagGroups(): array

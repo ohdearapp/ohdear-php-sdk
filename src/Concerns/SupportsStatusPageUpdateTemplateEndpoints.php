@@ -3,12 +3,13 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\StatusPageUpdateTemplate;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\StatusPages\CreateStatusPageUpdateTemplateRequest;
 use OhDear\PhpSdk\Requests\StatusPages\DeleteStatusPageUpdateTemplateRequest;
 use OhDear\PhpSdk\Requests\StatusPages\GetStatusPageUpdateTemplatesRequest;
 use OhDear\PhpSdk\Requests\StatusPages\UpdateStatusPageUpdateTemplateRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsStatusPageUpdateTemplateEndpoints
 {
     public function statusPageUpdateTemplates(): array

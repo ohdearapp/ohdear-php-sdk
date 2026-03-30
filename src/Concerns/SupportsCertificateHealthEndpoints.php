@@ -3,9 +3,10 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\CertificateHealth;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\CertificateHealth\GetCertificateHealthRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsCertificateHealthEndpoints
 {
     public function certificateHealth(int $monitorId): CertificateHealth

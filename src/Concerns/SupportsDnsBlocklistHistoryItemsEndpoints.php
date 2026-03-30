@@ -3,10 +3,11 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\DnsBlocklistHistoryItem;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\DnsBlocklistHistoryItems\GetDnsBlocklistHistoryItemRequest;
 use OhDear\PhpSdk\Requests\DnsBlocklistHistoryItems\GetDnsBlocklistHistoryItemsRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsDnsBlocklistHistoryItemsEndpoints
 {
     public function dnsBlocklistHistoryItems(int $monitorId): array

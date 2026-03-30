@@ -3,6 +3,7 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\CronCheckDefinition;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\CreateCronCheckDefinitionRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\DeleteCronCheckDefinitionRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\GetCronCheckDefinitionsRequest;
@@ -11,7 +12,7 @@ use OhDear\PhpSdk\Requests\CronCheckDefinitions\SyncCronCheckDefinitionsRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\UnsnoozeCronCheckDefinitionRequest;
 use OhDear\PhpSdk\Requests\CronCheckDefinitions\UpdateCronCheckDefinitionRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsCronCheckDefinitionsEndpoints
 {
     /** @return iterable<int, CronCheckDefinition> */

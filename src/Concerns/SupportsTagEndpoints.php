@@ -3,10 +3,11 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\Tag;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\Tags\CreateTagRequest;
 use OhDear\PhpSdk\Requests\Tags\GetTagsRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsTagEndpoints
 {
     public function tags(): array

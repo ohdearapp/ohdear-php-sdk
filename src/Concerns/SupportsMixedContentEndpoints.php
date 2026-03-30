@@ -2,9 +2,10 @@
 
 namespace OhDear\PhpSdk\Concerns;
 
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\MixedContent\GetMixedContentRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsMixedContentEndpoints
 {
     public function mixedContent(int $monitorId): array

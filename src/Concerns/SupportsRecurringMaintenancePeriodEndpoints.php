@@ -3,13 +3,14 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\RecurringMaintenancePeriod;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\RecurringMaintenancePeriods\CreateRecurringMaintenancePeriodRequest;
 use OhDear\PhpSdk\Requests\RecurringMaintenancePeriods\DeleteRecurringMaintenancePeriodRequest;
 use OhDear\PhpSdk\Requests\RecurringMaintenancePeriods\GetRecurringMaintenancePeriodRequest;
 use OhDear\PhpSdk\Requests\RecurringMaintenancePeriods\GetRecurringMaintenancePeriodsRequest;
 use OhDear\PhpSdk\Requests\RecurringMaintenancePeriods\UpdateRecurringMaintenancePeriodRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsRecurringMaintenancePeriodEndpoints
 {
     public function recurringMaintenancePeriods(int $monitorId): array

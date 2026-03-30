@@ -4,9 +4,10 @@ namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\Uptime;
 use OhDear\PhpSdk\Enums\UptimeSplit;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\Uptime\GetUptimeRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsUptimeEndpoints
 {
     /** @return list<Uptime> */

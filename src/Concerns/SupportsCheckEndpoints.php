@@ -3,13 +3,14 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\Check;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\Checks\DisableCheckRequest;
 use OhDear\PhpSdk\Requests\Checks\EnableCheckRequest;
 use OhDear\PhpSdk\Requests\Checks\RequestCheckRunRequest;
 use OhDear\PhpSdk\Requests\Checks\SnoozeCheckRequest;
 use OhDear\PhpSdk\Requests\Checks\UnsnoozeCheckRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsCheckEndpoints
 {
     public function enableCheck(int $checkId): Check

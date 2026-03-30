@@ -3,10 +3,11 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\PortsHistoryItem;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\PortsHistoryItems\GetPortsHistoryItemRequest;
 use OhDear\PhpSdk\Requests\PortsHistoryItems\GetPortsHistoryItemsRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsPortsHistoryItemsEndpoints
 {
     public function portsHistoryItems(int $monitorId): array

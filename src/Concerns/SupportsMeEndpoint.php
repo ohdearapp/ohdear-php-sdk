@@ -3,9 +3,10 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\User;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\MeRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsMeEndpoint
 {
     public function me(): User

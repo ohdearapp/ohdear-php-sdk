@@ -3,10 +3,11 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\DetectedCertificate;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\DetectedCertificates\GetDetectedCertificateRequest;
 use OhDear\PhpSdk\Requests\DetectedCertificates\GetDetectedCertificatesRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsDetectedCertificatesEndpoints
 {
     public function detectedCertificates(int $monitorId): array

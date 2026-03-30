@@ -3,6 +3,7 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\ManagedTeam;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\ManagedTeams\CreateManagedTeamRequest;
 use OhDear\PhpSdk\Requests\ManagedTeams\DecoupleManagedTeamRequest;
 use OhDear\PhpSdk\Requests\ManagedTeams\DeleteManagedTeamRequest;
@@ -11,7 +12,7 @@ use OhDear\PhpSdk\Requests\ManagedTeams\GetManagedTeamRequest;
 use OhDear\PhpSdk\Requests\ManagedTeams\GetManagedTeamsRequest;
 use OhDear\PhpSdk\Requests\ManagedTeams\UpdateManagedTeamRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsManagedTeamEndpoints
 {
     public function managedTeams(int $resellerTeamId): array

@@ -4,6 +4,7 @@ namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\StatusPage;
 use OhDear\PhpSdk\Dto\StatusPageUpdate;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\StatusPages\AddStatusPageMonitorsRequest;
 use OhDear\PhpSdk\Requests\StatusPages\CreateStatusPageRequest;
 use OhDear\PhpSdk\Requests\StatusPages\CreateStatusPageUpdateRequest;
@@ -15,7 +16,7 @@ use OhDear\PhpSdk\Requests\StatusPages\GetStatusPagesRequest;
 use OhDear\PhpSdk\Requests\StatusPages\GetStatusPageUpdatesRequest;
 use OhDear\PhpSdk\Requests\StatusPages\UpdateStatusPageUpdateRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsStatusPageEndpoints
 {
     /** @return iterable<int, StatusPage> */

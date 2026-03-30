@@ -3,9 +3,10 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\DomainInfo;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\Domain\GetDomainRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsDomainEndpoints
 {
     public function domain(int $monitorId): DomainInfo

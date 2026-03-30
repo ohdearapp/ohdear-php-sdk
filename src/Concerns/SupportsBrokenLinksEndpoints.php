@@ -3,9 +3,10 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\BrokenLink;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\BrokenLinks\GetBrokenLinksRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsBrokenLinksEndpoints
 {
     /** @return iterable<int, BrokenLink> */

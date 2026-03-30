@@ -3,11 +3,12 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\LighthouseReport;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\LighthouseReports\GetLatestLighthouseReportRequest;
 use OhDear\PhpSdk\Requests\LighthouseReports\GetLighthouseReportRequest;
 use OhDear\PhpSdk\Requests\LighthouseReports\GetLighthouseReportsRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsLighthouseReportsEndpoints
 {
     public function lighthouseReports(int $monitorId): array

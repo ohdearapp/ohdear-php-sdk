@@ -3,12 +3,13 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\ApplicationHealthCheck;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\ApplicationHealthChecks\GetApplicationHealthCheckHistoryRequest;
 use OhDear\PhpSdk\Requests\ApplicationHealthChecks\GetApplicationHealthChecksRequest;
 use OhDear\PhpSdk\Requests\ApplicationHealthChecks\SnoozeApplicationHealthCheckRequest;
 use OhDear\PhpSdk\Requests\ApplicationHealthChecks\UnsnoozeApplicationHealthCheckRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsApplicationHealthChecksEndpoints
 {
     public function applicationHealthChecks(int $monitorId): array

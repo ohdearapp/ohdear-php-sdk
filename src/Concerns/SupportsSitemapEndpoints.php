@@ -3,9 +3,10 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\Sitemap;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\Sitemap\GetSitemapRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsSitemapEndpoints
 {
     public function sitemap(int $monitorId): Sitemap

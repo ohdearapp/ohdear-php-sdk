@@ -2,10 +2,11 @@
 
 namespace OhDear\PhpSdk\Concerns;
 
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\Downtime\DeleteDowntimePeriodRequest;
 use OhDear\PhpSdk\Requests\Downtime\GetDowntimeRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsDowntimeEndpoints
 {
     public function downtime(int $monitorId, string $startedAt, string $endedAt): array

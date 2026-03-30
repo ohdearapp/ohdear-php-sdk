@@ -3,10 +3,11 @@
 namespace OhDear\PhpSdk\Concerns;
 
 use OhDear\PhpSdk\Dto\DnsHistoryItem;
+use OhDear\PhpSdk\OhDear;
 use OhDear\PhpSdk\Requests\DnsHistoryItems\GetDnsHistoryItemRequest;
 use OhDear\PhpSdk\Requests\DnsHistoryItems\GetDnsHistoryItemsRequest;
 
-/** @mixin \OhDear\PhpSdk\OhDear */
+/** @mixin OhDear */
 trait SupportsDnsHistoryItemsEndpoints
 {
     public function dnsHistoryItems(int $monitorId): array
