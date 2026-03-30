@@ -1,5 +1,6 @@
 <?php
 
+use OhDear\PhpSdk\Enums\CheckResult;
 use OhDear\PhpSdk\Enums\CheckType;
 use OhDear\PhpSdk\Requests\Monitors\AddToBrokenLinksWhitelistRequest;
 use OhDear\PhpSdk\Requests\Monitors\CreateMonitorRequest;
@@ -36,6 +37,8 @@ it('can get a single monitor', function () {
     $monitor = $this->ohDear->monitor(82063);
 
     expect($monitor->url)->toBe('https://laravel.com');
+    expect($monitor->summarizedCheckResult)->toBe('succeeded');
+    expect($monitor->checkResult())->toBe(CheckResult::Succeeded);
 });
 
 it('can create a monitor', function () {
@@ -74,6 +77,24 @@ it('can get check summary for a monitor', function () {
     $checkSummary = $this->ohDear->checkSummary(82060, CheckType::CertificateHealth);
 
     expect($checkSummary->result)->toBe('succeeded');
+    expect($checkSummary->checkResult())->toBe(CheckResult::Succeeded);
+    expect($checkSummary->checkResult()->isUp())->toBeTrue();
+    expect($checkSummary->checkResult()->isDown())->toBeFalse();
+    expect($checkSummary->checkResult()->isWarning())->toBeFalse();
+});
+
+it('can get a warning check summary for a monitor', function () {
+    MockClient::global([
+        GetCheckSummaryRequest::class => MockResponse::fixture('check-summary-warning'),
+    ]);
+
+    $checkSummary = $this->ohDear->checkSummary(82060, CheckType::Uptime);
+
+    expect($checkSummary->result)->toBe('warning');
+    expect($checkSummary->checkResult())->toBe(CheckResult::Warning);
+    expect($checkSummary->checkResult()->isUp())->toBeTrue();
+    expect($checkSummary->checkResult()->isDown())->toBeFalse();
+    expect($checkSummary->checkResult()->isWarning())->toBeTrue();
 });
 
 it('can get notification destinations for a monitor', function () {
