@@ -4,8 +4,18 @@ on:
   push:
     paths:
       - '**.php'
-      - 'phpstan.neon'
+      - 'composer.json'
+      - 'phpstan*.neon'
       - '.github/workflows/run-static-analysis.yml'
+  pull_request:
+    paths:
+      - '**.php'
+      - 'composer.json'
+      - 'phpstan*.neon'
+      - '.github/workflows/run-static-analysis.yml'
+
+permissions:
+  contents: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
