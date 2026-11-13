@@ -2,6 +2,26 @@
 
 All notable changes to `ohdear-php-sdk` will be documented in this file
 
+## 4.8.0 - 2026-11-13
+
+### Requirements
+
+This release requires PHP 8.4 or higher. Projects using PHP 8.2 or 8.3 should stay on the 4.7 release line.
+
+### What changed
+
+- Test PHP 8.4, 8.5, and 8.6 with lowest and latest dependencies.
+- Upgrade the test suite to Pest 5.
+- Add PHPStan and code style checks to pull requests.
+- Prevent accidental real HTTP requests and recording missing fixtures during tests.
+- Update GitHub Actions and workflow permissions.
+
+The SDK's public API and runtime behavior are unchanged.
+
+Changes: https://github.com/ohdearapp/ohdear-php-sdk/pull/72
+
+**Full changelog**: https://github.com/ohdearapp/ohdear-php-sdk/compare/4.7.0...4.8.0
+
 ## 4.6.0 - 2026-03-26
 
 ### What's Changed
