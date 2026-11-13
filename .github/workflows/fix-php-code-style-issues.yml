@@ -4,6 +4,18 @@ on:
   push:
     paths:
       - '**.php'
+      - 'composer.json'
+      - 'pint.json'
+      - '.github/workflows/fix-php-code-style-issues.yml'
+  pull_request:
+    paths:
+      - '**.php'
+      - 'composer.json'
+      - 'pint.json'
+      - '.github/workflows/fix-php-code-style-issues.yml'
+
+permissions:
+  contents: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -13,9 +25,11 @@ jobs:
   php-code-styling:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.head_ref }}
 
@@ -28,10 +42,16 @@ jobs:
       - name: Run composer install
         run: composer install -n --prefer-dist
 
+      - name: Check PHP code style
+        if: github.event_name == 'pull_request'
+        run: vendor/bin/pint --test
+
       - name: Fix PHP code style issues
+        if: github.event_name == 'push' && github.ref_type == 'branch'
         run: composer format
 
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        if: github.event_name == 'push' && github.ref_type == 'branch'
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: Fix styling

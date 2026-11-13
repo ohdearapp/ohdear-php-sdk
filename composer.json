@@ -18,13 +18,13 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.4",
         "saloonphp/pagination-plugin": "^2.2",
         "saloonphp/saloon": "^4.0"
     },
     "require-dev": {
         "laravel/pint": "^1.27",
-        "pestphp/pest": "^2.35|^3.8.2",
+        "pestphp/pest": "^5.0",
         "phpstan/phpstan": "^2.1"
     },
     "autoload": {
@@ -39,7 +39,7 @@
     },
     "scripts": {
         "format": "vendor/bin/pint",
-        "test": "vendor/bin/pest -p",
+        "test": "vendor/bin/pest",
         "analyse": "vendor/bin/phpstan analyse",
         "baseline": "vendor/bin/phpstan analyse --generate-baseline"
     },

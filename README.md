@@ -29,6 +29,10 @@ foreach($monitors as $monitor) {
 
 Behind the scenes, the SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests.
 
+## Requirements
+
+This package requires PHP 8.4 or higher.
+
 ## Installation
 
 ```bash
