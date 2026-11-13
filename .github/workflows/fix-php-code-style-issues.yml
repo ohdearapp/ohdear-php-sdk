@@ -29,7 +29,7 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.head_ref }}
 
@@ -52,6 +52,6 @@ jobs:
 
       - name: Commit changes
         if: github.event_name == 'push' && github.ref_type == 'branch'
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: Fix styling
